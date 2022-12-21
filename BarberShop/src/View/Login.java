@@ -41,7 +41,7 @@ public class Login extends javax.swing.JFrame {
         jLabelRecuperacaoSenha.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabelRecuperacaoSenha.setForeground(new java.awt.Color(255, 255, 255));
         jLabelRecuperacaoSenha.setText("Esqueceu sua senha?");
-        getContentPane().add(jLabelRecuperacaoSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 610, -1, -1));
+        getContentPane().add(jLabelRecuperacaoSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 600, -1, -1));
 
         LabelTituloLogin.setFont(new java.awt.Font("Courier 10 Pitch", 1, 48)); // NOI18N
         LabelTituloLogin.setForeground(new java.awt.Color(255, 255, 255));

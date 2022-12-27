@@ -90,6 +90,5 @@ abstract public class Pessoa {
     public void setRg(String rg) {
         this.rg = rg;
     }
-    
-    
+
 }

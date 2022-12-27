@@ -5,17 +5,24 @@
  */
 package View;
 
+import Controller.LoginController;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
 /**
  *
  * @author jefferson.silva
  */
 public class Login extends javax.swing.JFrame {
 
+    private final LoginController controller;
+
     /**
      * Creates new form Login2
      */
     public Login() {
         initComponents();
+        controller = new LoginController(this);
     }
 
     /**
@@ -64,7 +71,7 @@ public class Login extends javax.swing.JFrame {
                 TextSenhaActionPerformed(evt);
             }
         });
-        jPanel1.add(TextSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 280, 40));
+        jPanel1.add(TextSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 280, 50));
 
         TextUsuario.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Usuário", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(0, 0, 0))); // NOI18N
         TextUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -72,7 +79,7 @@ public class Login extends javax.swing.JFrame {
                 TextUsuarioActionPerformed(evt);
             }
         });
-        jPanel1.add(TextUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 280, 40));
+        jPanel1.add(TextUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 280, 50));
 
         LabelTituloLogin.setFont(new java.awt.Font("Courier 10 Pitch", 1, 34)); // NOI18N
         LabelTituloLogin.setForeground(new java.awt.Color(255, 255, 255));
@@ -99,7 +106,9 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_TextSenhaActionPerformed
 
     private void ButtonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEntrarActionPerformed
-        // TODO add your handling code here:
+        System.out.println(TextUsuario.getText());
+        System.out.println(TextSenha.getText());
+        
     }//GEN-LAST:event_ButtonEntrarActionPerformed
 
     /**
@@ -137,7 +146,6 @@ public class Login extends javax.swing.JFrame {
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonEntrar;
     private javax.swing.JLabel LabelLoginFundo;
@@ -148,4 +156,22 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelRecuperacaoSenha;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
+    public JPasswordField getTextSenha() {
+        return TextSenha;
+    }
+
+    public void setTextSenha(JPasswordField TextSenha) {
+        this.TextSenha = TextSenha;
+    }
+
+    public JTextField getTextUsuario() {
+        return TextUsuario;
+    }
+
+    public void setTextUsuario(JTextField TextUsuario) {
+        this.TextUsuario = TextUsuario;
+    }
+
+    
 }

@@ -41,7 +41,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        LabelFundoMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/fundo-MenuPrincipal.jpg"))); // NOI18N
+        LabelFundoMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Telas/fundo-MenuPrincipal.jpg"))); // NOI18N
         getContentPane().add(LabelFundoMenuPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 1000));
 
         MenuCadastro.setText("  Cadastro  ");
@@ -49,7 +49,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         MenuCadastro.setFont(new java.awt.Font("DejaVu Sans", 1, 18)); // NOI18N
 
         MenuItemCliente.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        MenuItemCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/icons/cliente32-icon.png"))); // NOI18N
+        MenuItemCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons/cliente32-icon.png"))); // NOI18N
         MenuItemCliente.setText("  Cliente");
         MenuItemCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -59,12 +59,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
         MenuCadastro.add(MenuItemCliente);
 
         MenuItemServico.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        MenuItemServico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/icons/tesoura32-icon.png"))); // NOI18N
+        MenuItemServico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons/tesoura32-icon.png"))); // NOI18N
         MenuItemServico.setText("  Serviço");
         MenuCadastro.add(MenuItemServico);
 
         MenuItemUsuario.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        MenuItemUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/icons/usuario32-icon.png"))); // NOI18N
+        MenuItemUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons/usuario32-icon.png"))); // NOI18N
         MenuItemUsuario.setText("  Usuario");
         MenuCadastro.add(MenuItemUsuario);
 
@@ -74,7 +74,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         MenuOperacao.setFont(new java.awt.Font("DejaVu Sans", 1, 18)); // NOI18N
 
         MenuItemAgenda.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        MenuItemAgenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/icons/agenda32-icon.png"))); // NOI18N
+        MenuItemAgenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons/agenda32-icon.png"))); // NOI18N
         MenuItemAgenda.setText("  Agenda");
         MenuOperacao.add(MenuItemAgenda);
 
@@ -84,7 +84,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         MenuRelatorio.setFont(new java.awt.Font("DejaVu Sans", 1, 18)); // NOI18N
 
         MenuItemRelatorio.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        MenuItemRelatorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/imagens/icons/relatorioTrabalho32-icon.png"))); // NOI18N
+        MenuItemRelatorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons/relatorioTrabalho32-icon.png"))); // NOI18N
         MenuItemRelatorio.setText("  Trabalho");
         MenuItemRelatorio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -2,10 +2,10 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>br.com.listapp</groupId>
-	<artifactId>BarberShop2</artifactId>
+	<artifactId>BarberShop</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
-	<name>BarberShop2</name>
+	<name>BarberShop</name>
 	<description>Add project description here</description>
 
 	<properties>

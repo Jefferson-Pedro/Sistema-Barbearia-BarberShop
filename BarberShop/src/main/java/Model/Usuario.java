@@ -1,26 +1,28 @@
 package Model;
 
+import java.text.ParseException;
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Usuario extends Pessoa {
     protected String senha;
     protected String nivelAcesso;
 
-    public Usuario(int id, String nome,String senha) {
+    public Usuario(int id, String nome, String nivelAcesso) {
         super(id, nome);
-        this.senha = senha;
+        this.nivelAcesso = nivelAcesso;
     }
 
-    public Usuario(int id, String nome, char sexo, String dataNasc, String tel, 
-            String email, String rg, String senha, String nivelAcesso) {
+    public Usuario(int id, String nome, String sexo, String dataNasc, String tel, 
+            String email, String rg, String senha, String nivelAcesso) throws ParseException {
         super(id, nome, sexo, dataNasc, tel, email, rg);
         this.senha = senha;
         this.nivelAcesso = nivelAcesso;
     }
-
-    public Usuario() {}
-
     
+
+	public Usuario() {}
+
 
     public String getSenha() {
         return senha;
@@ -37,4 +39,13 @@ public class Usuario extends Pessoa {
     public void setNivelAcesso(String nivelAcesso) {
         this.nivelAcesso = nivelAcesso;
     }   
+
+    @Override
+    public String toString() {
+        return "Usuario{ " + "\nid = " + id + ", nome = " + nome + ", sexo = " + sexo +
+                ", dataNasc = " + dataNasc + ", tel = " + tel + 
+                ", email = " + email + ", rg = " + rg +" ,Nivel de Acesso: " + nivelAcesso + " }";
+    }
+    
+    
 }

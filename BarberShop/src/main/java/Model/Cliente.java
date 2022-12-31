@@ -1,26 +1,27 @@
 package Model;
 
+import java.text.ParseException;
 import java.util.Date;
 
 public class Cliente extends Pessoa{
  
     private String endereco;
     private String cep;
-
-    public Cliente(String endereco, String cep, int id, String nome, 
-            char sexo,String dataNasc, String tel, String email, String rg) {
-        
-        super(id, nome, sexo, dataNasc, tel, email, rg);
+    
+    public Cliente(int id, String nome, String sexo, String dataNascimento, 
+    		String telefone, String email, String rg, String endereco, String cep) 
+    				throws ParseException {
+        super(id, nome, sexo, dataNascimento, telefone, email, rg);
         this.endereco = endereco;
         this.cep = cep;
     }
-
-    public Cliente(String endereco, String cep, int id, String nome) {
+ 
+    public Cliente(int id, String nome, String endereco, String cep) {
         super(id, nome);
         this.endereco = endereco;
         this.cep = cep;
     }
-    
+  
     public String getEndereco() {
         return endereco;
     }
@@ -53,11 +54,11 @@ public class Cliente extends Pessoa{
         this.nome = nome;
     }
 
-    public char getSexo() {
+    public String getSexo() {
         return sexo;
     }
 
-    public void setSexo(char sexo) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
 

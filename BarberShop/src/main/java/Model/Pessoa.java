@@ -2,6 +2,8 @@ package Model;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -9,25 +11,24 @@ import java.util.logging.Logger;
 abstract public class Pessoa {
     protected int id;
     protected String nome;
-    protected char sexo;
+    protected String sexo;
     protected Date dataNasc;
     protected String tel;
     protected String email;
     protected String rg; 
 
-    public Pessoa(int id, String nome, char sexo, String dataNasc, String tel, 
-            String email, String rg) {
+    public Pessoa(int id, String nome, String sexo, String dataNasc, String tel, 
+            String email, String rg) throws ParseException {
         this.id = id;
         this.nome = nome;
         this.sexo = sexo;
         this.tel = tel;
         this.email = email;
         this.rg = rg;
-        try {
-            this.dataNasc = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(dataNasc);
-        } catch (ParseException ex) {
-            Logger.getLogger(Pessoa.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy"); 
+        Date data = formato.parse(dataNasc); 
+        this.dataNasc = data;
     }
 
     public Pessoa(int id, String nome) {
@@ -35,7 +36,8 @@ abstract public class Pessoa {
         this.nome = nome;
     }
     
-     public Pessoa() {}
+
+	public Pessoa() {}
     
     public int getId() {
         return id;
@@ -53,11 +55,11 @@ abstract public class Pessoa {
         this.nome = nome;
     }
 
-    public char getSexo() {
+    public String getSexo() {
         return sexo;
     }
 
-    public void setSexo(char sexo) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
 
@@ -65,8 +67,8 @@ abstract public class Pessoa {
         return dataNasc;
     }
 
-    public void setDataNasc(Date dataNasc) {
-        this.dataNasc = dataNasc;
+    public void setDataNasc(Date date) {
+        this.dataNasc = date;
     }
 
     public String getTel() {
@@ -92,5 +94,12 @@ abstract public class Pessoa {
     public void setRg(String rg) {
         this.rg = rg;
     }
+
+    /*@Override
+    public String toString() {
+        return "\nid = " + id + ", nome = " + nome + ", sexo = " + sexo +
+                ", dataNasc = " + dataNasc + ", tel = " + tel + 
+                ", email = " + email + ", rg = " + rg;
+    }*/
 
 }

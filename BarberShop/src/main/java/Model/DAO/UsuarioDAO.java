@@ -85,6 +85,39 @@ public class UsuarioDAO {
        return null;
      }
     
+    //Busca usuario por ID
+    public ArrayList<Usuario> findByName(String nome) throws SQLException{
+        
+        String sql = "SELECT * FROM usuario WHERE nome like ?";
+        ArrayList<Usuario> usuario = null;
+        
+        try {
+           conexao = ConexaoBD.conectaBD();
+           ps = conexao.prepareStatement(sql);
+
+           ps.setString(1,"%"+ nome + "%"); //muda a 1a interrogacao pelo numero escolhido
+           rs = ps.executeQuery(); //Executa o comando sql
+           
+           usuario = new ArrayList<Usuario>();
+           
+           while(rs.next()) {
+        	   Usuario u = new Usuario(); 
+	           u.setNome(rs.getString("nome"));
+	           u.setNivelAcesso(rs.getString("nivelAcesso"));
+	           usuario.add(u);
+           }
+           return usuario;
+  
+        } catch (SQLException ex) {
+            ps.close();
+            System.err.println("Usuário não encontrado: "+ ex.getMessage());
+        } finally{
+             ps.close();
+        }
+       return null;
+     }
+    
+    
      //Salva a tarefa
      public Usuario save(Usuario usuario) throws SQLException {
 

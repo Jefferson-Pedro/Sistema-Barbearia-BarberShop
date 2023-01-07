@@ -17,10 +17,9 @@ public class UsuarioDAO {
     private Connection conexao = null;
     private PreparedStatement ps = null;
     private ResultSet rs = null;
-    //private Usuario usuario;
+        
     
-    
-    //Carrega todos os usuarios do banco de dados
+    //Busca todos os usuarios do banco de dados
     public List<Usuario> getAll() throws ClassNotFoundException{
         
        String sql = "SELECT * FROM usuario";
@@ -48,10 +47,12 @@ public class UsuarioDAO {
               lista.add(u);
            }
            
-           ps.close();
            return lista;
+           
        } catch (SQLException ex) {
            System.err.println("Erro ao recuperar os dados: "+ ex.getMessage());
+       }finally {
+    	   ConexaoBD.fechaConexao(conexao, ps, rs);
        }
        return null;
     }
@@ -77,47 +78,41 @@ public class UsuarioDAO {
            return usuario;
   
         } catch (SQLException ex) {
-            ps.close();
+            
             System.err.println("Usuário não encontrado: "+ ex.getMessage());
         } finally{
-             ps.close();
+        	ConexaoBD.fechaConexao(conexao, ps, rs);
         }
        return null;
      }
     
-    //Busca usuario por ID
-    public ArrayList<Usuario> findByName(String nome) throws SQLException{
+    //Busca usuario por Nome e Senha
+    public Usuario findByNameAndPassword(Usuario usuario) throws SQLException{
         
-        String sql = "SELECT * FROM usuario WHERE nome like ?";
-        ArrayList<Usuario> usuario = null;
-        
+        String sql = "SELECT * FROM usuario WHERE id = ? AND nome = ? AND senha = ?";
+               
         try {
            conexao = ConexaoBD.conectaBD();
            ps = conexao.prepareStatement(sql);
-
-           ps.setString(1,"%"+ nome + "%"); //muda a 1a interrogacao pelo numero escolhido
-           rs = ps.executeQuery(); //Executa o comando sql
            
-           usuario = new ArrayList<Usuario>();
+           ps.setInt(1,usuario.getId());
+           ps.setString(2, usuario.getNome());
+           ps.setString(3, usuario.getSexo());
            
-           while(rs.next()) {
-        	   Usuario u = new Usuario(); 
-	           u.setNome(rs.getString("nome"));
-	           u.setNivelAcesso(rs.getString("nivelAcesso"));
-	           usuario.add(u);
-           }
+           ps.executeQuery();
+           System.out.println("Usuario encontrado!");
+           
            return usuario;
-  
+           
         } catch (SQLException ex) {
-            ps.close();
+            
             System.err.println("Usuário não encontrado: "+ ex.getMessage());
         } finally{
-             ps.close();
+        	ConexaoBD.fechaConexao(conexao, ps);
         }
-       return null;
+        return null;
      }
-    
-    
+        
      //Salva a tarefa
      public Usuario save(Usuario usuario) throws SQLException {
 
@@ -152,7 +147,7 @@ public class UsuarioDAO {
         } catch (Exception e) {
             throw new RuntimeException("Erro ao salvar o usuário; " + e.getMessage(), e);
         } finally {
-            ps.close();
+            ConexaoBD.fechaConexao(conexao, ps);
         }
         return usuario;
     }
@@ -190,7 +185,7 @@ public class UsuarioDAO {
          } catch (Exception e) {
              throw new RuntimeException("Erro ao atualizar os dados do usuário; " + e.getMessage(), e);
          } finally {
-             ps.close();
+             ConexaoBD.fechaConexao(conexao, ps);
          }
     }
     
@@ -210,7 +205,7 @@ public class UsuarioDAO {
          } catch (Exception e) {
              throw new RuntimeException("Erro ao deletar o usuário; " + e.getMessage(), e);
          } finally {
-             ps.close();
+        	 ConexaoBD.fechaConexao(conexao, ps);
          }
     }
      

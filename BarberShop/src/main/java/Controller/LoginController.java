@@ -23,7 +23,7 @@ public class LoginController {
         Usuario usuario = helper.obterModelo();
         
         //Pesquisa usuário do banco
-        dao.findById(0); 
+        //Usuario autenticacao = dao.findByName("barb");
     }
     
     public void buscarDoBD(){

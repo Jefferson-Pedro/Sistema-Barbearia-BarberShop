@@ -12,7 +12,8 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) throws SQLException, ParseException{
     	
-    	UsuarioDAO dao = new UsuarioDAO();
+    	
+    	
     	    	
         /* //Retornar todos os dados
          List<Usuario> usuarios = dao.getAll();
@@ -23,8 +24,11 @@ public class Main {
          /*Usuario findById = dao.findById(1);
          System.out.println("Usuario: " + findById);*/
     	
-    	 //Retorna por nome
-    	 /*List<Usuario> usuario = dao.findByName("es");
+    	 //Retorna por nome e senha
+    	/*UsuarioDAO dao = new UsuarioDAO();
+    	Usuario user = new Usuario(3, "Estagiário", "M", "13/08/2015", "0000", 
+                "email@exemple.com","00000", "senha", "admin");
+    	 Usuario usuario = dao.findByNameAndPassword(user);
     	  System.out.println(usuario.toString());*/
 	     
     	//Salva no BD

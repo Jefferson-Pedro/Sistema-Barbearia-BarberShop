@@ -8,9 +8,9 @@ public class Usuario extends Pessoa {
     protected String senha;
     protected String nivelAcesso;
 
-    public Usuario(int id, String nome, String nivelAcesso) {
+    public Usuario(int id, String nome, String senha) {
         super(id, nome);
-        this.nivelAcesso = nivelAcesso;
+        this.senha = senha;
     }
 
     public Usuario(int id, String nome, String sexo, String dataNasc, String tel, 
@@ -42,9 +42,7 @@ public class Usuario extends Pessoa {
 
     @Override
     public String toString() {
-        return "Usuario{ " + "\nid = " + id + ", nome = " + nome + ", sexo = " + sexo +
-                ", dataNasc = " + dataNasc + ", tel = " + tel + 
-                ", email = " + email + ", rg = " + rg +" ,Nivel de Acesso: " + nivelAcesso + " }";
+        return "Usuario{ " + "id = " + id+ ", nome = " + nome + ", senha= " + senha + " }";
     }
     
     

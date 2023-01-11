@@ -98,7 +98,7 @@ public class UsuarioDAO {
            
            //ps.setInt(1,usuario.getId());
            ps.setString(1, usuario.getNome());
-           ps.setString(2, usuario.getSexo());
+           ps.setString(2, usuario.getSenha());
            
            rs = ps.executeQuery();
            

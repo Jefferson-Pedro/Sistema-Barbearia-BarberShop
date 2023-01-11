@@ -1,13 +1,11 @@
-package Controller;
+package br.com.barbershop.controller;
 
 import java.sql.SQLException;
-import java.util.List;
 
-import Controller.Helper.LoginHelper;
-import Model.Usuario;
-import Model.DAO.UsuarioDAO;
-import View.Login;
-import View.MenuPrincipal;
+import br.com.barbershop.controller.Helper.LoginHelper;
+import br.com.barbershop.dao.UsuarioDAO;
+import br.com.barbershop.model.Usuario;
+import br.com.barbershop.view.Login;
 
 public class LoginController {
 

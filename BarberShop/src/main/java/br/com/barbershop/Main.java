@@ -1,8 +1,9 @@
 
-package Principal;
+package br.com.barbershop;
 
-import Model.DAO.UsuarioDAO;
-import Model.Usuario;
+import br.com.barbershop.dao.UsuarioDAO;
+import br.com.barbershop.model.Usuario;
+
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;

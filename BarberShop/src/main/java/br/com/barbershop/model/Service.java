@@ -1,4 +1,4 @@
-package Model;
+package br.com.barbershop.model;
 
 public class Service {
     private int id;

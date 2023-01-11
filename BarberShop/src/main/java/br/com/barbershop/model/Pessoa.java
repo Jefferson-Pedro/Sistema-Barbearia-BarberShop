@@ -1,4 +1,4 @@
-package Model;
+package br.com.barbershop.model;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

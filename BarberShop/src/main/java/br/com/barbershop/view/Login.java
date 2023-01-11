@@ -1,7 +1,8 @@
-package View;
+package br.com.barbershop.view;
 
-import Controller.LoginController;
-import Util.ConexaoBD;
+import br.com.barbershop.controller.LoginController;
+import br.com.barbershop.util.ConexaoBD;
+
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;

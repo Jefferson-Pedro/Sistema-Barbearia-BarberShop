@@ -1,7 +1,7 @@
-package Controller.Helper;
+package br.com.barbershop.controller.Helper;
 
-import Model.Usuario;
-import View.Login;
+import br.com.barbershop.model.Usuario;
+import br.com.barbershop.view.Login;
 
 public class LoginHelper {
     private final Login view;

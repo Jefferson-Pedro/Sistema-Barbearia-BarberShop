@@ -1,8 +1,9 @@
 
 package Test;
 
-import Model.DAO.UsuarioDAO;
-import Model.Usuario;
+import br.com.barbershop.dao.UsuarioDAO;
+import br.com.barbershop.model.Usuario;
+
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;

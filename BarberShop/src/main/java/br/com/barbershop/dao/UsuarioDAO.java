@@ -1,7 +1,8 @@
-package Model.DAO;
+package br.com.barbershop.dao;
 
-import Model.Usuario;
-import Util.ConexaoBD;
+import br.com.barbershop.model.Usuario;
+import br.com.barbershop.util.ConexaoBD;
+
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;

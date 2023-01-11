@@ -1,5 +1,5 @@
 
-package Util;
+package br.com.barbershop.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

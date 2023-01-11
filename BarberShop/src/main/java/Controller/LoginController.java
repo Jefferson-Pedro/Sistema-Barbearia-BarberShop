@@ -1,17 +1,19 @@
 package Controller;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import Controller.Helper.LoginHelper;
 import Model.Usuario;
 import Model.DAO.UsuarioDAO;
 import View.Login;
+import View.MenuPrincipal;
 
 public class LoginController {
 
     private final Login view;
     private LoginHelper helper;
-    private UsuarioDAO dao;
+    //private UsuarioDAO dao;
     
     public LoginController(Login view) {
         this.view = view;
@@ -21,9 +23,19 @@ public class LoginController {
     public void LoginNoSistema() throws SQLException{
         //Pega um usuário da view
         Usuario usuario = helper.obterModelo();
-        
+            
         //Pesquisa usuário do banco
-        //Usuario autenticacao = dao.findByName("barb");
+        UsuarioDAO dao = new UsuarioDAO();
+        System.out.println("Input da tela de Login:" + usuario);
+        Usuario autenticacao = dao.findByNameAndPassword(usuario);
+        System.out.println("Login Controller: " + autenticacao);
+       
+        /*if(autenticacao != null) {
+        	MenuPrincipal menu = new MenuPrincipal();
+            menu.setVisible(true);
+        }else {
+            view.exibeMensagem("Erro! Usuario ou Senha invalidos.");
+        }*/
     }
     
     public void buscarDoBD(){

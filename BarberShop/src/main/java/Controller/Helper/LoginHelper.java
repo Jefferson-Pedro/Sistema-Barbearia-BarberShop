@@ -15,7 +15,8 @@ public class LoginHelper {
         String nome = view.getTextUsuario().getText();
         String senha = view.getTextSenha().getText();
         
-        Usuario usuario = new Usuario(0, nome, senha);
+        
+        Usuario usuario = new Usuario(nome, senha);
          
         return usuario;
     }

@@ -8,8 +8,8 @@ public class Usuario extends Pessoa {
     protected String senha;
     protected String nivelAcesso;
 
-    public Usuario(int id, String nome, String senha) {
-        super(id, nome);
+    public Usuario(String nome, String senha) {
+        super(nome);
         this.senha = senha;
     }
 

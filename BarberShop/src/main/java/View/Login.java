@@ -2,7 +2,11 @@ package View;
 
 import Controller.LoginController;
 import Util.ConexaoBD;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -104,8 +108,12 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_TextSenhaActionPerformed
 
     private void ButtonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEntrarActionPerformed
-        System.out.println(TextUsuario.getText());
-        System.out.println(TextSenha.getText());
+        try {
+            //Salva o que o usuario digitou no input
+            this.controller.LoginNoSistema();       
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }//GEN-LAST:event_ButtonEntrarActionPerformed
 
@@ -154,7 +162,13 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelRecuperacaoSenha;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
-
+    
+    
+    public void exibeMensagem(String mensagem) {
+    	JOptionPane.showMessageDialog(null, mensagem);
+        System.out.println("Usuário não existe!");
+    }
+    
     public JPasswordField getTextSenha() {
         return TextSenha;
     }

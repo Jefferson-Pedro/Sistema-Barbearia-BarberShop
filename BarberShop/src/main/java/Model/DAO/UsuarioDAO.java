@@ -89,28 +89,35 @@ public class UsuarioDAO {
     //Busca usuario por Nome e Senha
     public Usuario findByNameAndPassword(Usuario usuario) throws SQLException{
         
-        String sql = "SELECT * FROM usuario WHERE id = ? AND nome = ? AND senha = ?";
-               
+        String sql = "SELECT * FROM usuario WHERE nome = ? AND senha = ?"; //"SELECT * FROM usuario WHERE id = ? AND nome = ? AND senha = ?";
+        Usuario user= new Usuario();
+        
         try {
            conexao = ConexaoBD.conectaBD();
            ps = conexao.prepareStatement(sql);
            
-           ps.setInt(1,usuario.getId());
-           ps.setString(2, usuario.getNome());
-           ps.setString(3, usuario.getSexo());
+           //ps.setInt(1,usuario.getId());
+           ps.setString(1, usuario.getNome());
+           ps.setString(2, usuario.getSexo());
            
-           ps.executeQuery();
-           System.out.println("Usuario encontrado!");
+           rs = ps.executeQuery();
            
-           return usuario;
+           while(rs.next()) {//Posiciona o ResultSet na primeira posicao
+          
+           user.setId(rs.getInt("id"));
+           user.setNome(rs.getString("nome"));
+           user.setSenha(rs.getString("senha"));
+           }
+           System.out.println("Resultado do banco: " + user);
+          // System.out.println("Usuario encontrado!");
            
         } catch (SQLException ex) {
             
-            System.err.println("Usuário não encontrado: "+ ex.getMessage());
+            System.err.println("Usuário nao encontrado: "+ ex.getMessage());
         } finally{
-        	ConexaoBD.fechaConexao(conexao, ps);
+        	ConexaoBD.fechaConexao(conexao, ps, rs);
         }
-        return null;
+        return user;
      }
         
      //Salva a tarefa

@@ -31,8 +31,8 @@ abstract public class Pessoa {
         this.dataNasc = data;
     }
 
-    public Pessoa(int id, String nome) {
-        this.id = id;
+    public Pessoa(String nome) {
+        //this.id = id;
         this.nome = nome;
     }
     

@@ -2,10 +2,13 @@ package br.com.barbershop.controller;
 
 import java.sql.SQLException;
 
+import javax.swing.JOptionPane;
+
 import br.com.barbershop.controller.Helper.LoginHelper;
 import br.com.barbershop.dao.UsuarioDAO;
 import br.com.barbershop.model.Usuario;
 import br.com.barbershop.view.Login;
+import br.com.barbershop.view.MenuPrincipal;
 
 public class LoginController {
 
@@ -19,21 +22,24 @@ public class LoginController {
     }
     
     public void LoginNoSistema() throws SQLException{
-        //Pega um usuário da view
-        Usuario usuario = helper.obterModelo();
+    	
+    	//Pega o que o usuário digitou na view
+        String nome = view.getTextUsuario().getText();
+        String senha = view.getTextSenha().getText();
+        
+        Usuario autenticar = new Usuario(nome, senha);
             
         //Pesquisa usuário do banco
         UsuarioDAO dao = new UsuarioDAO();
-        System.out.println("Input da tela de Login:" + usuario);
-        Usuario autenticacao = dao.findByNameAndPassword(usuario);
-        System.out.println("Login Controller: " + autenticacao);
-       
-        /*if(autenticacao != null) {
+        System.out.println("Input da tela de Login:" + nome +"Senha: " + senha);
+        boolean existe = dao.validateUser(autenticar);
+        
+        if(existe) {
         	MenuPrincipal menu = new MenuPrincipal();
             menu.setVisible(true);
         }else {
-            view.exibeMensagem("Erro! Usuario ou Senha invalidos.");
-        }*/
+        	JOptionPane.showMessageDialog(view, "Usuario ou senha invalidos");
+        }
     }
     
     public void buscarDoBD(){

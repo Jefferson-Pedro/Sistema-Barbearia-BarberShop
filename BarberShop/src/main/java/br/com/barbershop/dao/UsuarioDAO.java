@@ -88,10 +88,10 @@ public class UsuarioDAO {
      }
     
     //Busca usuario por Nome e Senha
-    public Usuario findByNameAndPassword(Usuario usuario) throws SQLException{
+    public boolean validateUser(Usuario usuario) throws SQLException{
         
         String sql = "SELECT * FROM usuario WHERE nome = ? AND senha = ?"; //"SELECT * FROM usuario WHERE id = ? AND nome = ? AND senha = ?";
-        Usuario user= new Usuario();
+        //Usuario user= new Usuario();
         
         try {
            conexao = ConexaoBD.conectaBD();
@@ -103,22 +103,15 @@ public class UsuarioDAO {
            
            rs = ps.executeQuery();
            
-           while(rs.next()) {//Posiciona o ResultSet na primeira posicao
-          
-           user.setId(rs.getInt("id"));
-           user.setNome(rs.getString("nome"));
-           user.setSenha(rs.getString("senha"));
-           }
-           System.out.println("Resultado do banco: " + user);
-          // System.out.println("Usuario encontrado!");
+           return rs.next();
            
-        } catch (SQLException ex) {
+         } catch (SQLException ex) {
             
             System.err.println("Usuário nao encontrado: "+ ex.getMessage());
         } finally{
         	ConexaoBD.fechaConexao(conexao, ps, rs);
         }
-        return user;
+        return (Boolean) null;
      }
         
      //Salva a tarefa

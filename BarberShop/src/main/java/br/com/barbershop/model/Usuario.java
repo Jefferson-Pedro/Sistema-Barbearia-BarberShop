@@ -44,6 +44,5 @@ public class Usuario extends Pessoa {
     public String toString() {
         return "Usuario{ " + "id = " + id+ ", nome = " + nome + ", senha= " + senha + " }";
     }
-    
-    
+ 
 }

@@ -34,9 +34,11 @@ public class LoginController {
         System.out.println("Input da tela de Login:" + nome +"Senha: " + senha);
         boolean existe = dao.validateUser(autenticar);
         
+        //Autentica o usuario
         if(existe) {
         	MenuPrincipal menu = new MenuPrincipal();
             menu.setVisible(true);
+            this.view.dispose();
         }else {
         	JOptionPane.showMessageDialog(view, "Usuario ou senha invalidos");
         }

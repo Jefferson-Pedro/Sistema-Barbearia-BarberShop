@@ -10,16 +10,7 @@ public class LoginHelper {
         this.view = view;
     }
     
-    public Usuario obterModelo(){
-        //Pega o que o usuário digitou na view
-        String nome = view.getTextUsuario().getText();
-        String senha = view.getTextSenha().getText();
-        
-        
-        Usuario usuario = new Usuario(nome, senha);
-         
-        return usuario;
-    }
+    
     
     public void setarModelo(Usuario modelo){
         //Seta na tela as informações do BD

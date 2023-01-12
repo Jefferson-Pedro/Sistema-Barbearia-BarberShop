@@ -44,7 +44,7 @@ public class AgendamentoDAO {
                          
              while(rs.next()){
                 Agendamento a = new Agendamento(); 
-                a.setId(rs.getInt("id"));
+                a.setIdUsuario(rs.getInt("id"));
                 a.setCliente(rs.getInt("cliente"));
                 a.setServico(rs.getInt("servico"));
                 a.setValor(rs.getFloat("valor"));

@@ -34,8 +34,8 @@ public class Agendamento {
 		return idUsuario;
 	}
 
-	public void setIdUsuario(Usuario idUsuario) {
-		this.idUsuario = idUsuario;
+	public void setIdUsuario(Usuario i) {
+		this.idUsuario = i;
 	}
 
 	public Cliente getCliente() {

@@ -27,7 +27,9 @@ public class Agendamento {
         
     }
 
-    public int getId() {
+    public Agendamento() {}
+
+	public int getId() {
         return id;
     }
 
@@ -74,6 +76,4 @@ public class Agendamento {
     public void setObservacao(String observacao) {
         this.observacao = observacao;
     }
-    
-    
 }

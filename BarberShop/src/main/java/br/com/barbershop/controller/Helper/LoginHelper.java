@@ -9,9 +9,7 @@ public class LoginHelper {
     public LoginHelper(Login view) {
         this.view = view;
     }
-    
-    
-    
+
     public void setarModelo(Usuario modelo){
         //Seta na tela as informações do BD
         String nome = modelo.getNome();

@@ -14,6 +14,8 @@ import java.util.List;
 import java.sql.Date;
 
 import br.com.barbershop.model.Agendamento;
+import br.com.barbershop.model.Cliente;
+import br.com.barbershop.model.Service;
 import br.com.barbershop.model.Usuario;
 import br.com.barbershop.util.ConexaoBD;
 import br.com.barbershop.view.Agenda;
@@ -51,7 +53,7 @@ public class AgendamentoDAO {
                
                 lista.add(a);
              }
-             
+                      
              return lista;
              
          } catch (SQLException ex) {

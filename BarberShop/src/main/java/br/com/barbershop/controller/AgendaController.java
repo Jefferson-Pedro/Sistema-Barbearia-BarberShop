@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import br.com.barbershop.controller.Helper.AgendaHelper;
 import br.com.barbershop.dao.AgendamentoDAO;
+import br.com.barbershop.dto.AgendamentoDTO;
 import br.com.barbershop.model.Agendamento;
 import br.com.barbershop.view.Agenda;
 
@@ -28,7 +29,7 @@ public class AgendaController {
     public void atualizaTabela(){
         //Busca lista com os agendamentos do BD
         AgendamentoDAO dao = new AgendamentoDAO();
-        ArrayList<Agendamento> agendamento = dao.selectAll();
+        ArrayList<AgendamentoDTO> agendamento = dao.selectAll();
         
         //Exibe a lista na view
         helper.preencherTabela(agendamento);

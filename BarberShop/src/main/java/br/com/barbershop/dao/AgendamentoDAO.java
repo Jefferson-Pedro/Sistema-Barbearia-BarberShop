@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.sql.Date;
 
+import br.com.barbershop.dto.AgendamentoDTO;
 import br.com.barbershop.model.Agendamento;
 import br.com.barbershop.model.Cliente;
 import br.com.barbershop.model.Service;
@@ -30,7 +31,7 @@ public class AgendamentoDAO {
 	 private PreparedStatement ps = null;
 	 private ResultSet rs = null;
 
-    public ArrayList<Agendamento> selectAll() {
+    public ArrayList<AgendamentoDTO> selectAll() {
     	
     	 String sql = //"SELECT * FROM agendamento"; 
     	 "SELECT agendamento.id, cliente.nome, servico.descricao, servico.valor, agendamento.data, agendamento.observacao "
@@ -38,7 +39,7 @@ public class AgendamentoDAO {
     	 + "INNER JOIN cliente ON cliente.id=agendamento.cliente "
     	 + "INNER JOIN servico ON servico.id=agendamento.servico";
     	 
-         ArrayList<Agendamento> lista = new ArrayList<Agendamento>();
+         ArrayList<AgendamentoDTO> lista = new ArrayList<AgendamentoDTO>();
             
          try {
              conexao = ConexaoBD.conectaBD();
@@ -47,24 +48,23 @@ public class AgendamentoDAO {
              rs = ps.executeQuery();
                          
              while(rs.next()){
-                Agendamento a = new Agendamento(); 
+                AgendamentoDTO a = new AgendamentoDTO(); 
                 a.setId(rs.getInt("id"));
-                a.setCliente(rs.getString("cliente"));
-                a.setServico(rs.getString("servico"));
+                a.setCliente(rs.getString("nome"));
+                a.setServico(rs.getString("descricao"));
                 a.setValor(rs.getFloat("valor"));
                 a.setData(rs.getDate("data"));
                 a.setObservacao(rs.getString("observacao"));
                
                 lista.add(a);
+
              }
-                      
-             return lista;
-             
+
          } catch (SQLException ex) {
              System.err.println("Erro ao recuperar os dados: "+ ex.getMessage());
          }finally {
       	   ConexaoBD.fechaConexao(conexao, ps, rs);
          }
-         return null;
+         return lista;
       }
 }

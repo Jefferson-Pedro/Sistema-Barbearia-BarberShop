@@ -51,8 +51,8 @@ public class Main {
     	/*UsuarioDAO dao = new UsuarioDAO(); 	
    	 	dao.deleteById(1);*/
     	
-    	AgendamentoDAO dao = new AgendamentoDAO();
+    	/*AgendamentoDAO dao = new AgendamentoDAO();
     	ArrayList<Agendamento> agendamento = dao.selectAll();
-    	System.out.println(agendamento.toString());
+    	System.out.println(agendamento.toString());*/
     }
 }

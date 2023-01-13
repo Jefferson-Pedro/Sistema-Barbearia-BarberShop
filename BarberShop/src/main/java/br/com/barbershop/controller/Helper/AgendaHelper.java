@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.swing.table.DefaultTableModel;
 
+import br.com.barbershop.dto.AgendamentoDTO;
 import br.com.barbershop.model.Agendamento;
 import br.com.barbershop.view.Agenda;
 
@@ -15,22 +16,22 @@ public class AgendaHelper {
 		this.view = view;
 	}
 
-	public void preencherTabela(ArrayList<Agendamento> agendamentos) {
+	public void preencherTabela(ArrayList<AgendamentoDTO> agendamentos) {
 		
 		DefaultTableModel tableModel = (DefaultTableModel) view.getTableAgendamentos().getModel();
 		tableModel.setNumRows(0);
 		
 		//Percorrer a lista preenchendo o table model
 		
-		for (Agendamento agendamento : agendamentos) {
+		for (AgendamentoDTO agendamento : agendamentos) {
 			
 			tableModel.addRow(new Object[] {
 				agendamento.getId(),
 				agendamento.getCliente(),
 				agendamento.getServico(),
 				agendamento.getValor(),
-				agendamento.getData(),
-				agendamento.getData(),
+				agendamento.getDataFormatada(),
+				agendamento.getHoraFormatada(),
 				agendamento.getObservacao()				
 			});
 		}

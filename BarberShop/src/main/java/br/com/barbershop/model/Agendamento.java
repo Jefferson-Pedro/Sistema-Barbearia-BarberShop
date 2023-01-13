@@ -28,8 +28,15 @@ public class Agendamento {
     }
 
     public Agendamento() {}
+      
+    public Date getData() {
+        return data;
+    }
 
-	
+    public void setData(Date data) {
+        this.data = data;
+    }
+
     public int getId() {
 		return id;
 	}
@@ -60,14 +67,6 @@ public class Agendamento {
 
     public void setValor(float valor) {
         this.valor = valor;
-    }
-
-    public Date getData() {
-        return data;
-    }
-
-    public void setData(Date data) {
-        this.data = data;
     }
 
     public String getObservacao() {

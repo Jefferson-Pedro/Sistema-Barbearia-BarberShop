@@ -141,10 +141,7 @@ public class Agenda extends javax.swing.JFrame {
 
         TableAgendamentos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"1", "Alan", "Corte", "10", "22/04/2018", "08:00", ""},
-                {"2", "Abigail", "Barba", "20", "22/04/2018", "09:00", "Pode se Atrazar um pouco"},
-                {"3", "Pedro", "Barba", "20", "23/04/2018", "08:00", null},
-                {"4", "Teste", "Barba + Corte", "30", "23/04/2018", "09:00", null}
+
             },
             new String [] {
                 "Id", "Cliente", "Serviço", "Valor", "Data", "Hora", "Observação"
@@ -152,7 +149,7 @@ public class Agenda extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(TableAgendamentos);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 590, 1120, 330));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 590, 1120, 260));
 
         LabelAgendaPainelFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Telas/Agenda-PainelFundo.png"))); // NOI18N
         getContentPane().add(LabelAgendaPainelFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 1000));
@@ -237,4 +234,13 @@ public class Agenda extends javax.swing.JFrame {
     private void iniciar() {
         this.controller.atualizaTabela();
     }
+
+	public javax.swing.JTable getTableAgendamentos() {
+		return TableAgendamentos;
+	}
+
+	public void setTableAgendamentos(javax.swing.JTable tableAgendamentos) {
+		TableAgendamentos = tableAgendamentos;
+	}
+    
 }

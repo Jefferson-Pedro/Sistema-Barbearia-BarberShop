@@ -5,7 +5,11 @@
  */
 package br.com.barbershop.controller;
 
+import java.util.ArrayList;
+
+import br.com.barbershop.controller.Helper.AgendaHelper;
 import br.com.barbershop.dao.AgendamentoDAO;
+import br.com.barbershop.model.Agendamento;
 import br.com.barbershop.view.Agenda;
 
 /**
@@ -15,16 +19,19 @@ import br.com.barbershop.view.Agenda;
 public class AgendaController {
     
     private final Agenda view;
-
+    private final AgendaHelper helper;
+    
     public AgendaController(Agenda view) {
         this.view = view;
+		this.helper = new AgendaHelper(view);
     }
     public void atualizaTabela(){
         //Busca lista com os agendamentos do BD
         AgendamentoDAO dao = new AgendamentoDAO();
-        dao.selectAll();
-        //Exibe a lista na view
+        ArrayList<Agendamento> agendamento = dao.selectAll();
         
+        //Exibe a lista na view
+        helper.preencherTabela(agendamento);
     }
     
 }

@@ -1,7 +1,9 @@
 
 package br.com.barbershop;
 
+import br.com.barbershop.dao.AgendamentoDAO;
 import br.com.barbershop.dao.UsuarioDAO;
+import br.com.barbershop.model.Agendamento;
 import br.com.barbershop.model.Usuario;
 
 import java.sql.SQLException;
@@ -48,5 +50,9 @@ public class Main {
     	 //Deleta por ID
     	/*UsuarioDAO dao = new UsuarioDAO(); 	
    	 	dao.deleteById(1);*/
+    	
+    	AgendamentoDAO dao = new AgendamentoDAO();
+    	ArrayList<Agendamento> agendamento = dao.selectAll();
+    	System.out.println(agendamento.toString());
     }
 }

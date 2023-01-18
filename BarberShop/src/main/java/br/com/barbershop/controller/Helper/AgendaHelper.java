@@ -1,11 +1,15 @@
 package br.com.barbershop.controller.Helper;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 
 import br.com.barbershop.dto.AgendamentoDTO;
 import br.com.barbershop.model.Agendamento;
+import br.com.barbershop.model.Cliente;
+import br.com.barbershop.model.Service;
 import br.com.barbershop.view.Agenda;
 
 public class AgendaHelper {
@@ -34,6 +38,25 @@ public class AgendaHelper {
 				agendamento.getHoraFormatada(),
 				agendamento.getObservacao()				
 			});
+		}
+	}
+
+	public void preencherClientes(ArrayList<Cliente> clientes) {
+		
+		DefaultComboBoxModel comboBoxModel = (DefaultComboBoxModel) view.getJComboBoxCliente().getModel();
+		
+		for (Cliente cliente : clientes) {
+			comboBoxModel.addElement(cliente);
+		}
+	}
+
+	public void preencherServicos(ArrayList<Service> servicos) {
+		
+		DefaultComboBoxModel comboBoxModel = (DefaultComboBoxModel) view.getJComboBoxServico().getModel();
+		
+		for (Service service : servicos) {
+			
+			comboBoxModel.addElement(service);
 		}
 	}
 	

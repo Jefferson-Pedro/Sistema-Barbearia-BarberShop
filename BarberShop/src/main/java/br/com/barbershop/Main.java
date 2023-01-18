@@ -2,8 +2,10 @@
 package br.com.barbershop;
 
 import br.com.barbershop.dao.AgendamentoDAO;
+import br.com.barbershop.dao.ClienteDAO;
 import br.com.barbershop.dao.UsuarioDAO;
 import br.com.barbershop.model.Agendamento;
+import br.com.barbershop.model.Cliente;
 import br.com.barbershop.model.Usuario;
 
 import java.sql.SQLException;
@@ -54,5 +56,10 @@ public class Main {
     	/*AgendamentoDAO dao = new AgendamentoDAO();
     	ArrayList<Agendamento> agendamento = dao.selectAll();
     	System.out.println(agendamento.toString());*/
+    	
+    	/*ClienteDAO dao = new ClienteDAO();
+    	ArrayList<Cliente>resposta = dao.selectAll();
+    	System.out.println("resposta: " + resposta.toString());*/
+    	
     }
 }

@@ -21,6 +21,8 @@ public class Cliente extends Pessoa{
         this.endereco = endereco;
         this.cep = cep;
     }
+    
+    public Cliente() {}
   
     public String getEndereco() {
         return endereco;
@@ -93,6 +95,12 @@ public class Cliente extends Pessoa{
     public void setRg(String rg) {
         this.rg = rg;
     }
+
+	@Override
+	public String toString() {
+		return this.nome;
+	}
+    
     
     
     

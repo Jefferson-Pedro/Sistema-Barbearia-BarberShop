@@ -9,8 +9,12 @@ import java.util.ArrayList;
 
 import br.com.barbershop.controller.Helper.AgendaHelper;
 import br.com.barbershop.dao.AgendamentoDAO;
+import br.com.barbershop.dao.ClienteDAO;
+import br.com.barbershop.dao.ServiceDAO;
 import br.com.barbershop.dto.AgendamentoDTO;
 import br.com.barbershop.model.Agendamento;
+import br.com.barbershop.model.Cliente;
+import br.com.barbershop.model.Service;
 import br.com.barbershop.view.Agenda;
 
 /**
@@ -24,7 +28,7 @@ public class AgendaController {
     
     public AgendaController(Agenda view) {
         this.view = view;
-		this.helper = new AgendaHelper(view);
+	this.helper = new AgendaHelper(view);
     }
     public void atualizaTabela(){
         //Busca lista com os agendamentos do BD
@@ -35,4 +39,23 @@ public class AgendaController {
         helper.preencherTabela(agendamento);
     }
     
+    public void atualizaCliente(){
+        
+        //Buscar cliente do BD
+        ClienteDAO dao = new ClienteDAO();
+        ArrayList<Cliente> clientes = dao.selectAll();
+        
+        //Exibir Clientes no ComboBox Cliente
+        helper.preencherClientes(clientes);
+    }
+    
+public void atualizaServico(){
+        
+        //Buscar servico do BD
+        ServiceDAO dao = new ServiceDAO();
+        ArrayList<Service> servicos = dao.selectAll();
+        
+        //Exibir Clientes no ComboBox Cliente
+        helper.preencherServicos(servicos);
+    }
 }

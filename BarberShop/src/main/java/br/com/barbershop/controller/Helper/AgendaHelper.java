@@ -66,7 +66,7 @@ public class AgendaHelper {
 	}
 
 	public void setarValor(Service valorServico) {
-		view.getTextValor().setText(valorServico + "");
+		view.getTextValor().setText(valorServico.getValor() + "");
 	}
 	
 }

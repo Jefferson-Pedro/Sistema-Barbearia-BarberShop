@@ -41,5 +41,9 @@ public class Service {
 	public String toString() {
 		return getDescricao();
 	}
+	
+	public float toString2() {
+		return getValor();
+	}
     
 }

@@ -66,6 +66,8 @@ public class AgendaController {
 		
 		//Retorna o que está na View
 		Service TipoServico = helper.obterServico(); //Corte Simples
+		
+		//Retorna o que vem do banco
 		Service ValorServico = dao.servicePrice(TipoServico);
 		
 		System.out.println("Serviço retornado do BD: " + TipoServico);

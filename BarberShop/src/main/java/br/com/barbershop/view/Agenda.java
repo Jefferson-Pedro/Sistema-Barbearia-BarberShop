@@ -6,11 +6,15 @@
 package br.com.barbershop.view;
 
 import br.com.barbershop.controller.AgendaController;
+
+import java.sql.SQLException;
+
 import javax.swing.JComboBox;
+import javax.swing.JTextField;
 
 /**
  *
- * @author tiago
+ * @author jefferson.silva
  */
 public class Agenda extends javax.swing.JFrame {
 
@@ -104,6 +108,16 @@ public class Agenda extends javax.swing.JFrame {
 
         getContentPane().add(JComboBoxCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, 280, 40));
 
+        JComboBoxServico.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                try {
+					JComboBoxServicoItemStateChanged(evt);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+            }
+        });
         getContentPane().add(JComboBoxServico, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 280, 40));
 
         TextValor.setText("0");
@@ -171,6 +185,10 @@ public class Agenda extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TextValorActionPerformed
 
+    private void JComboBoxServicoItemStateChanged(java.awt.event.ItemEvent evt) throws SQLException {
+      this.controller.atualizaValor();
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -234,6 +252,7 @@ public class Agenda extends javax.swing.JFrame {
         this.controller.atualizaTabela();
         this.controller.atualizaCliente();
         this.controller.atualizaServico();
+        //this.controller.atualizaValor();
     }
 
 	public javax.swing.JTable getTableAgendamentos() {
@@ -259,6 +278,15 @@ public class Agenda extends javax.swing.JFrame {
     public void setJComboBoxServico(JComboBox<String> JComboBoxServico) {
         this.JComboBoxServico = JComboBoxServico;
     }
-        
+
+    public JTextField getTextValor() {
+		return TextValor;
+    }
+
+    public void setTextValor(JTextField textValor) {
+		this.TextValor = textValor;
+    }
+    
+    
     
 }

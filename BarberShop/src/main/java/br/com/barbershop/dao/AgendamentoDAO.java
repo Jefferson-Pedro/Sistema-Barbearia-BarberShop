@@ -34,10 +34,10 @@ public class AgendamentoDAO {
     public ArrayList<AgendamentoDTO> selectAll() {
     	
     	 String sql = //"SELECT * FROM agendamento"; 
-    	 "SELECT agendamento.id, cliente.nome, servico.descricao, servico.valor, agendamento.data, agendamento.observacao "
+    	 "SELECT agendamento.id, cliente.nome, service.descricao, service.valor, agendamento.data, agendamento.observacao "
     	 + "FROM agendamento "
     	 + "INNER JOIN cliente ON cliente.id=agendamento.cliente "
-    	 + "INNER JOIN servico ON servico.id=agendamento.servico";
+    	 + "INNER JOIN service ON service.id=agendamento.servico";
     	 
          ArrayList<AgendamentoDTO> lista = new ArrayList<AgendamentoDTO>();
             

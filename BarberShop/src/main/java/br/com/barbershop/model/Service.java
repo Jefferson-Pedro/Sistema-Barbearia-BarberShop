@@ -13,8 +13,6 @@ public class Service {
     
     public Service() {}
 
-
-
 	public int getId() {
         return id;
     }

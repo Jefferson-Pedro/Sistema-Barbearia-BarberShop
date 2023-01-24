@@ -1,0 +1,23 @@
+
+CREATE DATABASE barbershop;
+
+CREATE TABLE `barbershop`.`usuario` (`id` INT(10) NOT NULL AUTO_INCREMENT , `nome` VARCHAR(50) NOT NULL , `sexo` VARCHAR(1) NOT NULL , `dataNasc` DATE NOT NULL , `tel` VARCHAR(10) NOT NULL , `email` VARCHAR(20) NOT NULL , `rg` VARCHAR(10) NOT NULL , `senha` VARCHAR(50) NOT NULL , `nivelAcesso` VARCHAR(10) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+CREATE TABLE `barbershop`.`service` (`id` INT(10) NOT NULL AUTO_INCREMENT , `descricao` VARCHAR(20) NOT NULL , `valor` FLOAT(10) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+CREATE TABLE `barbershop`.`cliente` (`id` INT(10) NOT NULL AUTO_INCREMENT , `nome` VARCHAR(50) NOT NULL , `sexo` VARCHAR(1) NOT NULL , `dataNasc` DATE NOT NULL , `tel` VARCHAR(10) NOT NULL , `email` VARCHAR(20) NOT NULL , `rg` VARCHAR(10) NOT NULL , `endereco` VARCHAR(50) NOT NULL , `cep` VARCHAR(8) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+CREATE TABLE `barbershop`.`agendamento` (`id` INT(10) NOT NULL AUTO_INCREMENT , `cliente` INT(10) NOT NULL , `servico` INT(10) NOT NULL , `valor` FLOAT(10) NOT NULL , `data` DATE NOT NULL , `observacao` TEXT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+ALTER TABLE `agendamento` ADD PRIMARY KEY (`id`), ADD KEY `fk_cliente_agendamento` (`cliente`), ADD KEY `fk_servico_agendamento` (`servico`);
+
+INSERT INTO `usuario`(`nome`, `sexo`, `dataNasc`, `tel`, `email`, `rg`, `senha`, `nivelAcesso`) VALUES ('barbeiro','M', "1996-05-09", "30212121", "barbeiro@barbershop.com", "521454123", "barbeiro", "administrador");
+INSERT INTO `usuario`(`nome`, `sexo`, `dataNasc`, `tel`, `email`, `rg`, `senha`, `nivelAcesso`) VALUES ("estagiario", 'M', "2000-06-16", "30212122", "estagiario@barbershop.com", "451244123", "estagiario", "funcionario");
+INSERT INTO `usuario`(`nome`, `sexo`, `dataNasc`, `tel`, `email`, `rg`, `senha`, `nivelAcesso`) VALUES ("teste", 'M', "2023-01-20", "30212122", "teste@teste.com", "451244123", "teste", "admin");
+
+
+INSERT INTO `service`(`descricao`, `valor`) VALUES ("Corte Simples", 18), ("Corte Degrade", 30), ("Barba Simples", 15),("Barba Desenhada", 25);
+
+INSERT INTO `cliente`(`nome`, `sexo`, `dataNasc`, `tel`, `email`, `rg`, `endereco`, `cep`) VALUES ("Alan Figueiredo", 'M', "1995-01-30", "30212126", "tiagoluz.h607@gmail.com", "5142487", "Rua jaboti 35 Canudos NH",  "93300012");
+INSERT INTO `cliente`(`nome`, `sexo`, `dataNasc`, `tel`, `email`, `rg`, `endereco`, `cep`) VALUES ("Paulo Ricado", 'M', "1997-04-21", "30212128", "pauloricardopet@gmail.com", "78451458", "Rua Tres Irmaos 30 Vila Nova - NH",  "933007496");
+INSERT INTO `cliente`(`nome`, `sexo`, `dataNasc`, `tel`, `email`, `rg`, `endereco`, `cep`) VALUES ("Judite Oliveira", 'F', "1994-08-18", "30212127", "juditeoliveirapet@gmail.com", "5142487745", "Rua campo bom 78 Centro NH",  "93300045");
+INSERT INTO `cliente`(`nome`, `sexo`, `dataNasc`, `tel`, `email`, `rg`, `endereco`, `cep`) VALUES ("Marta de Souza", 'F', "1993-03-25", "302121292", "martasouzapet@gmail.com", "4658237314", "Rua tesla 215 Canudos NH",  "93352012");
+INSERT INTO `cliente`(`nome`, `sexo`, `dataNasc`, `tel`, `email`, `rg`, `endereco`, `cep`) VALUES ("Marta de Souza", 'F', "2002-07-15", "302121292", "martasouzapet@gmail.com", "4658237314", "Rua tesla 215 Canudos NH",  "93352012");
+
+INSERT INTO `agendamento`(`cliente`, `servico`, `valor`, `data`, `observacao`) VALUES (1, 2, 30, "2023-01-20", "Observação para testes!"), (3, 4, 40, "2018-07-15", "Observação para testes!");

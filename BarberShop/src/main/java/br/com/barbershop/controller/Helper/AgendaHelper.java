@@ -7,7 +7,6 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 
 import br.com.barbershop.dto.AgendamentoDTO;
-import br.com.barbershop.model.Agendamento;
 import br.com.barbershop.model.Cliente;
 import br.com.barbershop.model.Service;
 import br.com.barbershop.view.Agenda;
@@ -58,6 +57,16 @@ public class AgendaHelper {
 			
 			comboBoxModel.addElement(service);
 		}
+	}
+
+	public Service obterServico() {
+		
+		//Pegando o item selecionado no JComboBox
+		return (Service) view.getJComboBoxServico().getSelectedItem();
+	}
+
+	public void setarValor(Service valorServico) {
+		view.getTextValor().setText(valorServico + "");
 	}
 	
 }

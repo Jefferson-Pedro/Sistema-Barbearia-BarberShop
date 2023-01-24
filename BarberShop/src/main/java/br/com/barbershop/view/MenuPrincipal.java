@@ -9,7 +9,7 @@ import br.com.barbershop.controller.MenuPrincipalController;
 
 /**
  *
- * @author tiago
+ * @author jefferson.silva
  */
 public class MenuPrincipal extends javax.swing.JFrame {
 

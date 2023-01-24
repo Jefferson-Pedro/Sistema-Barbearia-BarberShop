@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 import br.com.barbershop.model.Cliente;
 import br.com.barbershop.model.Service;
+import br.com.barbershop.model.Usuario;
 import br.com.barbershop.util.ConexaoBD;
 
 /**
@@ -27,7 +28,7 @@ public class ServiceDAO {
 
 	public ArrayList<Service> selectAll() {
 		
-		String sql = "SELECT * FROM servico"; 
+		String sql = "SELECT * FROM service"; 
     	
     	 
          ArrayList<Service> lista = new ArrayList<Service>();
@@ -54,4 +55,31 @@ public class ServiceDAO {
          }
          return lista;
       }
+	
+    //Busca usuario por Nome e Valor
+    public Service servicePrice(Service service) throws SQLException{
+        
+        String sql = "SELECT valor FROM service WHERE descricao = ?";
+        Service s = new Service();
+        
+        try {
+           conexao = ConexaoBD.conectaBD();
+           ps = conexao.prepareStatement(sql);
+           
+           ps.setString(1, service.getDescricao());
+           rs = ps.executeQuery();
+           
+           rs.next();
+           s.setValor(rs.getFloat("valor"));
+           
+           
+         } catch (SQLException ex) {
+            
+            System.err.println("Servico nao encontrado: "+ ex.getMessage());
+        } finally{
+        	ConexaoBD.fechaConexao(conexao, ps, rs);
+        }
+		return s;
+     }
+        
 }

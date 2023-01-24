@@ -65,11 +65,11 @@ public class Main {
     	ArrayList<Cliente>resposta = dao.selectAll();
     	System.out.println("resposta: " + resposta.toString());*/
     	
-    	Service s = new Service(1,"Corte Simples", 18);
+    	/*Service s = new Service(1,"Corte Simples", 18);
     	ServiceDAO dao = new ServiceDAO();
     	Service ser = dao.servicePrice(s);
     	
     	System.out.println("Objeto criado: " + s.toString());
-    	System.out.println("Objeto dao: " + ser.getValor());
+    	System.out.println("Objeto dao: " + ser.getValor());*/
     }
 }

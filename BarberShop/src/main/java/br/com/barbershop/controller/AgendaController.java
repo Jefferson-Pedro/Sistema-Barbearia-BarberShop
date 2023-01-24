@@ -69,10 +69,7 @@ public class AgendaController {
 		
 		//Retorna o que vem do banco
 		Service ValorServico = dao.servicePrice(TipoServico);
-		
-		System.out.println("Serviço retornado do BD: " + TipoServico);
-		System.out.println("Valor retornado do BD: " + ValorServico.toString());
-		
+				
 		helper.setarValor(ValorServico);
 	}
 }

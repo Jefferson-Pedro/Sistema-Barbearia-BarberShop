@@ -101,6 +101,9 @@ public class Cliente extends Pessoa{
 		return this.nome;
 	}
     
+	public Integer toId() {
+		return this.id;
+	}
     
     
     

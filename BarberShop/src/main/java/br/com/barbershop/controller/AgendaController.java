@@ -13,6 +13,7 @@ import br.com.barbershop.dao.AgendamentoDAO;
 import br.com.barbershop.dao.ClienteDAO;
 import br.com.barbershop.dao.ServiceDAO;
 import br.com.barbershop.dto.AgendamentoDTO;
+import br.com.barbershop.model.Agendamento;
 import br.com.barbershop.model.Cliente;
 import br.com.barbershop.model.Service;
 import br.com.barbershop.view.Agenda;
@@ -71,5 +72,11 @@ public class AgendaController {
 		Service ValorServico = dao.servicePrice(TipoServico);
 				
 		helper.setarValor(ValorServico);
+	}
+	
+	public void agendarCliente() {
+		//Buscar Objeto Agendamento da Tela
+		
+		//Salvar Objeto no BD
 	}
 }

@@ -41,4 +41,8 @@ public class Service {
 	public String toString() {
 		return getDescricao();
 	}
+	
+	public Integer toId() {
+		return this.getId();
+	}
 }

@@ -113,7 +113,7 @@ public class UsuarioDAO {
         return (Boolean) null;
      }
         
-     //Salva a tarefa
+     //Salva a usuario
      public Usuario save(Usuario usuario) throws SQLException {
 
         String sql = "INSERT INTO usuario ("
@@ -189,6 +189,7 @@ public class UsuarioDAO {
          }
     }
     
+    //Deleta usuario do BD
     public void deleteById(int idUsuario) throws SQLException {
     		
     	 String sql = "DELETE FROM usuario WHERE id = ?";

@@ -178,8 +178,8 @@ public class Agenda extends javax.swing.JFrame {
     }//GEN-LAST:event_TextIdActionPerformed
 
     private void ButtonAgendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAgendarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ButtonAgendarActionPerformed
+       this.controller.agendarCliente();
+    }
 
     private void TextValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextValorActionPerformed
         // TODO add your handling code here:
@@ -286,6 +286,38 @@ public class Agenda extends javax.swing.JFrame {
     public void setTextValor(JTextField textValor) {
 		this.TextValor = textValor;
     }
+
+	public javax.swing.JTextField getTextId() {
+		return TextId;
+	}
+
+	public void setTextId(javax.swing.JTextField textId) {
+		TextId = textId;
+	}
+
+	public javax.swing.JFormattedTextField getTextFormatedData() {
+		return TextFormatedData;
+	}
+
+	public void setTextFormatedData(javax.swing.JFormattedTextField textFormatedData) {
+		TextFormatedData = textFormatedData;
+	}
+
+	public javax.swing.JFormattedTextField getTextFormatedHora() {
+		return TextFormatedHora;
+	}
+
+	public void setTextFormatedHora(javax.swing.JFormattedTextField textFormatedHora) {
+		TextFormatedHora = textFormatedHora;
+	}
+
+	public javax.swing.JTextArea getTextObservacao() {
+		return TextObservacao;
+	}
+
+	public void setTextObservacao(javax.swing.JTextArea textObservacao) {
+		TextObservacao = textObservacao;
+	}
     
     
     

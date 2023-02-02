@@ -14,17 +14,16 @@ public class Agendamento {
     private Date data;
     private String observacao;
 
-    public Agendamento(int id, String cliente, String servico, float valor, String data) {
+    public Agendamento(int id, Cliente cliente, Service servico, float valor, String data) {
         this.id = id;
-        this.cliente = cliente;
-        this.servico = servico;
+        this.cliente = cliente.getNome();
+        this.servico = servico.getDescricao();
         this.valor = valor;
         try {
             this.data = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(data);
         } catch (ParseException ex) {
             Logger.getLogger(Agendamento.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
     }
 
     public Agendamento() {}
@@ -57,8 +56,8 @@ public class Agendamento {
         return servico;
     }
 
-    public void setServico(String string) {
-        this.servico = string;
+    public void setServico(String servico) {
+        this.servico = servico;
     }
 
     public float getValor() {

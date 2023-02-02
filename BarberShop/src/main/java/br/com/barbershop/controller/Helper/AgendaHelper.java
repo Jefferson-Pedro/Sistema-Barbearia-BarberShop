@@ -1,17 +1,20 @@
 package br.com.barbershop.controller.Helper;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 
+import br.com.barbershop.dao.AgendamentoDAO;
 import br.com.barbershop.dto.AgendamentoDTO;
+import br.com.barbershop.model.Agendamento;
 import br.com.barbershop.model.Cliente;
 import br.com.barbershop.model.Service;
 import br.com.barbershop.view.Agenda;
 
-public class AgendaHelper {
+public class AgendaHelper implements IHelper {
 	
 	private final Agenda view;
 	
@@ -58,6 +61,12 @@ public class AgendaHelper {
 			comboBoxModel.addElement(service);
 		}
 	}
+	
+	public Cliente obterCliente() {
+		
+		//Pegando o item selecionado no JComboBox
+		return (Cliente) view.getJComboBoxCliente().getSelectedItem();
+	}
 
 	public Service obterServico() {
 		
@@ -67,6 +76,35 @@ public class AgendaHelper {
 
 	public void setarValor(Service valorServico) {
 		view.getTextValor().setText(valorServico.getValor() + "");
+	}
+	
+
+	@Override
+	public Object obterModelo() {
+		
+		AgendamentoDAO novoAgendamento = new AgendamentoDAO();
+		
+		
+		Cliente clienteObj = obterCliente(); //Paulo Ricardo | ID - 2
+		Service servicoObj = obterServico();//Corte Simples | ID - 1
+		
+		int idCliente = clienteObj.toId(); //Converto o obj em int
+		int idServico = servicoObj.getId(); //Converto o obj em int
+		float valor = Float.parseFloat(view.getTextValor().getText());
+		String data = view.getTextFormatedData().getText();
+		String hora = view.getTextFormatedHora().getText();
+		String dataHora = data + "" + hora;
+		String obs = view.getTextObservacao().getText();
+		
+		//novoAgendamento.save(idCliente, idServico, valor, data, obs);
+		
+		return null;
+	}
+
+	@Override
+	public void limparTela() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

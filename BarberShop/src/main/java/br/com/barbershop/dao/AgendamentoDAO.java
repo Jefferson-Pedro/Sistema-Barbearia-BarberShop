@@ -31,6 +31,7 @@ public class AgendamentoDAO {
 	 private PreparedStatement ps = null;
 	 private ResultSet rs = null;
 
+	 
     public ArrayList<AgendamentoDTO> selectAll() {
     	
     	 String sql = //"SELECT * FROM agendamento"; 
@@ -50,7 +51,7 @@ public class AgendamentoDAO {
              while(rs.next()){
                 AgendamentoDTO a = new AgendamentoDTO(); 
                 a.setId(rs.getInt("id"));
-                a.setCliente(rs.getString("nome"));
+                a.setCliente(rs.getString("nome"));;
                 a.setServico(rs.getString("descricao"));
                 a.setValor(rs.getFloat("valor"));
                 a.setData(rs.getDate("data"));
@@ -67,4 +68,73 @@ public class AgendamentoDAO {
          }
          return lista;
       }
+    	
+  //Salva o agendamento
+    public void save(Agendamento agendamento) throws SQLException {
+
+       String sql = "INSERT INTO agendamento ("
+               + "cliente,"
+               + "servico,"
+               + "valor,"
+               + "data,"
+               + "observacao) VALUES (?,?,?,?,?)";
+
+       try {
+           conexao = ConexaoBD.conectaBD();
+           ps = conexao.prepareStatement(sql);
+           
+           ps.setObject(1, agendamento.getCliente());
+           ps.setObject(2, agendamento.getServico());
+           ps.setFloat(3, agendamento.getValor());
+           ps.setDate(4, new Date(agendamento.getData().getTime()));
+           ps.setString(5, agendamento.getObservacao());
+           
+           ps.execute();
+           System.out.println("Agendamento salvo com sucesso!");
+           
+       } catch (Exception e) {
+           throw new RuntimeException("Erro ao agendar; " + e.getMessage(), e);
+       } finally {
+           ConexaoBD.fechaConexao(conexao, ps);
+       }
+       
+   }
+   
+   /*public void update(Usuario usuario) throws SQLException {
+   	
+   	 String sql = "UPDATE usuario SET "
+   			  + "nome = ?,"
+                 + "sexo = ?,"
+                 + "dataNasc = ?,"
+                 + "tel = ?,"
+                 + "email = ?,"
+                 + "rg = ?,"
+                 + "senha = ?,"
+                 + "nivelAcesso = ?"
+                 + "WHERE usuario.id = ?"; 
+   	 
+   	 try {
+            conexao = ConexaoBD.conectaBD();
+            ps = conexao.prepareStatement(sql);
+            
+            ps.setString(1, usuario.getNome());
+            ps.setString(2, usuario.getSexo());
+            ps.setDate(3, new Date(usuario.getDataNasc().getTime()));
+            ps.setString(4, usuario.getTel());
+            ps.setString(5, usuario.getEmail());
+            ps.setString(6, usuario.getRg());
+            ps.setString(7, usuario.getSenha());
+            ps.setString(8, usuario.getNivelAcesso());
+            ps.setInt(9, usuario.getId());
+            
+            ps.execute();
+            System.out.println("Usuario atualizado com sucesso!");
+            
+        } catch (Exception e) {
+            throw new RuntimeException("Erro ao atualizar os dados do usuário; " + e.getMessage(), e);
+        } finally {
+            ConexaoBD.fechaConexao(conexao, ps);
+        }
+   }*/
+   
 }

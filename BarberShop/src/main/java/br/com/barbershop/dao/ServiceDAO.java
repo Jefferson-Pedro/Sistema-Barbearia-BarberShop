@@ -26,6 +26,7 @@ public class ServiceDAO {
 	private PreparedStatement ps = null;
 	private ResultSet rs = null;
 
+	//Retorna todos os serviços
 	public ArrayList<Service> selectAll() {
 		
 		String sql = "SELECT * FROM service"; 
@@ -43,6 +44,7 @@ public class ServiceDAO {
             	 
                 Service s = new Service(); 
                 
+                s.setId(rs.getInt("id"));
                 s.setDescricao(rs.getString("descricao"));
                
                 lista.add(s);
@@ -56,7 +58,7 @@ public class ServiceDAO {
          return lista;
       }
 	
-    //Busca usuario por Nome e Valor
+    //Busca valor do serviço pelo nome
     public Service servicePrice(Service service) throws SQLException{
         
         String sql = "SELECT valor FROM service WHERE descricao = ?";

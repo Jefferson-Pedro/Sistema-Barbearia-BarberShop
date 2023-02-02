@@ -4,12 +4,16 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import br.com.barbershop.model.Agendamento;
+import br.com.barbershop.model.Cliente;
+import br.com.barbershop.model.Service;
 
 public class AgendamentoDTO {
 
 	private int id;
 	private String cliente;
 	private String servico;
+	private int idCliente;
+	private int idServico;
 	private float valor;
 	private Date data;
 	private String observacao;
@@ -26,6 +30,17 @@ public class AgendamentoDTO {
 		this.data = agendamento.getData();
 		this.observacao = agendamento.getObservacao();
 	}
+	
+	/*public Object agendamento (int id, Cliente cliente, Service servico, float valor, String data, String observacao) {
+		
+		this.id = id;
+		this.idCliente = cliente.getId();
+		this.idServico = servico.getId();
+		this.valor = valor;
+		this.data = getData();
+		this.observacao = observacao;
+		return null;
+	}*/
 
 	public String getDataFormatada() {
 		return new SimpleDateFormat("dd/MM/yyyy").format(data);

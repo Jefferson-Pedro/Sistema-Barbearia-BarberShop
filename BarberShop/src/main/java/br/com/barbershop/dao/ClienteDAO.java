@@ -41,8 +41,9 @@ public class ClienteDAO {
              while(rs.next()){
                 Cliente c = new Cliente(); 
                 
+                c.setId(rs.getInt("id"));
                 c.setNome(rs.getString("nome"));
-               
+                               
                 lista.add(c);
              }
 

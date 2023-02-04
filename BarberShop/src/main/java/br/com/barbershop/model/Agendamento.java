@@ -8,22 +8,23 @@ import java.util.logging.Logger;
 
 public class Agendamento {
     private int id;
-    private String cliente;
-    private String servico;
+    private Integer cliente;
+    private Integer servico;
     private float valor;
     private Date data;
     private String observacao;
 
-    public Agendamento(int id, Cliente cliente, Service servico, float valor, String data) {
+    public Agendamento(int id, int cliente, int servico, float valor, String data, String obs) {
         this.id = id;
-        this.cliente = cliente.getNome();
-        this.servico = servico.getDescricao();
+        this.cliente = cliente;
+        this.servico = servico;
         this.valor = valor;
         try {
-            this.data = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(data);
+            this.data = new SimpleDateFormat("dd/MM/yyyy").parse(data);
         } catch (ParseException ex) {
             Logger.getLogger(Agendamento.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.observacao = obs;
     }
 
     public Agendamento() {}
@@ -44,19 +45,19 @@ public class Agendamento {
 		this.id = i;
 	}
 
-	public String getCliente() {
+	public Integer getCliente() {
         return cliente;
     }
 
-    public void setCliente(String cliente) {
+    public void setCliente(Integer cliente) {
         this.cliente = cliente;
     }
 
-    public String getServico() {
+    public Integer getServico() {
         return servico;
     }
 
-    public void setServico(String servico) {
+    public void setServico(Integer servico) {
         this.servico = servico;
     }
 

@@ -74,9 +74,18 @@ public class AgendaController {
 		helper.setarValor(ValorServico);
 	}
 	
-	public void agendarCliente() {
+	public void agendarCliente() throws SQLException {
+		
+		AgendamentoDAO dao = new AgendamentoDAO();
+		
 		//Buscar Objeto Agendamento da Tela
+		Agendamento agendamento = (Agendamento) helper.obterAgendamento();
 		
 		//Salvar Objeto no BD
+		dao.save(agendamento);
+		
+		//Inserir elemento na tabela
+		this.atualizaTabela();
+		helper.limparTela();
 	}
 }

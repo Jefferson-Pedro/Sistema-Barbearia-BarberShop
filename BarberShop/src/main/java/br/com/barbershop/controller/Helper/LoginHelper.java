@@ -25,7 +25,7 @@ public class LoginHelper implements IHelper {
     }
 
 	@Override
-	public Object obterModelo() {
+	public Object obterAgendamento() {
 		// TODO Auto-generated method stub
 		return null;
 	}

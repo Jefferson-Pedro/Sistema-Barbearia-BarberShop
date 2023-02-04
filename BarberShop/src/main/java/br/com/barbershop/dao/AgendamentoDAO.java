@@ -11,6 +11,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.swing.JOptionPane;
+
 import java.sql.Date;
 
 import br.com.barbershop.dto.AgendamentoDTO;
@@ -83,16 +86,18 @@ public class AgendamentoDAO {
            conexao = ConexaoBD.conectaBD();
            ps = conexao.prepareStatement(sql);
            
-           ps.setObject(1, agendamento.getCliente());
-           ps.setObject(2, agendamento.getServico());
+           ps.setInt(1, agendamento.getCliente());
+           ps.setInt(2, agendamento.getServico());
            ps.setFloat(3, agendamento.getValor());
            ps.setDate(4, new Date(agendamento.getData().getTime()));
            ps.setString(5, agendamento.getObservacao());
            
            ps.execute();
+           JOptionPane.showMessageDialog(null, "Agendamento salvo com sucesso!");
            System.out.println("Agendamento salvo com sucesso!");
            
        } catch (Exception e) {
+    	   JOptionPane.showMessageDialog(null, "\"Erro ao agendar cliente");
            throw new RuntimeException("Erro ao agendar; " + e.getMessage(), e);
        } finally {
            ConexaoBD.fechaConexao(conexao, ps);

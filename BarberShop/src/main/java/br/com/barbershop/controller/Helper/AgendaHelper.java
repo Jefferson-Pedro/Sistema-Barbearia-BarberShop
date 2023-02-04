@@ -1,5 +1,6 @@
 package br.com.barbershop.controller.Helper;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -80,30 +81,33 @@ public class AgendaHelper implements IHelper {
 	
 
 	@Override
-	public Object obterModelo() {
+	public Object obterAgendamento() {
 		
-		AgendamentoDAO novoAgendamento = new AgendamentoDAO();
-		
-		
+			
 		Cliente clienteObj = obterCliente(); //Paulo Ricardo | ID - 2
 		Service servicoObj = obterServico();//Corte Simples | ID - 1
 		
+		Integer id = Integer.parseInt(view.getTextId().getText());
 		int idCliente = clienteObj.toId(); //Converto o obj em int
 		int idServico = servicoObj.getId(); //Converto o obj em int
 		float valor = Float.parseFloat(view.getTextValor().getText());
-		String data = view.getTextFormatedData().getText();
+		//String data = view.getTextFormatedData().getText();
+		String data = view.getTxtData().getText();
 		String hora = view.getTextFormatedHora().getText();
 		String dataHora = data + "" + hora;
 		String obs = view.getTextObservacao().getText();
 		
-		//novoAgendamento.save(idCliente, idServico, valor, data, obs);
-		
-		return null;
+		Agendamento agendamento = new Agendamento(id, idCliente, idServico, valor, data, obs);
+				
+		return agendamento;
 	}
 
 	@Override
 	public void limparTela() {
-		// TODO Auto-generated method stub
+		view.getTextId().setText("0");
+		view.getTxtData().setText("");
+		view.getTextFormatedHora().setText("");
+		view.getTextObservacao().setText("");
 		
 	}
 	

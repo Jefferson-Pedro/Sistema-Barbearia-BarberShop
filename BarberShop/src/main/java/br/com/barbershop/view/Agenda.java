@@ -8,8 +8,11 @@ package br.com.barbershop.view;
 import br.com.barbershop.controller.AgendaController;
 
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
 import javax.swing.JTextField;
 
 /**
@@ -38,6 +41,7 @@ public class Agenda extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtData = new javax.swing.JFormattedTextField();
         LabelAgenda = new javax.swing.JLabel();
         LabelId = new javax.swing.JLabel();
         LabelCliente = new javax.swing.JLabel();
@@ -50,7 +54,6 @@ public class Agenda extends javax.swing.JFrame {
         JComboBoxCliente = new javax.swing.JComboBox<>();
         JComboBoxServico = new javax.swing.JComboBox<>();
         TextValor = new javax.swing.JTextField();
-        TextFormatedData = new javax.swing.JFormattedTextField();
         TextFormatedHora = new javax.swing.JFormattedTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         TextObservacao = new javax.swing.JTextArea();
@@ -62,6 +65,13 @@ public class Agenda extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        try {
+            txtData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        getContentPane().add(txtData, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 470, 280, 40));
 
         LabelAgenda.setFont(new java.awt.Font("Liberation Sans", 1, 36)); // NOI18N
         LabelAgenda.setForeground(new java.awt.Color(255, 255, 255));
@@ -129,9 +139,6 @@ public class Agenda extends javax.swing.JFrame {
         });
         getContentPane().add(TextValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 410, 280, 40));
 
-        TextFormatedData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
-        getContentPane().add(TextFormatedData, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 470, 280, 40));
-
         TextFormatedHora.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getTimeInstance(java.text.DateFormat.SHORT))));
         getContentPane().add(TextFormatedHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 530, 280, 40));
 
@@ -147,7 +154,12 @@ public class Agenda extends javax.swing.JFrame {
         ButtonAgendar.setText("Agendar");
         ButtonAgendar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonAgendarActionPerformed(evt);
+                try {
+					ButtonAgendarActionPerformed(evt);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
             }
         });
         getContentPane().add(ButtonAgendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 520, 610, 50));
@@ -162,7 +174,7 @@ public class Agenda extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(TableAgendamentos);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 590, 1120, 260));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 590, 1120, 210));
 
         LabelAgendaPainelFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Telas/Agenda-PainelFundo.png"))); // NOI18N
         getContentPane().add(LabelAgendaPainelFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 1000));
@@ -177,7 +189,7 @@ public class Agenda extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TextIdActionPerformed
 
-    private void ButtonAgendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAgendarActionPerformed
+    private void ButtonAgendarActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {                                              
        this.controller.agendarCliente();
     }
 
@@ -239,13 +251,13 @@ public class Agenda extends javax.swing.JFrame {
     private javax.swing.JLabel LabelServico;
     private javax.swing.JLabel LabelValor;
     private javax.swing.JTable TableAgendamentos;
-    private javax.swing.JFormattedTextField TextFormatedData;
     private javax.swing.JFormattedTextField TextFormatedHora;
     private javax.swing.JTextField TextId;
     private javax.swing.JTextArea TextObservacao;
     private javax.swing.JTextField TextValor;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JFormattedTextField txtData;
     // End of variables declaration//GEN-END:variables
 
     private void iniciar() {
@@ -295,12 +307,12 @@ public class Agenda extends javax.swing.JFrame {
 		TextId = textId;
 	}
 
-	public javax.swing.JFormattedTextField getTextFormatedData() {
-		return TextFormatedData;
+	public javax.swing.JFormattedTextField getTxtData() {
+		return txtData;
 	}
 
-	public void setTextFormatedData(javax.swing.JFormattedTextField textFormatedData) {
-		TextFormatedData = textFormatedData;
+	public void setTxtData(javax.swing.JFormattedTextField txtData) {
+		this.txtData = txtData;
 	}
 
 	public javax.swing.JFormattedTextField getTextFormatedHora() {

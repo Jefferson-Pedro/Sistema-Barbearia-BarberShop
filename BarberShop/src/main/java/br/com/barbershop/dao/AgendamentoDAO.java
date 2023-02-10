@@ -37,8 +37,8 @@ public class AgendamentoDAO {
 	 
     public ArrayList<AgendamentoDTO> selectAll() {
     	
-    	 String sql = //"SELECT * FROM agendamento"; 
-    	 "SELECT agendamento.id, cliente.nome, service.descricao, service.valor, agendamento.data, agendamento.observacao "
+    	 String sql = 
+    	 "SELECT agendamento.id, cliente.id, cliente.nome, service.descricao, service.valor, agendamento.data, agendamento.observacao "
     	 + "FROM agendamento "
     	 + "INNER JOIN cliente ON cliente.id=agendamento.cliente "
     	 + "INNER JOIN service ON service.id=agendamento.servico";
@@ -54,7 +54,8 @@ public class AgendamentoDAO {
              while(rs.next()){
                 AgendamentoDTO a = new AgendamentoDTO(); 
                 a.setId(rs.getInt("id"));
-                a.setCliente(rs.getString("nome"));;
+  //              a.setIdCliente(rs.getInt("idCliente"));
+                a.setCliente(rs.getString("nome"));
                 a.setServico(rs.getString("descricao"));
                 a.setValor(rs.getFloat("valor"));
                 a.setData(rs.getDate("data"));
@@ -86,8 +87,8 @@ public class AgendamentoDAO {
            conexao = ConexaoBD.conectaBD();
            ps = conexao.prepareStatement(sql);
            
-           ps.setInt(1, agendamento.getCliente());
-           ps.setInt(2, agendamento.getServico());
+           ps.setInt(1, agendamento.getIdCliente());
+           ps.setInt(2, agendamento.getIdServico());
            ps.setFloat(3, agendamento.getValor());
            ps.setDate(4, new Date(agendamento.getData().getTime()));
            ps.setString(5, agendamento.getObservacao());

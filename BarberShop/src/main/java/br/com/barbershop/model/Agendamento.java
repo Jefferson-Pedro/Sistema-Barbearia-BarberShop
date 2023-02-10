@@ -8,16 +8,16 @@ import java.util.logging.Logger;
 
 public class Agendamento {
     private int id;
-    private Integer cliente;
-    private Integer servico;
+    private Integer idCliente;
+    private Integer idServico;
     private float valor;
     private Date data;
     private String observacao;
 
-    public Agendamento(int id, int cliente, int servico, float valor, String data, String obs) {
+    public Agendamento(int id, int idCliente, int idServico, float valor, String data, String obs) {
         this.id = id;
-        this.cliente = cliente;
-        this.servico = servico;
+        this.idCliente = idCliente;
+        this.idServico = idServico;
         this.valor = valor;
         try {
             this.data = new SimpleDateFormat("dd/MM/yyyy").parse(data);
@@ -45,20 +45,20 @@ public class Agendamento {
 		this.id = i;
 	}
 
-	public Integer getCliente() {
-        return cliente;
+	public Integer getIdCliente() {
+        return idCliente;
     }
 
-    public void setCliente(Integer cliente) {
-        this.cliente = cliente;
+    public void setIdCliente(Integer idCliente) {
+        this.idCliente = idCliente;
     }
 
-    public Integer getServico() {
-        return servico;
+    public Integer getIdServico() {
+        return idServico;
     }
 
-    public void setServico(Integer servico) {
-        this.servico = servico;
+    public void setServico(Integer idServico) {
+        this.idServico = idServico;
     }
 
     public float getValor() {

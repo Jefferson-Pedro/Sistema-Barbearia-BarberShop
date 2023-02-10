@@ -29,7 +29,6 @@ public class ClienteDAO {
 	    	
     	 String sql = "SELECT * FROM cliente"; 
     	
-    	 
          ArrayList<Cliente> lista = new ArrayList<Cliente>();
             
          try {
@@ -43,6 +42,7 @@ public class ClienteDAO {
                 
                 c.setId(rs.getInt("id"));
                 c.setNome(rs.getString("nome"));
+                c.setEmail(rs.getNString("email"));
                                
                 lista.add(c);
              }
@@ -54,4 +54,29 @@ public class ClienteDAO {
          }
          return lista;
       }
+	 
+	 public Cliente findById(Cliente cliente) {
+		 
+		  String sql = "SELECT nome FROM cliente WHERE id = ?";
+	      Cliente c = new Cliente();
+	        
+	        try {
+	           conexao = ConexaoBD.conectaBD();
+	           ps = conexao.prepareStatement(sql);
+	           
+	           ps.setInt(1, cliente.getId());
+	           rs = ps.executeQuery();
+	           
+	           rs.next();
+	           c.setId(rs.getInt("id"));
+	           
+	           
+	         } catch (SQLException ex) {
+	            
+	            System.err.println("Cliente nao encontrado: "+ ex.getMessage());
+	        } finally{
+	        	ConexaoBD.fechaConexao(conexao, ps, rs);
+	        }
+			return c;
+	     }
 }

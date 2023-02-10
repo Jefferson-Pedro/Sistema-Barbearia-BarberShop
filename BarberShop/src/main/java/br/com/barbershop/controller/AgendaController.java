@@ -16,6 +16,7 @@ import br.com.barbershop.dto.AgendamentoDTO;
 import br.com.barbershop.model.Agendamento;
 import br.com.barbershop.model.Cliente;
 import br.com.barbershop.model.Service;
+import br.com.barbershop.service.Correio;
 import br.com.barbershop.view.Agenda;
 
 /**
@@ -39,6 +40,17 @@ public class AgendaController {
 
 		// Exibe a lista na view
 		helper.preencherTabela(agendamento);
+	}
+	
+	public void atualizaIdCliente() {
+		ClienteDAO dao = new ClienteDAO();
+		
+		//Retorna o que está na View (Nome e ID)
+		Cliente cliente = helper.obterCliente();
+				
+		helper.setarIdCliente(cliente.getId());
+		
+		System.out.println(cliente.toId());
 	}
 
 	public void atualizaCliente() {
@@ -66,7 +78,7 @@ public class AgendaController {
 		ServiceDAO dao = new ServiceDAO();
 		
 		//Retorna o que está na View
-		Service TipoServico = helper.obterServico(); //Corte Simples
+		Service TipoServico = helper.obterServico(); 
 		
 		//Retorna o que vem do banco
 		Service ValorServico = dao.servicePrice(TipoServico);
@@ -87,5 +99,10 @@ public class AgendaController {
 		//Inserir elemento na tabela
 		this.atualizaTabela();
 		helper.limparTela();
+		
+		//Enviar email
+		Correio correio = new Correio();
+		correio.notificarPorEmail(agendamento);
+		
 	}
 }

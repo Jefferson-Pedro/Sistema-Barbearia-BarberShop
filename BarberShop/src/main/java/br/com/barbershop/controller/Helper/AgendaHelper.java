@@ -29,7 +29,6 @@ public class AgendaHelper implements IHelper {
 		tableModel.setNumRows(0);
 		
 		//Percorrer a lista preenchendo o table model
-		
 		for (AgendamentoDTO agendamento : agendamentos) {
 			
 			tableModel.addRow(new Object[] {
@@ -52,7 +51,7 @@ public class AgendaHelper implements IHelper {
 			comboBoxModel.addElement(cliente);
 		}
 	}
-
+	
 	public void preencherServicos(ArrayList<Service> servicos) {
 		
 		DefaultComboBoxModel comboBoxModel = (DefaultComboBoxModel) view.getJComboBoxServico().getModel();
@@ -77,6 +76,10 @@ public class AgendaHelper implements IHelper {
 
 	public void setarValor(Service valorServico) {
 		view.getTextValor().setText(valorServico.getValor() + "");
+	}
+	
+	public void setarIdCliente(int i) {
+		view.getTextId().setText(i + "");
 	}
 	
 
@@ -109,6 +112,5 @@ public class AgendaHelper implements IHelper {
 		view.getTextFormatedHora().setText("");
 		view.getTextObservacao().setText("");
 		
-	}
-	
+	}	
 }

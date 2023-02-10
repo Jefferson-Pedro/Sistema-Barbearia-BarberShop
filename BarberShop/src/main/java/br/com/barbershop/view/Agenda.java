@@ -116,6 +116,11 @@ public class Agenda extends javax.swing.JFrame {
         });
         getContentPane().add(TextId, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 280, 40));
 
+        JComboBoxCliente.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                JComboBoxClienteItemStateChanged(evt);
+            }
+        });
         getContentPane().add(JComboBoxCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, 280, 40));
 
         JComboBoxServico.addItemListener(new java.awt.event.ItemListener() {
@@ -186,7 +191,7 @@ public class Agenda extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void TextIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextIdActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_TextIdActionPerformed
 
     private void ButtonAgendarActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {                                              
@@ -196,6 +201,10 @@ public class Agenda extends javax.swing.JFrame {
     private void TextValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextValorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TextValorActionPerformed
+
+    private void JComboBoxClienteItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_JComboBoxClienteItemStateChanged
+        this.controller.atualizaIdCliente();
+    }//GEN-LAST:event_JComboBoxClienteItemStateChanged
 
     private void JComboBoxServicoItemStateChanged(java.awt.event.ItemEvent evt) throws SQLException {
       this.controller.atualizaValor();
@@ -264,7 +273,7 @@ public class Agenda extends javax.swing.JFrame {
         this.controller.atualizaTabela();
         this.controller.atualizaCliente();
         this.controller.atualizaServico();
-        //this.controller.atualizaValor();
+        this.controller.atualizaIdCliente();
     }
 
 	public javax.swing.JTable getTableAgendamentos() {
@@ -331,6 +340,7 @@ public class Agenda extends javax.swing.JFrame {
 		TextObservacao = textObservacao;
 	}
     
+	
     
     
 }

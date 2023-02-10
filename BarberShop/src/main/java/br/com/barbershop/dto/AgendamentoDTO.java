@@ -11,9 +11,8 @@ public class AgendamentoDTO {
 
 	private int id;
 	private String cliente;
+	private String email;
 	private String servico;
-	//private int idCliente;
-	//private int idServico;
 	private float valor;
 	private Date data;
 	private String observacao;
@@ -23,12 +22,10 @@ public class AgendamentoDTO {
 	
 	public String getDataFormatada() {
 		return new SimpleDateFormat("dd/MM/yyyy").format(data);
-
 	}
 
 	public String getHoraFormatada() {
 		return new SimpleDateFormat("HH:mm").format(data);
-
 	}
 
 	public int getId() {
@@ -38,7 +35,7 @@ public class AgendamentoDTO {
 	public void setId(int id) {
 		this.id = id;
 	}
-
+	
 	public String getCliente() {
 		return cliente;
 	}
@@ -47,6 +44,14 @@ public class AgendamentoDTO {
 		this.cliente = cliente;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
 	public String getServico() {
 		return servico;
 	}
@@ -78,5 +83,4 @@ public class AgendamentoDTO {
 	public void setObservacao(String observacao) {
 		this.observacao = observacao;
 	}
-
 }

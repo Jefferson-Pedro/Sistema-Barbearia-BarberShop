@@ -1,12 +1,7 @@
 package br.com.barbershop.service;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 import org.apache.commons.mail.DefaultAuthenticator;
+import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.SimpleEmail;
 
 import br.com.barbershop.dao.AgendamentoDAO;
@@ -26,11 +21,11 @@ public class Email {
 		this.emailDestinatario = emailDestinatario;
 		this.emailRemetente = emailRemetente;
 		this.corpoMsg = corpoMsg;
-
+		this.email = new SimpleEmail();
 	}
 
 	// Configurando o email
-	public void enviar() {
+	public void enviar() throws EmailException {
 		
 		email.setHostName("smtp.gmail.com");
 		email.setSmtpPort(465);
@@ -38,9 +33,9 @@ public class Email {
 		email.setSSLOnConnect(true);
 
 		try {
-			email.setFrom(emailDestinatario);
-			email.setSubject("Agendamento concluido");
-			email.setMsg("Seu agendamento foi concluido com sucesso!");
+			email.setFrom(this.emailDestinatario);
+			email.setSubject(this.assunto);
+			email.setMsg(this.corpoMsg);
 			email.addTo(emailDestinatario);
 			email.send();
 			System.out.println("Email enviado com sucesso!");

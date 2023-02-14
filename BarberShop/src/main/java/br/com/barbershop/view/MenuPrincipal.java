@@ -47,7 +47,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         LabelFundoMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Telas/fundo-MenuPrincipal.jpg"))); // NOI18N
-        getContentPane().add(LabelFundoMenuPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 1000));
+        getContentPane().add(LabelFundoMenuPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1140, 640));
 
         MenuCadastro.setText("  Cadastro  ");
         MenuCadastro.setActionCommand("Cadastro  ");
@@ -110,17 +110,17 @@ public class MenuPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void MenuItemClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MenuItemClienteActionPerformed
+    private void MenuItemClienteActionPerformed(java.awt.event.ActionEvent evt) {                                                
+        this.controller.navegarParaCadastroCliente();
+    }
 
     private void MenuItemRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemRelatorioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_MenuItemRelatorioActionPerformed
 
-    private void MenuItemAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemAgendaActionPerformed
+    private void MenuItemAgendaActionPerformed(java.awt.event.ActionEvent evt) {                                               
         this.controller.navegarParaAgenda();
-    }//GEN-LAST:event_MenuItemAgendaActionPerformed
+    }
 
     /**
      * @param args the command line arguments

@@ -1,12 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.barbershop.controller;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+
+import org.apache.commons.mail.EmailException;
 
 import br.com.barbershop.controller.Helper.AgendaHelper;
 import br.com.barbershop.dao.AgendamentoDAO;
@@ -49,8 +46,7 @@ public class AgendaController {
 		Cliente cliente = helper.obterCliente();
 				
 		helper.setarIdCliente(cliente.getId());
-		
-		System.out.println(cliente.toId());
+
 	}
 
 	public void atualizaCliente() {
@@ -86,7 +82,7 @@ public class AgendaController {
 		helper.setarValor(ValorServico);
 	}
 	
-	public void agendarCliente() throws SQLException {
+	public void agendarCliente() throws SQLException, EmailException {
 		
 		AgendamentoDAO dao = new AgendamentoDAO();
 		
@@ -103,6 +99,5 @@ public class AgendaController {
 		//Enviar email
 		Correio correio = new Correio();
 		correio.notificarPorEmail(agendamento);
-		
 	}
 }

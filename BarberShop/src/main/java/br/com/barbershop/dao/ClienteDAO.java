@@ -6,10 +6,14 @@
 package br.com.barbershop.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
 
 import br.com.barbershop.model.Cliente;
 import br.com.barbershop.util.ConexaoBD;
@@ -24,8 +28,9 @@ public class ClienteDAO {
 	private Connection conexao = null;
 	private PreparedStatement ps = null;
 	private ResultSet rs = null;
+	
     
-	 public ArrayList<Cliente> selectAll() {
+	public ArrayList<Cliente> selectAll() {
 	    	
     	 String sql = "SELECT * FROM cliente"; 
     	
@@ -79,4 +84,44 @@ public class ClienteDAO {
 	        }
 			return c;
 	     }
+
+	public void save(Cliente cliente) throws ParseException {
+		
+		 String sql = "INSERT INTO cliente ("
+	                + "nome,"
+	                + "sexo, "
+	                + "dataNasc,"
+	                + "tel,"
+	                + "email,"
+	                + "rg,"
+	                + "endereco,"
+	                + "cep) VALUES (?,?,?,?,?,?,?,?)";
+
+	        try {
+	        	 conexao = ConexaoBD.conectaBD();
+	             ps = conexao.prepareStatement(sql);
+		           
+		         ps.setString(1, cliente.getNome());
+		         ps.setString(2, cliente.getSexo());
+		         ps.setDate(3, new Date(cliente.getDataNasc().getTime()));
+		         ps.setString(4, cliente.getTel());
+		         ps.setString(5, cliente.getEmail());
+		         ps.setString(6, cliente.getRg());
+		         ps.setString(7, cliente.getEndereco());
+		         ps.setString(8, cliente.getCep());
+		         
+		     
+		         ps.execute();
+		         JOptionPane.showMessageDialog(null, "Cliente salvo com sucesso!");
+		         System.out.println("Cliente salvo com sucesso!");
+
+	        } catch (Exception e) {
+	     	   JOptionPane.showMessageDialog(null, "Erro ao cadastrar cliente no BD. Verifique"
+	     	   		+ " as informações prenchidas e tente novamente!", "Erro", 0);
+	            throw new RuntimeException("Erro ao cadastrar o cliente; " + e.getMessage(), e);
+	        } finally {
+	            ConexaoBD.fechaConexao(conexao, ps);
+	        }
+	    }
 }
+

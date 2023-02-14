@@ -28,7 +28,7 @@ public class AgendaHelper implements IHelper {
 		DefaultTableModel tableModel = (DefaultTableModel) view.getTableAgendamentos().getModel();
 		tableModel.setNumRows(0);
 		
-		//Percorrer a lista preenchendo o table model
+		//Percorre a lista preenchendo o table model
 		for (AgendamentoDTO agendamento : agendamentos) {
 			
 			tableModel.addRow(new Object[] {

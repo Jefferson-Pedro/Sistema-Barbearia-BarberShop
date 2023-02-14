@@ -1,31 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.barbershop.view;
+
+import java.sql.SQLException;
+
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
+
+import org.apache.commons.mail.EmailException;
 
 import br.com.barbershop.controller.AgendaController;
 
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import javax.swing.JComboBox;
-import javax.swing.JFormattedTextField;
-import javax.swing.JTextField;
-
-/**
- *
- * @author jefferson.silva
- */
 public class Agenda extends javax.swing.JFrame {
 
     private final AgendaController controller;
 
-    /**
-     * Creates new form Agenda
-     */
     public Agenda() {
         initComponents();
         controller = new AgendaController(this);
@@ -64,6 +51,10 @@ public class Agenda extends javax.swing.JFrame {
         LabelAgendaFundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(500, 950));
+        setMinimumSize(new java.awt.Dimension(500, 500));
+        setPreferredSize(new java.awt.Dimension(1200, 950));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         try {
@@ -71,40 +62,40 @@ public class Agenda extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        getContentPane().add(txtData, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 470, 280, 40));
+        getContentPane().add(txtData, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 380, 240, 40));
 
-        LabelAgenda.setFont(new java.awt.Font("Liberation Sans", 1, 36)); // NOI18N
+        LabelAgenda.setFont(new java.awt.Font("Liberation Sans", 1, 30)); // NOI18N
         LabelAgenda.setForeground(new java.awt.Color(255, 255, 255));
         LabelAgenda.setText("Agenda");
-        getContentPane().add(LabelAgenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 130, 150, 60));
+        getContentPane().add(LabelAgenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, 120, 50));
 
         LabelId.setForeground(new java.awt.Color(255, 255, 255));
         LabelId.setText("Id");
-        getContentPane().add(LabelId, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, -1, -1));
+        getContentPane().add(LabelId, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 10, -1));
 
         LabelCliente.setForeground(new java.awt.Color(255, 255, 255));
         LabelCliente.setText("Cliente");
-        getContentPane().add(LabelCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 300, -1, -1));
+        getContentPane().add(LabelCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 40, -1));
 
         LabelServico.setForeground(new java.awt.Color(255, 255, 255));
-        LabelServico.setText("Servico");
-        getContentPane().add(LabelServico, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, -1, -1));
+        LabelServico.setText("  Serviço");
+        getContentPane().add(LabelServico, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 50, -1));
 
         LabelValor.setForeground(new java.awt.Color(255, 255, 255));
         LabelValor.setText("Valor R$");
-        getContentPane().add(LabelValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 420, -1, -1));
+        getContentPane().add(LabelValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, -1, -1));
 
         LabelData.setForeground(new java.awt.Color(255, 255, 255));
         LabelData.setText("Data");
-        getContentPane().add(LabelData, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 480, -1, -1));
+        getContentPane().add(LabelData, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 390, -1, -1));
 
         LabelHora.setForeground(new java.awt.Color(255, 255, 255));
         LabelHora.setText("Hora");
-        getContentPane().add(LabelHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 540, -1, -1));
+        getContentPane().add(LabelHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 450, -1, -1));
 
         LabelObservacao.setForeground(new java.awt.Color(255, 255, 255));
         LabelObservacao.setText("Observação");
-        getContentPane().add(LabelObservacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, -1, -1));
+        getContentPane().add(LabelObservacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 150, -1, -1));
 
         TextId.setEditable(false);
         TextId.setText("0");
@@ -114,14 +105,14 @@ public class Agenda extends javax.swing.JFrame {
                 TextIdActionPerformed(evt);
             }
         });
-        getContentPane().add(TextId, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 280, 40));
+        getContentPane().add(TextId, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 240, 40));
 
         JComboBoxCliente.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 JComboBoxClienteItemStateChanged(evt);
             }
         });
-        getContentPane().add(JComboBoxCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, 280, 40));
+        getContentPane().add(JComboBoxCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, 240, 40));
 
         JComboBoxServico.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -133,7 +124,7 @@ public class Agenda extends javax.swing.JFrame {
 				}
             }
         });
-        getContentPane().add(JComboBoxServico, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 280, 40));
+        getContentPane().add(JComboBoxServico, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, 240, 40));
 
         TextValor.setText("0");
         TextValor.setToolTipText("");
@@ -142,16 +133,16 @@ public class Agenda extends javax.swing.JFrame {
                 TextValorActionPerformed(evt);
             }
         });
-        getContentPane().add(TextValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 410, 280, 40));
+        getContentPane().add(TextValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, 240, 40));
 
         TextFormatedHora.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getTimeInstance(java.text.DateFormat.SHORT))));
-        getContentPane().add(TextFormatedHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 530, 280, 40));
+        getContentPane().add(TextFormatedHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 440, 240, 40));
 
         TextObservacao.setColumns(20);
         TextObservacao.setRows(5);
         jScrollPane2.setViewportView(TextObservacao);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 230, 610, 280));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 140, 370, 220));
 
         ButtonAgendar.setBackground(new java.awt.Color(60, 233, 106));
         ButtonAgendar.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
@@ -161,13 +152,13 @@ public class Agenda extends javax.swing.JFrame {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 try {
 					ButtonAgendarActionPerformed(evt);
-				} catch (SQLException e) {
+				} catch (SQLException | EmailException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
             }
         });
-        getContentPane().add(ButtonAgendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 520, 610, 50));
+        getContentPane().add(ButtonAgendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 380, 370, 50));
 
         TableAgendamentos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -179,13 +170,13 @@ public class Agenda extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(TableAgendamentos);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 590, 1120, 210));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 500, 860, 180));
 
-        LabelAgendaPainelFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Telas/Agenda-PainelFundo.png"))); // NOI18N
-        getContentPane().add(LabelAgendaPainelFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 1000));
+        LabelAgendaPainelFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Telas/Agenda-PainelFundo 1100x846.png"))); // NOI18N
+        getContentPane().add(LabelAgendaPainelFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 1070, 720));
 
-        LabelAgendaFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Telas/AgendaFundo.png"))); // NOI18N
-        getContentPane().add(LabelAgendaFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 1000));
+        LabelAgendaFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Telas/agenda-fundo.jpg"))); // NOI18N
+        getContentPane().add(LabelAgendaFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -50, 1330, 1100));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -194,7 +185,7 @@ public class Agenda extends javax.swing.JFrame {
         
     }//GEN-LAST:event_TextIdActionPerformed
 
-    private void ButtonAgendarActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {                                              
+    private void ButtonAgendarActionPerformed(java.awt.event.ActionEvent evt) throws SQLException, EmailException {                                              
        this.controller.agendarCliente();
     }
 
@@ -339,8 +330,5 @@ public class Agenda extends javax.swing.JFrame {
 	public void setTextObservacao(javax.swing.JTextArea textObservacao) {
 		TextObservacao = textObservacao;
 	}
-    
-	
-    
-    
+
 }

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.mail.EmailException;
+
 import br.com.barbershop.dao.ClienteDAO;
 import br.com.barbershop.dao.ServiceDAO;
 import br.com.barbershop.model.Agendamento;
@@ -14,15 +16,15 @@ public class Correio {
 	
 	private String emailFormatado;
 	private String destinatario;
-	private String remetente = "jeffersonpedro05@gmail.com";
+	private String remetente = "COLOQUE SEU EMAIL AQUI";
 	
 	
-	public void notificarPorEmail(Agendamento agendamento) {
+	public void notificarPorEmail(Agendamento agendamento) throws EmailException {
 		
 		this.converteObjetos(agendamento);
 		
 		//uso da classe email
-		Email novoEmail = new Email("Agendamento BarberShop", destinatario, destinatario, emailFormatado);
+		Email novoEmail = new Email("Agendamento BarberShop", destinatario, remetente, emailFormatado);
 		novoEmail.enviar();
 	}
 	
@@ -33,7 +35,7 @@ public class Correio {
 		float valor = agendamento.getValor();
 		
 		return "Olá " + nomeCliente + ", na paz? Informamos que seu agendamento "
-				+ "para " + nomeServico + "está marcaado para o dia " + dataAgendamento
+				+ "para " + nomeServico + " está marcado para o dia " + dataAgendamento
 				+ " no valor de " + valor + " te aguardamos lá, ein! Abraços!";
 	}
 	
@@ -67,6 +69,4 @@ public class Correio {
 		}
 		return this.emailFormatado = criarEmail(nomeCliente, nomeServico, agendamento);
 	}
-	
-
 }

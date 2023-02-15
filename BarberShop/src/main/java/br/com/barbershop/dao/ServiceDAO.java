@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.barbershop.dao;
 
 import java.sql.Connection;
@@ -16,10 +11,6 @@ import javax.swing.JOptionPane;
 import br.com.barbershop.model.Service;
 import br.com.barbershop.util.ConexaoBD;
 
-/**
- *
- * @author jefferson.silva
- */
 public class ServiceDAO {
 	
 	private Connection conexao = null;

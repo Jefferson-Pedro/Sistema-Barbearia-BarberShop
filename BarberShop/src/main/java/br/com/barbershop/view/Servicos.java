@@ -1,10 +1,16 @@
 package br.com.barbershop.view;
 
-public class Servicos extends javax.swing.JFrame {
+import javax.swing.JTextField;
 
+import br.com.barbershop.controller.ServicoController;
+
+public class Servicos extends javax.swing.JFrame {
+    
+      private final ServicoController controller;
    
     public Servicos() {
-        initComponents();
+		initComponents();
+		controller = new ServicoController(this);
     }
 
     /**
@@ -16,8 +22,8 @@ public class Servicos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField2 = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
+        TextValorServico = new javax.swing.JTextField();
+        TextNomeServico = new javax.swing.JTextField();
         ButtonCadastrar = new javax.swing.JToggleButton();
         jLabelValorServico = new javax.swing.JLabel();
         jLabelNomeServico = new javax.swing.JLabel();
@@ -25,22 +31,22 @@ public class Servicos extends javax.swing.JFrame {
         jLabelPainelFundo = new javax.swing.JLabel();
         jLabelFundoServico = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        TextValorServico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                TextValorServicoActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, 150, 30));
+        getContentPane().add(TextValorServico, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, 150, 30));
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        TextNomeServico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                TextNomeServicoActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, 230, 30));
+        getContentPane().add(TextNomeServico, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, 230, 30));
 
         ButtonCadastrar.setBackground(new java.awt.Color(0, 204, 51));
         ButtonCadastrar.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
@@ -76,16 +82,16 @@ public class Servicos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCadastrarActionPerformed
-        // TODO add your handling code here:
+        this.controller.cadastrarServico();
     }//GEN-LAST:event_ButtonCadastrarActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void TextNomeServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextNomeServicoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_TextNomeServicoActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void TextValorServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextValorServicoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_TextValorServicoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -124,12 +130,32 @@ public class Servicos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton ButtonCadastrar;
+    private javax.swing.JTextField TextNomeServico;
+    private javax.swing.JTextField TextValorServico;
     private javax.swing.JLabel jLabelCadastroDeServicos;
     private javax.swing.JLabel jLabelFundoServico;
     private javax.swing.JLabel jLabelNomeServico;
     private javax.swing.JLabel jLabelPainelFundo;
     private javax.swing.JLabel jLabelValorServico;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
+
+    public JTextField getTextNomeServico() {
+        return TextNomeServico;
+    }
+
+    public void setTextNomeServico(JTextField TextNomeServico) {
+        this.TextNomeServico = TextNomeServico;
+    }
+
+    public JTextField getTextValorServico() {
+        return TextValorServico;
+    }
+
+    public void setTextValorServico(JTextField TextValorServico) {
+        this.TextValorServico = TextValorServico;
+    }
+
+    
+    
+    
 }

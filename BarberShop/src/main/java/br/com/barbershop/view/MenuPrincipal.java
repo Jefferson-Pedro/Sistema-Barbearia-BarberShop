@@ -1,23 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.barbershop.view;
 
 import br.com.barbershop.controller.MenuPrincipalController;
 
-/**
- *
- * @author jefferson.silva
- */
 public class MenuPrincipal extends javax.swing.JFrame {
 
     private final MenuPrincipalController controller;
 
-    /**
-     * Creates new form MenuPrincipal
-     */
     public MenuPrincipal() {
         initComponents();
         this.controller =  new MenuPrincipalController(this);
@@ -47,7 +35,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         LabelFundoMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Telas/fundo-MenuPrincipal.jpg"))); // NOI18N
-        getContentPane().add(LabelFundoMenuPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1140, 640));
+        getContentPane().add(LabelFundoMenuPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1140, 650));
 
         MenuCadastro.setText("  Cadastro  ");
         MenuCadastro.setActionCommand("Cadastro  ");
@@ -66,6 +54,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         MenuItemServico.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         MenuItemServico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons/tesoura32-icon.png"))); // NOI18N
         MenuItemServico.setText("  Serviço");
+        MenuItemServico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuItemServicoActionPerformed(evt);
+            }
+        });
         MenuCadastro.add(MenuItemServico);
 
         MenuItemUsuario.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -117,6 +110,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void MenuItemRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemRelatorioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_MenuItemRelatorioActionPerformed
+
+    private void MenuItemServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemServicoActionPerformed
+        this.controller.navegarParaServicos();
+    }//GEN-LAST:event_MenuItemServicoActionPerformed
 
     private void MenuItemAgendaActionPerformed(java.awt.event.ActionEvent evt) {                                               
         this.controller.navegarParaAgenda();

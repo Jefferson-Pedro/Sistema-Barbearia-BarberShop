@@ -47,7 +47,8 @@ public class CadastroCliente extends javax.swing.JFrame {
         labelPainelFundoCliente = new javax.swing.JLabel();
         labelFundoCliente = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnCadastrarCliente.setBackground(new java.awt.Color(0, 204, 51));
@@ -64,7 +65,7 @@ public class CadastroCliente extends javax.swing.JFrame {
 				}
             }
         });
-        getContentPane().add(btnCadastrarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 450, -1, -1));
+        getContentPane().add(btnCadastrarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 450, 170, -1));
 
         try {
             jFormattedTextDataNasc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));

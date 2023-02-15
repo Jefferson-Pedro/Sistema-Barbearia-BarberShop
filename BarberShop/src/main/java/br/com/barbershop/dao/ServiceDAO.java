@@ -11,9 +11,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import br.com.barbershop.model.Cliente;
+import javax.swing.JOptionPane;
+
 import br.com.barbershop.model.Service;
-import br.com.barbershop.model.Usuario;
 import br.com.barbershop.util.ConexaoBD;
 
 /**
@@ -83,5 +83,32 @@ public class ServiceDAO {
         }
 		return s;
      }
+    
+    public void save(Service service) {
+		
+		 String sql = "INSERT INTO service ("
+	                + "descricao,"
+	                + "valor) VALUES (?,?)";
+
+	        try {
+	        	 conexao = ConexaoBD.conectaBD();
+	             ps = conexao.prepareStatement(sql);
+		           
+		         ps.setString(1, service.getDescricao());
+		         ps.setFloat(2, service.getValor());
+		                 
+		     
+		         ps.execute();
+		         JOptionPane.showMessageDialog(null, "Serviço salvo com sucesso!");
+		         System.out.println("Serviço salvo com sucesso!");
+
+	        } catch (Exception e) {
+	     	   JOptionPane.showMessageDialog(null, "Erro ao cadastrar o serviço no BD. Verifique"
+	     	   		+ " as informações prenchidas e tente novamente!", "Erro", 0);
+	            throw new RuntimeException("Erro ao cadastrar o serviço; " + e.getMessage(), e);
+	        } finally {
+	            ConexaoBD.fechaConexao(conexao, ps);
+	        }
+	    }
         
 }

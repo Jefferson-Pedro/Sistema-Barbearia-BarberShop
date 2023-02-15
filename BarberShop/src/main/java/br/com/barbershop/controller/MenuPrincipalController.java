@@ -3,6 +3,7 @@ package br.com.barbershop.controller;
 import br.com.barbershop.view.Agenda;
 import br.com.barbershop.view.CadastroCliente;
 import br.com.barbershop.view.MenuPrincipal;
+import br.com.barbershop.view.Servicos;
 
 public class MenuPrincipalController {
     private final MenuPrincipal view; 
@@ -19,5 +20,9 @@ public class MenuPrincipalController {
     public void navegarParaCadastroCliente(){
         CadastroCliente cadastro = new CadastroCliente();
         cadastro.setVisible(true);
+    }
+    public void navegarParaServicos(){
+        Servicos servico = new Servicos();
+        servico.setVisible(true);
     }
 }

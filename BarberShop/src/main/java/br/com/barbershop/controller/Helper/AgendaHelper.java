@@ -1,14 +1,10 @@
 package br.com.barbershop.controller.Helper;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 
-import br.com.barbershop.dao.AgendamentoDAO;
 import br.com.barbershop.dto.AgendamentoDTO;
 import br.com.barbershop.model.Agendamento;
 import br.com.barbershop.model.Cliente;

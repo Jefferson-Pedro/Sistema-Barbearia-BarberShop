@@ -6,11 +6,6 @@
 package br.com.barbershop.controller;
 
 import java.text.ParseException;
-import java.util.ArrayList;
-
-import javax.swing.JOptionPane;
-
-import br.com.barbershop.controller.Helper.AgendaHelper;
 import br.com.barbershop.controller.Helper.ClienteHelper;
 import br.com.barbershop.dao.ClienteDAO;
 import br.com.barbershop.model.Cliente;

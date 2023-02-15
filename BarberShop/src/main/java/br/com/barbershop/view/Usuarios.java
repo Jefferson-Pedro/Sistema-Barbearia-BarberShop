@@ -5,17 +5,22 @@
  */
 package br.com.barbershop.view;
 
-/**
- *
- * @author jefferson.silva
- */
-public class Usuarios extends javax.swing.JFrame {
+import br.com.barbershop.controller.UsuarioController;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
+import javax.swing.JTextField;
 
-    /**
-     * Creates new form Usuarios
-     */
+public class Usuarios extends javax.swing.JFrame {
+    
+     private final UsuarioController controller;
+   
     public Usuarios() {
         initComponents();
+        controller = new UsuarioController(this);
     }
 
     /**
@@ -56,6 +61,11 @@ public class Usuarios extends javax.swing.JFrame {
         buttonCadastroUsuario.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         buttonCadastroUsuario.setForeground(new java.awt.Color(255, 255, 255));
         buttonCadastroUsuario.setText("Cadastrar");
+        buttonCadastroUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCadastroUsuarioActionPerformed(evt);
+            }
+        });
         getContentPane().add(buttonCadastroUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 450, 180, 40));
 
         jComboBoxNvAcesso.setForeground(new java.awt.Color(255, 255, 255));
@@ -71,6 +81,11 @@ public class Usuarios extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtDataNascUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDataNascUsuarioActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtDataNascUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, 250, 30));
         getContentPane().add(txtSexousuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 250, 30));
         getContentPane().add(txtNomeUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 250, 30));
@@ -120,6 +135,18 @@ public class Usuarios extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtDataNascUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataNascUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDataNascUsuarioActionPerformed
+
+    private void buttonCadastroUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastroUsuarioActionPerformed
+         try {
+             this.controller.cadastrarUsuario();
+         } catch (ParseException | SQLException ex) {
+             Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
+         }
+    }//GEN-LAST:event_buttonCadastroUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -178,4 +205,71 @@ public class Usuarios extends javax.swing.JFrame {
     private javax.swing.JTextField txtSexousuario;
     private javax.swing.JTextField txtTelefoneUsuario;
     // End of variables declaration//GEN-END:variables
+
+    public JComboBox<String> getjComboBoxNvAcesso() {
+        return jComboBoxNvAcesso;
+    }
+
+    public void setjComboBoxNvAcesso(JComboBox<String> jComboBoxNvAcesso) {
+        this.jComboBoxNvAcesso = jComboBoxNvAcesso;
+    }
+
+    public JFormattedTextField getTxtDataNascUsuario() {
+        return txtDataNascUsuario;
+    }
+
+    public void setTxtDataNascUsuario(JFormattedTextField txtDataNascUsuario) {
+        this.txtDataNascUsuario = txtDataNascUsuario;
+    }
+
+    public JTextField getTxtEmailUsuario() {
+        return txtEmailUsuario;
+    }
+
+    public void setTxtEmailUsuario(JTextField txtEmailUsuario) {
+        this.txtEmailUsuario = txtEmailUsuario;
+    }
+
+    public JTextField getTxtNomeUsuario() {
+        return txtNomeUsuario;
+    }
+
+    public void setTxtNomeUsuario(JTextField txtNomeUsuario) {
+        this.txtNomeUsuario = txtNomeUsuario;
+    }
+
+    public JTextField getTxtRgUsuario() {
+        return txtRgUsuario;
+    }
+
+    public void setTxtRgUsuario(JTextField txtRgUsuario) {
+        this.txtRgUsuario = txtRgUsuario;
+    }
+
+    public JTextField getTxtSenhaUsuario() {
+        return txtSenhaUsuario;
+    }
+
+    public void setTxtSenhaUsuario(JTextField txtSenhaUsuario) {
+        this.txtSenhaUsuario = txtSenhaUsuario;
+    }
+
+    public JTextField getTxtSexousuario() {
+        return txtSexousuario;
+    }
+
+    public void setTxtSexousuario(JTextField txtSexousuario) {
+        this.txtSexousuario = txtSexousuario;
+    }
+
+    public JTextField getTxtTelefoneUsuario() {
+        return txtTelefoneUsuario;
+    }
+
+    public void setTxtTelefoneUsuario(JTextField txtTelefoneUsuario) {
+        this.txtTelefoneUsuario = txtTelefoneUsuario;
+    }
+    
+    
+
 }

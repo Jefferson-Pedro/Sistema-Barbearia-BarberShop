@@ -64,6 +64,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         MenuItemUsuario.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         MenuItemUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons/usuario32-icon.png"))); // NOI18N
         MenuItemUsuario.setText("  Usuario");
+        MenuItemUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuItemUsuarioActionPerformed(evt);
+            }
+        });
         MenuCadastro.add(MenuItemUsuario);
 
         jMenuBar1.add(MenuCadastro);
@@ -114,6 +119,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void MenuItemServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemServicoActionPerformed
         this.controller.navegarParaServicos();
     }//GEN-LAST:event_MenuItemServicoActionPerformed
+
+    private void MenuItemUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemUsuarioActionPerformed
+       this.controller.navegarParaUsuarios();
+    }//GEN-LAST:event_MenuItemUsuarioActionPerformed
 
     private void MenuItemAgendaActionPerformed(java.awt.event.ActionEvent evt) {                                               
         this.controller.navegarParaAgenda();

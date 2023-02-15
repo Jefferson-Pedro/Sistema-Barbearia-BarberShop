@@ -142,10 +142,12 @@ public class UsuarioDAO {
             ps.setString(9, usuario.getNivelAcesso());
             
             ps.execute();
-            System.out.println("Usuario salvo com sucesso!");
+            JOptionPane.showMessageDialog(null, "Usuário salvo com sucesso!");
             
-        } catch (Exception e) {
-            throw new RuntimeException("Erro ao salvar o usuário; " + e.getMessage(), e);
+        } catch (SQLException e) {
+        	JOptionPane.showMessageDialog(null, "Erro ao cadastrar o usuário no BD. Verifique"
+	     	   		+ " as informações prenchidas e tente novamente!", "Erro", 0);
+	            throw new RuntimeException("Erro ao cadastrar o usuário; " + e.getMessage(), e);
         } finally {
             ConexaoBD.fechaConexao(conexao, ps);
         }

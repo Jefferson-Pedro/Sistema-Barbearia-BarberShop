@@ -28,6 +28,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         MenuItemUsuario = new javax.swing.JMenuItem();
         MenuOperacao = new javax.swing.JMenu();
         MenuItemAgenda = new javax.swing.JMenuItem();
+        jMenuItemExcluir = new javax.swing.JMenuItem();
+        jMenuItemAtualizar = new javax.swing.JMenuItem();
         MenuRelatorio = new javax.swing.JMenu();
         MenuItemRelatorio = new javax.swing.JMenuItem();
 
@@ -39,7 +41,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         MenuCadastro.setText("  Cadastro  ");
         MenuCadastro.setActionCommand("Cadastro  ");
-        MenuCadastro.setFont(new java.awt.Font("DejaVu Sans", 1, 18)); // NOI18N
+        MenuCadastro.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
 
         MenuItemCliente.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         MenuItemCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons/cliente32-icon.png"))); // NOI18N
@@ -74,11 +76,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(MenuCadastro);
 
         MenuOperacao.setText("  Operação  ");
-        MenuOperacao.setFont(new java.awt.Font("DejaVu Sans", 1, 18)); // NOI18N
+        MenuOperacao.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
 
         MenuItemAgenda.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         MenuItemAgenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons/agenda32-icon.png"))); // NOI18N
-        MenuItemAgenda.setText("  Agenda");
+        MenuItemAgenda.setText("  Agendar");
         MenuItemAgenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MenuItemAgendaActionPerformed(evt);
@@ -86,10 +88,30 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         MenuOperacao.add(MenuItemAgenda);
 
+        jMenuItemExcluir.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jMenuItemExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons/excluir.png"))); // NOI18N
+        jMenuItemExcluir.setText(" Excluir");
+        jMenuItemExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemExcluirActionPerformed(evt);
+            }
+        });
+        MenuOperacao.add(jMenuItemExcluir);
+
+        jMenuItemAtualizar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jMenuItemAtualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons/atualizada.png"))); // NOI18N
+        jMenuItemAtualizar.setText(" Atualizar");
+        jMenuItemAtualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemAtualizarActionPerformed(evt);
+            }
+        });
+        MenuOperacao.add(jMenuItemAtualizar);
+
         jMenuBar1.add(MenuOperacao);
 
         MenuRelatorio.setText("  Relatório  ");
-        MenuRelatorio.setFont(new java.awt.Font("DejaVu Sans", 1, 18)); // NOI18N
+        MenuRelatorio.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
 
         MenuItemRelatorio.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         MenuItemRelatorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons/relatorioTrabalho32-icon.png"))); // NOI18N
@@ -114,15 +136,23 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void MenuItemRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemRelatorioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_MenuItemRelatorioActionPerformed
+    }
 
     private void MenuItemServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemServicoActionPerformed
         this.controller.navegarParaServicos();
-    }//GEN-LAST:event_MenuItemServicoActionPerformed
+    }
 
     private void MenuItemUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemUsuarioActionPerformed
        this.controller.navegarParaUsuarios();
-    }//GEN-LAST:event_MenuItemUsuarioActionPerformed
+    }
+
+    private void jMenuItemAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAtualizarActionPerformed
+       this.controller.navegarParaAtualizar();
+    }
+
+    private void jMenuItemExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemExcluirActionPerformed
+    	this.controller.navegarParaExcluirClientes();
+    }
 
     private void MenuItemAgendaActionPerformed(java.awt.event.ActionEvent evt) {                                               
         this.controller.navegarParaAgenda();
@@ -174,5 +204,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu MenuOperacao;
     private javax.swing.JMenu MenuRelatorio;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItemAtualizar;
+    private javax.swing.JMenuItem jMenuItemExcluir;
     // End of variables declaration//GEN-END:variables
 }

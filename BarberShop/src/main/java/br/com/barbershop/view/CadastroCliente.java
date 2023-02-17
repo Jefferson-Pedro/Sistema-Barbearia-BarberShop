@@ -3,6 +3,7 @@ package br.com.barbershop.view;
 import java.text.ParseException;
 
 import br.com.barbershop.controller.ClienteController;
+import javax.swing.JFormattedTextField;
 
 /**
  *
@@ -27,12 +28,12 @@ public class CadastroCliente extends javax.swing.JFrame {
     private void initComponents() {
 
         btnCadastrarCliente = new javax.swing.JToggleButton();
+        textRGCliente = new javax.swing.JFormattedTextField();
         jFormattedTextDataNasc = new javax.swing.JFormattedTextField();
         textCepCliente = new javax.swing.JTextField();
         textEnderecoCliente = new javax.swing.JTextField();
-        textRGCliente = new javax.swing.JTextField();
+        textTelefoneCliente1 = new javax.swing.JFormattedTextField();
         textEmailCliente = new javax.swing.JTextField();
-        textTelefoneCliente = new javax.swing.JTextField();
         textSexoCliente = new javax.swing.JTextField();
         textNomeCliente = new javax.swing.JTextField();
         labelCepCliente = new javax.swing.JLabel();
@@ -68,6 +69,15 @@ public class CadastroCliente extends javax.swing.JFrame {
         getContentPane().add(btnCadastrarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 450, 170, -1));
 
         try {
+            textRGCliente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###-#")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        textRGCliente.setText("                                .   .   - ");
+        textRGCliente.setToolTipText("");
+        getContentPane().add(textRGCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, 230, 30));
+
+        try {
             jFormattedTextDataNasc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
@@ -76,20 +86,13 @@ public class CadastroCliente extends javax.swing.JFrame {
         getContentPane().add(textCepCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 400, 230, 30));
         getContentPane().add(textEnderecoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 360, 230, 30));
 
-        textRGCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textRGClienteActionPerformed(evt);
-            }
-        });
-        getContentPane().add(textRGCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, 230, 30));
+        try {
+            textTelefoneCliente1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        getContentPane().add(textTelefoneCliente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, 230, 30));
         getContentPane().add(textEmailCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, 230, 30));
-
-        textTelefoneCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textTelefoneClienteActionPerformed(evt);
-            }
-        });
-        getContentPane().add(textTelefoneCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, 230, 30));
         getContentPane().add(textSexoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 230, 30));
         getContentPane().add(textNomeCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, 230, 30));
 
@@ -139,14 +142,6 @@ public class CadastroCliente extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void textTelefoneClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textTelefoneClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textTelefoneClienteActionPerformed
-
-    private void textRGClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textRGClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textRGClienteActionPerformed
 
     private void btnCadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) throws ParseException {                                                    
         this.controller.cadastrarCliente();
@@ -206,9 +201,9 @@ public class CadastroCliente extends javax.swing.JFrame {
     private javax.swing.JTextField textEmailCliente;
     private javax.swing.JTextField textEnderecoCliente;
     private javax.swing.JTextField textNomeCliente;
-    private javax.swing.JTextField textRGCliente;
+    private javax.swing.JFormattedTextField textRGCliente;
     private javax.swing.JTextField textSexoCliente;
-    private javax.swing.JTextField textTelefoneCliente;
+    private javax.swing.JFormattedTextField textTelefoneCliente1;
     // End of variables declaration//GEN-END:variables
 
 	public javax.swing.JFormattedTextField getjFormattedTextDataNasc() {
@@ -251,13 +246,13 @@ public class CadastroCliente extends javax.swing.JFrame {
 		this.textNomeCliente = textNomeCliente;
 	}
 
-	public javax.swing.JTextField getTextRGCliente() {
-		return textRGCliente;
-	}
+        public JFormattedTextField getTextRGCliente() {
+            return textRGCliente;
+        }
 
-	public void setTextRGCliente(javax.swing.JTextField textRGCliente) {
-		this.textRGCliente = textRGCliente;
-	}
+        public void setTextRGCliente(JFormattedTextField textRGCliente) {
+            this.textRGCliente = textRGCliente;
+        }
 
 	public javax.swing.JTextField getTextSexoCliente() {
 		return textSexoCliente;
@@ -267,12 +262,12 @@ public class CadastroCliente extends javax.swing.JFrame {
 		this.textSexoCliente = textSexoCliente;
 	}
 
-	public javax.swing.JTextField getTextTelefoneCliente() {
-		return textTelefoneCliente;
-	}
+        public JFormattedTextField getTextTelefoneCliente() {
+            return textRGCliente;
+        }
 
-	public void setTextTelefoneCliente(javax.swing.JTextField textTelefoneCliente) {
-		this.textTelefoneCliente = textTelefoneCliente;
-	}
+        public void setTextTelefoneCliente(JFormattedTextField textTelefoneCliente) {
+            this.textRGCliente = textTelefoneCliente;
+        }
 
 }

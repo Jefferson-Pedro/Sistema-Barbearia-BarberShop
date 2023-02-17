@@ -8,6 +8,8 @@ import javax.swing.JTextField;
 import org.apache.commons.mail.EmailException;
 
 import br.com.barbershop.controller.AgendaController;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Agenda extends javax.swing.JFrame {
 
@@ -64,7 +66,7 @@ public class Agenda extends javax.swing.JFrame {
         }
         getContentPane().add(txtData, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 380, 240, 40));
 
-        LabelAgenda.setFont(new java.awt.Font("Liberation Sans", 1, 30)); // NOI18N
+        LabelAgenda.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
         LabelAgenda.setForeground(new java.awt.Color(255, 255, 255));
         LabelAgenda.setText("Agenda");
         getContentPane().add(LabelAgenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, 120, 50));
@@ -110,6 +112,11 @@ public class Agenda extends javax.swing.JFrame {
         JComboBoxCliente.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 JComboBoxClienteItemStateChanged(evt);
+            }
+        });
+        JComboBoxCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JComboBoxClienteActionPerformed(evt);
             }
         });
         getContentPane().add(JComboBoxCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, 240, 40));
@@ -196,6 +203,10 @@ public class Agenda extends javax.swing.JFrame {
     private void JComboBoxClienteItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_JComboBoxClienteItemStateChanged
         this.controller.atualizaIdCliente();
     }//GEN-LAST:event_JComboBoxClienteItemStateChanged
+
+    private void JComboBoxClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JComboBoxClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JComboBoxClienteActionPerformed
 
     private void JComboBoxServicoItemStateChanged(java.awt.event.ItemEvent evt) throws SQLException {
       this.controller.atualizaValor();

@@ -24,7 +24,7 @@ public class ServicoHelper {
         try {
         	 service = new Service(0, descricao, valor);
         	 this.limparTela();
-		} catch (Exception e) {
+		} catch (NumberFormatException e) {
 			JOptionPane.showMessageDialog(null, "Erro ao cadastrar o serviço, "
 					+ "verifique se todas as informações foram preenchidas devidamente!", "Erro", 0);
 			System.err.println("Erro no cadastro do serviço: " +  e.getCause());

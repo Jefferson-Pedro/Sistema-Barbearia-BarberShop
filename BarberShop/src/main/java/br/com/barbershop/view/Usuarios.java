@@ -35,9 +35,9 @@ public class Usuarios extends javax.swing.JFrame {
         buttonCadastroUsuario = new javax.swing.JToggleButton();
         jComboBoxNvAcesso = new javax.swing.JComboBox<>();
         txtSenhaUsuario = new javax.swing.JTextField();
-        txtRgUsuario = new javax.swing.JTextField();
+        txtTelefoneUsuario = new javax.swing.JFormattedTextField();
+        txtRgUsuario = new javax.swing.JFormattedTextField();
         txtEmailUsuario = new javax.swing.JTextField();
-        txtTelefoneUsuario = new javax.swing.JTextField();
         txtDataNascUsuario = new javax.swing.JFormattedTextField();
         txtSexousuario = new javax.swing.JTextField();
         txtNomeUsuario = new javax.swing.JTextField();
@@ -72,9 +72,31 @@ public class Usuarios extends javax.swing.JFrame {
         jComboBoxNvAcesso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "User" }));
         getContentPane().add(jComboBoxNvAcesso, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 390, 130, -1));
         getContentPane().add(txtSenhaUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 350, 250, 30));
+
+        try {
+            txtTelefoneUsuario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtTelefoneUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTelefoneUsuarioActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtTelefoneUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, 250, 30));
+
+        try {
+            txtRgUsuario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###-#")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtRgUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRgUsuarioActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtRgUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 310, 250, 30));
         getContentPane().add(txtEmailUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, 250, 30));
-        getContentPane().add(txtTelefoneUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, 250, 30));
 
         try {
             txtDataNascUsuario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -148,6 +170,14 @@ public class Usuarios extends javax.swing.JFrame {
          }
     }//GEN-LAST:event_buttonCadastroUsuarioActionPerformed
 
+    private void txtTelefoneUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefoneUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTelefoneUsuarioActionPerformed
+
+    private void txtRgUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRgUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRgUsuarioActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -200,10 +230,10 @@ public class Usuarios extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField txtDataNascUsuario;
     private javax.swing.JTextField txtEmailUsuario;
     private javax.swing.JTextField txtNomeUsuario;
-    private javax.swing.JTextField txtRgUsuario;
+    private javax.swing.JFormattedTextField txtRgUsuario;
     private javax.swing.JTextField txtSenhaUsuario;
     private javax.swing.JTextField txtSexousuario;
-    private javax.swing.JTextField txtTelefoneUsuario;
+    private javax.swing.JFormattedTextField txtTelefoneUsuario;
     // End of variables declaration//GEN-END:variables
 
     public JComboBox<String> getjComboBoxNvAcesso() {
@@ -238,11 +268,11 @@ public class Usuarios extends javax.swing.JFrame {
         this.txtNomeUsuario = txtNomeUsuario;
     }
 
-    public JTextField getTxtRgUsuario() {
+    public JFormattedTextField getTxtRgUsuario() {
         return txtRgUsuario;
     }
 
-    public void setTxtRgUsuario(JTextField txtRgUsuario) {
+    public void setTxtRgUsuario(JFormattedTextField txtRgUsuario) {
         this.txtRgUsuario = txtRgUsuario;
     }
 
@@ -262,14 +292,11 @@ public class Usuarios extends javax.swing.JFrame {
         this.txtSexousuario = txtSexousuario;
     }
 
-    public JTextField getTxtTelefoneUsuario() {
+    public JFormattedTextField getTxtTelefoneUsuario() {
         return txtTelefoneUsuario;
     }
 
-    public void setTxtTelefoneUsuario(JTextField txtTelefoneUsuario) {
+    public void setTxtTelefoneUsuario(JFormattedTextField txtTelefoneUsuario) {
         this.txtTelefoneUsuario = txtTelefoneUsuario;
     }
-    
-    
-
 }

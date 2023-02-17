@@ -2,6 +2,8 @@ package br.com.barbershop.controller;
 
 import java.text.ParseException;
 
+import javax.swing.JOptionPane;
+
 import br.com.barbershop.controller.Helper.ServicoHelper;
 import br.com.barbershop.dao.ServiceDAO;
 import br.com.barbershop.model.Service;
@@ -17,7 +19,7 @@ public class ServicoController {
 		this.helper = new ServicoHelper(view);
 	}
 	
-	public void cadastrarServico(){
+	public void cadastrarServico() {
     	ServiceDAO dao = new ServiceDAO();
     	Service service = helper.obterServico();
     	

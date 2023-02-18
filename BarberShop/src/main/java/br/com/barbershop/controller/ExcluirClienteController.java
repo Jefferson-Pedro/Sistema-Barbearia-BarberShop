@@ -17,12 +17,12 @@ public class ExcluirClienteController {
     
     public void atualizaCliente() {
 
-		// Buscar cliente do BD
-		ClienteDAO dao = new ClienteDAO();
-		ArrayList<Cliente> clientes = dao.selectAll();
+	// Buscar cliente do BD
+	ClienteDAO dao = new ClienteDAO();
+	ArrayList<Cliente> clientes = dao.selectAll();
 	
-		// Exibir Clientes no ComboBox Cliente
-		helper.preencherClientes(clientes);
+	// Exibir Clientes no ComboBox Cliente
+	helper.preencherClientes(clientes);
     }
 
     public void excluirCliente() {
@@ -31,6 +31,11 @@ public class ExcluirClienteController {
        
         dao.removeClienteById(cliente);
         this.atualizaCliente();
+    }
+    
+      public void restart(){
+        new ExcluirCliente().setVisible(false);
+        new ExcluirCliente().setVisible(true);
     }
 
 }

@@ -70,6 +70,7 @@ public class ExcluirCliente extends javax.swing.JFrame {
 
     private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
        this.controller.excluirCliente();
+       this.controller.restart();
     }//GEN-LAST:event_jButtonExcluirActionPerformed
 
     private void jComboBoxExcluirClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxExcluirClienteActionPerformed

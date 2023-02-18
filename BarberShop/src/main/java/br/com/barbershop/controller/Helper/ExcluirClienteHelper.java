@@ -26,6 +26,5 @@ public class ExcluirClienteHelper {
 		
         //Pegando o item selecionado no JComboBox
         return (Cliente) view.getjComboBoxExcluirCliente().getSelectedItem();
-    }
-    
+    }    
 }

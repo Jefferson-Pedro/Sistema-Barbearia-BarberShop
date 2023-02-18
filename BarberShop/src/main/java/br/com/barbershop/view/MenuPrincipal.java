@@ -34,6 +34,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         MenuItemRelatorio = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         LabelFundoMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Telas/fundo-MenuPrincipal.jpg"))); // NOI18N
@@ -134,23 +135,23 @@ public class MenuPrincipal extends javax.swing.JFrame {
         this.controller.navegarParaCadastroCliente();
     }
 
-    private void MenuItemRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemRelatorioActionPerformed
+    private void MenuItemRelatorioActionPerformed(java.awt.event.ActionEvent evt) {                                                  
         // TODO add your handling code here:
     }
 
-    private void MenuItemServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemServicoActionPerformed
+    private void MenuItemServicoActionPerformed(java.awt.event.ActionEvent evt) {                                                
         this.controller.navegarParaServicos();
     }
 
-    private void MenuItemUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemUsuarioActionPerformed
+    private void MenuItemUsuarioActionPerformed(java.awt.event.ActionEvent evt) {                                                
        this.controller.navegarParaUsuarios();
     }
 
-    private void jMenuItemAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAtualizarActionPerformed
+    private void jMenuItemAtualizarActionPerformed(java.awt.event.ActionEvent evt) {                                                   
        this.controller.navegarParaAtualizar();
     }
 
-    private void jMenuItemExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemExcluirActionPerformed
+    private void jMenuItemExcluirActionPerformed(java.awt.event.ActionEvent evt) {                                                 
     	this.controller.navegarParaExcluirClientes();
     }
 

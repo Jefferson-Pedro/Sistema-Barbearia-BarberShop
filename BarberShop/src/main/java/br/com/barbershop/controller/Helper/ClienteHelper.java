@@ -18,13 +18,19 @@ public class ClienteHelper {
     public Cliente obterCliente() throws ParseException {
     	    	
     	String nome = view.getTextNomeCliente().getText();
-    	String sexo = view.getTextSexoCliente().getText();
+    	String sexo = "";
     	String dataNasc = view.getjFormattedTextDataNasc().getText();
     	String telefone = view.getTextTelefoneCliente().getText();
     	String email = view.getTextEmailCliente().getText();
     	String rg = view.getTextRGCliente().getText();
     	String endereco = view.getTextEnderecoCliente().getText();
     	String cep = view.getTextCepCliente().getText();
+        
+        if(view.getjRadioButtonMasculino().isSelected()){
+            sexo = "M";
+        }else if(view.getjRadioButtonFeminino().isSelected()){
+            sexo = "F";
+        }
     	
     	Cliente cliente = null;
     	
@@ -42,7 +48,7 @@ public class ClienteHelper {
     
     public void limparTela() {
 		view.getTextNomeCliente().setText("");
-		view.getTextSexoCliente().setText("");
+		//view.getTextSexoCliente().setText("");
 		view.getjFormattedTextDataNasc().setText("");
 		view.getTextTelefoneCliente().setText("");
 		view.getTextEmailCliente().setText("");

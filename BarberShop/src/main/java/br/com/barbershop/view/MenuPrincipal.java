@@ -136,7 +136,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     private void MenuItemRelatorioActionPerformed(java.awt.event.ActionEvent evt) {                                                  
-        // TODO add your handling code here:
+        this.controller.navegarParaRelatorio();
     }
 
     private void MenuItemServicoActionPerformed(java.awt.event.ActionEvent evt) {                                                

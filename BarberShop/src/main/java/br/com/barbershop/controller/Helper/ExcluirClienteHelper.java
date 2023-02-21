@@ -22,9 +22,8 @@ public class ExcluirClienteHelper {
         }
     }
     
-    public Cliente obterCliente() {
-		
+    public Cliente obterCliente() {	
         //Pegando o item selecionado no JComboBox
         return (Cliente) view.getjComboBoxExcluirCliente().getSelectedItem();
-    }    
+    } 
 }

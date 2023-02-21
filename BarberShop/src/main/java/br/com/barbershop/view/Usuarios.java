@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 public class Usuarios extends javax.swing.JFrame {
@@ -32,6 +33,7 @@ public class Usuarios extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         buttonCadastroUsuario = new javax.swing.JToggleButton();
         jComboBoxNvAcesso = new javax.swing.JComboBox<>();
         txtSenhaUsuario = new javax.swing.JTextField();
@@ -39,7 +41,8 @@ public class Usuarios extends javax.swing.JFrame {
         txtRgUsuario = new javax.swing.JFormattedTextField();
         txtEmailUsuario = new javax.swing.JTextField();
         txtDataNascUsuario = new javax.swing.JFormattedTextField();
-        txtSexousuario = new javax.swing.JTextField();
+        jRadioButtonFeminino = new javax.swing.JRadioButton();
+        jRadioButtonMasculino = new javax.swing.JRadioButton();
         txtNomeUsuario = new javax.swing.JTextField();
         labelNivelAcessoUsuario = new javax.swing.JLabel();
         labelSenhaUsuario = new javax.swing.JLabel();
@@ -66,7 +69,7 @@ public class Usuarios extends javax.swing.JFrame {
                 buttonCadastroUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(buttonCadastroUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 450, 180, 40));
+        getContentPane().add(buttonCadastroUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 440, 180, 40));
 
         jComboBoxNvAcesso.setForeground(new java.awt.Color(255, 255, 255));
         jComboBoxNvAcesso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "User" }));
@@ -109,8 +112,17 @@ public class Usuarios extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtDataNascUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, 250, 30));
-        getContentPane().add(txtSexousuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 250, 30));
-        getContentPane().add(txtNomeUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 250, 30));
+
+        buttonGroup1.add(jRadioButtonFeminino);
+        jRadioButtonFeminino.setForeground(new java.awt.Color(255, 255, 255));
+        jRadioButtonFeminino.setText("Feminino");
+        getContentPane().add(jRadioButtonFeminino, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, -1, -1));
+
+        buttonGroup1.add(jRadioButtonMasculino);
+        jRadioButtonMasculino.setForeground(new java.awt.Color(255, 255, 255));
+        jRadioButtonMasculino.setText("Masculino");
+        getContentPane().add(jRadioButtonMasculino, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, -1, -1));
+        getContentPane().add(txtNomeUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, 250, 30));
 
         labelNivelAcessoUsuario.setForeground(new java.awt.Color(255, 255, 255));
         labelNivelAcessoUsuario.setText("Nv. de Acesso:");
@@ -126,31 +138,31 @@ public class Usuarios extends javax.swing.JFrame {
 
         labelEmailUsuario.setForeground(new java.awt.Color(255, 255, 255));
         labelEmailUsuario.setText("Email:");
-        getContentPane().add(labelEmailUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, -1, -1));
+        getContentPane().add(labelEmailUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 276, -1, 20));
 
         labelTelefoneUsuario.setForeground(new java.awt.Color(255, 255, 255));
         labelTelefoneUsuario.setText("  Telefone:");
-        getContentPane().add(labelTelefoneUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 70, -1));
+        getContentPane().add(labelTelefoneUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 226, 70, 30));
 
         labelDataNasc.setForeground(new java.awt.Color(255, 255, 255));
         labelDataNasc.setText("DataNasc:");
-        getContentPane().add(labelDataNasc, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, -1, -1));
+        getContentPane().add(labelDataNasc, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, -1, 20));
 
         labelSexoUsuario.setForeground(new java.awt.Color(255, 255, 255));
         labelSexoUsuario.setText(" Sexo:");
-        getContentPane().add(labelSexoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 156, 40, 20));
+        getContentPane().add(labelSexoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 40, 40));
 
         labelNomeUsuario.setForeground(new java.awt.Color(255, 255, 255));
         labelNomeUsuario.setText("       Nome:");
-        getContentPane().add(labelNomeUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 60, -1));
+        getContentPane().add(labelNomeUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 96, 60, 30));
 
         labelCadastroUsuario.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         labelCadastroUsuario.setForeground(new java.awt.Color(255, 255, 255));
         labelCadastroUsuario.setText("Cadastro de Usuário");
-        getContentPane().add(labelCadastroUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, -1, -1));
+        getContentPane().add(labelCadastroUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, -1, -1));
 
         labelPainelFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Telas/painel-login.png"))); // NOI18N
-        getContentPane().add(labelPainelFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, -1, -1));
+        getContentPane().add(labelPainelFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, -1, 520));
 
         labelFundoCadastroUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Telas/fundo-cadastro-usuario.jpg"))); // NOI18N
         getContentPane().add(labelFundoCadastroUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -215,7 +227,10 @@ public class Usuarios extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton buttonCadastroUsuario;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> jComboBoxNvAcesso;
+    private javax.swing.JRadioButton jRadioButtonFeminino;
+    private javax.swing.JRadioButton jRadioButtonMasculino;
     private javax.swing.JLabel labelCadastroUsuario;
     private javax.swing.JLabel labelDataNasc;
     private javax.swing.JLabel labelEmailUsuario;
@@ -232,7 +247,6 @@ public class Usuarios extends javax.swing.JFrame {
     private javax.swing.JTextField txtNomeUsuario;
     private javax.swing.JFormattedTextField txtRgUsuario;
     private javax.swing.JTextField txtSenhaUsuario;
-    private javax.swing.JTextField txtSexousuario;
     private javax.swing.JFormattedTextField txtTelefoneUsuario;
     // End of variables declaration//GEN-END:variables
 
@@ -284,12 +298,20 @@ public class Usuarios extends javax.swing.JFrame {
         this.txtSenhaUsuario = txtSenhaUsuario;
     }
 
-    public JTextField getTxtSexousuario() {
-        return txtSexousuario;
+    public JRadioButton getjRadioButtonFeminino() {
+        return jRadioButtonFeminino;
     }
 
-    public void setTxtSexousuario(JTextField txtSexousuario) {
-        this.txtSexousuario = txtSexousuario;
+    public void setjRadioButtonFeminino(JRadioButton jRadioButtonFeminino) {
+        this.jRadioButtonFeminino = jRadioButtonFeminino;
+    }
+
+    public JRadioButton getjRadioButtonMasculino() {
+        return jRadioButtonMasculino;
+    }
+
+    public void setjRadioButtonMasculino(JRadioButton jRadioButtonMasculino) {
+        this.jRadioButtonMasculino = jRadioButtonMasculino;
     }
 
     public JFormattedTextField getTxtTelefoneUsuario() {

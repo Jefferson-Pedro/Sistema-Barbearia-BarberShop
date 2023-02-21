@@ -16,7 +16,6 @@ public class ExcluirClienteController {
     }
     
     public void atualizaCliente() {
-
 	// Buscar cliente do BD
 	ClienteDAO dao = new ClienteDAO();
 	ArrayList<Cliente> clientes = dao.selectAll();
@@ -30,12 +29,8 @@ public class ExcluirClienteController {
         Cliente cliente = helper.obterCliente();
        
         dao.removeClienteById(cliente);
-        this.atualizaCliente();
+        
+        //Remove o Item do ComboBox da visão do usuário;
+        view.getjComboBoxExcluirCliente().removeItem(cliente);
     }
-    
-      public void restart(){
-        new ExcluirCliente().setVisible(false);
-        new ExcluirCliente().setVisible(true);
-    }
-
 }

@@ -3,27 +3,28 @@ package br.com.barbershop.model;
 import java.text.ParseException;
 import java.util.Date;
 
-public class Cliente extends Pessoa{
- 
+public class Cliente extends Pessoa {
+
     private String endereco;
     private String cep;
-    
-    public Cliente(int id, String nome, String sexo, String dataNascimento, 
-    		String telefone, String email, String rg, String endereco, String cep) 
-    				throws ParseException {
+
+    public Cliente(int id, String nome, String sexo, String dataNascimento,
+            String telefone, String email, String rg, String endereco, String cep)
+            throws ParseException {
         super(id, nome, sexo, dataNascimento, telefone, email, rg);
         this.endereco = endereco;
         this.cep = cep;
     }
- 
+
     public Cliente(String nome, String endereco, String cep) {
         super(nome);
         this.endereco = endereco;
         this.cep = cep;
     }
-    
-    public Cliente() {}
-  
+
+    public Cliente() {
+    }
+
     public String getEndereco() {
         return endereco;
     }
@@ -96,15 +97,13 @@ public class Cliente extends Pessoa{
         this.rg = rg;
     }
 
-	@Override
-	public String toString() {
-		return this.nome;
-	}
-    
-	public Integer toId() {
-		return this.id;
-	}
-    
-    
-    
+    @Override
+    public String toString() {
+        return this.nome;
+    }
+
+    public Integer toId() {
+        return this.id;
+    }
+
 }

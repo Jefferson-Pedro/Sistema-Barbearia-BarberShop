@@ -293,14 +293,11 @@ public class CadastroCliente extends javax.swing.JFrame {
             this.jRadioButtonFeminino = jRadioButtonFeminino;
         }
 
-    public JRadioButton getjRadioButtonMasculino() {
-        return jRadioButtonMasculino;
-    }
+        public JRadioButton getjRadioButtonMasculino() {
+            return jRadioButtonMasculino;
+        }
 
-    public void setjRadioButtonMasculino(JRadioButton jRadioButtonMasculino) {
-        this.jRadioButtonMasculino = jRadioButtonMasculino;
-    }
-        
-        
-
+        public void setjRadioButtonMasculino(JRadioButton jRadioButtonMasculino) {
+            this.jRadioButtonMasculino = jRadioButtonMasculino;
+        }
 }

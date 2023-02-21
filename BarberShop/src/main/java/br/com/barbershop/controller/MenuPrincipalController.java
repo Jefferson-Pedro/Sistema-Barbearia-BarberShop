@@ -40,9 +40,12 @@ public class MenuPrincipalController {
     	eCliente.setVisible(true);
     }
 
-	public void navegarParaAtualizar() {
-		JOptionPane.showMessageDialog(null, "Clicou!");
-		
-	}
+    public void navegarParaAtualizar() {
+	JOptionPane.showMessageDialog(null, "Clicou!");	
+    }
+    
+    public void navegarParaRelatorio() {
+	JOptionPane.showMessageDialog(null, "Clicou!");	
+    }
     
 }

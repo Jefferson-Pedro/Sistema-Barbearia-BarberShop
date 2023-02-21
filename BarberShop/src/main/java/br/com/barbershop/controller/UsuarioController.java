@@ -21,6 +21,6 @@ public class UsuarioController {
          UsuarioDAO dao = new UsuarioDAO();
          Usuario usuario = helper.obterUsuario();
          
-         dao.save(usuario);
+         dao.save(usuario); 
      }
 }

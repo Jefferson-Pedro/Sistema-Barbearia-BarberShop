@@ -4,7 +4,7 @@ import javax.swing.JOptionPane;
 
 import br.com.barbershop.view.Agenda;
 import br.com.barbershop.view.CadastroCliente;
-import br.com.barbershop.view.ExcluirCliente;
+import br.com.barbershop.view.ExcluirUsuario;
 import br.com.barbershop.view.MenuPrincipal;
 import br.com.barbershop.view.Servicos;
 import br.com.barbershop.view.Usuarios;
@@ -36,7 +36,7 @@ public class MenuPrincipalController {
     }
     
     public void navegarParaExcluirClientes() {
-    	ExcluirCliente eCliente = new ExcluirCliente();
+    	ExcluirUsuario eCliente = new ExcluirUsuario();
     	eCliente.setVisible(true);
     }
 

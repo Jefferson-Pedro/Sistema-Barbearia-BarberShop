@@ -21,7 +21,7 @@ public class UsuarioDAO {
         
     
     //Busca todos os usuarios do banco de dados
-    public List<Usuario> getAll() throws ClassNotFoundException{
+    public ArrayList<Usuario> getAll() throws ClassNotFoundException{
         
        String sql = "SELECT * FROM usuario";
        ArrayList<Usuario> lista = null;
@@ -192,7 +192,7 @@ public class UsuarioDAO {
     }
     
     //Deleta usuario do BD
-    public void deleteById(int idUsuario) throws SQLException {
+    public void deleteById(Usuario usuario) throws SQLException {
     		
     	 String sql = "DELETE FROM usuario WHERE id = ?";
     	 
@@ -200,12 +200,15 @@ public class UsuarioDAO {
              conexao = ConexaoBD.conectaBD();
              ps = conexao.prepareStatement(sql);
              
-             ps.setInt(1, idUsuario);
+             ps.setInt(1, usuario.getId());
              
              ps.execute();
+             JOptionPane.showMessageDialog(null, "Usuário excluido com sucesso!", "Sucesso",1);
              System.out.println("Usuario deletado com sucesso!");
              
-         } catch (Exception e) {
+         } catch (SQLException e) {
+        	 JOptionPane.showMessageDialog(null, "Erro ao excluir usuário no BD. Verifique"
+                     + " se o usuário existe no Banco de Dados", "Erro", 0);
              throw new RuntimeException("Erro ao deletar o usuário; " + e.getMessage(), e);
          } finally {
         	 ConexaoBD.fechaConexao(conexao, ps);

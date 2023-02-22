@@ -1,15 +1,18 @@
 package br.com.barbershop.view;
 
-import br.com.barbershop.controller.ExcluirClienteController;
+import br.com.barbershop.controller.ExcluirUsuarioController;
+
+import java.sql.SQLException;
+
 import javax.swing.JComboBox;
 
-public class ExcluirCliente extends javax.swing.JFrame {
+public class ExcluirUsuario extends javax.swing.JFrame {
 
-    private final ExcluirClienteController controller;
+    private final ExcluirUsuarioController controller;
     
-    public ExcluirCliente() {
+    public ExcluirUsuario() {
         initComponents();
-        controller = new ExcluirClienteController(this);
+        controller = new ExcluirUsuarioController(this);
         iniciar();
     }
 
@@ -24,7 +27,7 @@ public class ExcluirCliente extends javax.swing.JFrame {
 
         jButtonExcluir = new javax.swing.JButton();
         jLabelNome = new javax.swing.JLabel();
-        jComboBoxExcluirCliente = new javax.swing.JComboBox<>();
+        jComboBoxExcluirUsuario = new javax.swing.JComboBox<>();
         jLabelExcluirCliente = new javax.swing.JLabel();
         jLabelFundoPainel = new javax.swing.JLabel();
         jLabelFundoExclusaoCliente = new javax.swing.JLabel();
@@ -38,7 +41,12 @@ public class ExcluirCliente extends javax.swing.JFrame {
         jButtonExcluir.setText("Excluir");
         jButtonExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonExcluirActionPerformed(evt);
+                try {
+					jButtonExcluirActionPerformed(evt);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
             }
         });
         getContentPane().add(jButtonExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, 160, 30));
@@ -47,16 +55,16 @@ public class ExcluirCliente extends javax.swing.JFrame {
         jLabelNome.setText("Nome:");
         getContentPane().add(jLabelNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, -1, 30));
 
-        jComboBoxExcluirCliente.addActionListener(new java.awt.event.ActionListener() {
+        jComboBoxExcluirUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxExcluirClienteActionPerformed(evt);
+                jComboBoxExcluirUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(jComboBoxExcluirCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 260, 30));
+        getContentPane().add(jComboBoxExcluirUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 260, 30));
 
         jLabelExcluirCliente.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabelExcluirCliente.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelExcluirCliente.setText("Excluir Cliente");
+        jLabelExcluirCliente.setText("Excluir Usuário");
         getContentPane().add(jLabelExcluirCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, -1, -1));
 
         jLabelFundoPainel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Telas/painel-login.png"))); // NOI18N
@@ -68,13 +76,13 @@ public class ExcluirCliente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
-       this.controller.excluirCliente();
+    private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {//GEN-FIRST:event_jButtonExcluirActionPerformed
+       this.controller.excluirUsuario();
     }//GEN-LAST:event_jButtonExcluirActionPerformed
 
-    private void jComboBoxExcluirClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxExcluirClienteActionPerformed
+    private void jComboBoxExcluirUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxExcluirUsuarioActionPerformed
         
-    }//GEN-LAST:event_jComboBoxExcluirClienteActionPerformed
+    }//GEN-LAST:event_jComboBoxExcluirUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -93,27 +101,28 @@ public class ExcluirCliente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ExcluirCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ExcluirUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ExcluirCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ExcluirUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ExcluirCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ExcluirUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ExcluirCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ExcluirUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ExcluirCliente().setVisible(true);
+                new ExcluirUsuario().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonExcluir;
-    private javax.swing.JComboBox<String> jComboBoxExcluirCliente;
+    private javax.swing.JComboBox<String> jComboBoxExcluirUsuario;
     private javax.swing.JLabel jLabelExcluirCliente;
     private javax.swing.JLabel jLabelFundoExclusaoCliente;
     private javax.swing.JLabel jLabelFundoPainel;
@@ -121,16 +130,23 @@ public class ExcluirCliente extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void iniciar(){
-         this.controller.atualizaCliente();
-    }
-    
-    public JComboBox<String> getjComboBoxExcluirCliente() {
-        return jComboBoxExcluirCliente;
+         try {
+			this.controller.atualizaUsuario();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
     }
 
-    public void setjComboBoxExcluirCliente(JComboBox<String> jComboBoxExcluirCliente) {
-        this.jComboBoxExcluirCliente = jComboBoxExcluirCliente;
+    public JComboBox<String> getjComboBoxExcluirUsuario() {
+        return jComboBoxExcluirUsuario;
     }
-    
+
+    public void setjComboBoxExcluirUsuario(JComboBox<String> jComboBoxExcluirUsuario) {
+        this.jComboBoxExcluirUsuario = jComboBoxExcluirUsuario;
+    }
+
+    public Object getjComboBoxExcluirCliente() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }

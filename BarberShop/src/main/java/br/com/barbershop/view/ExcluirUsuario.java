@@ -3,6 +3,8 @@ package br.com.barbershop.view;
 import br.com.barbershop.controller.ExcluirUsuarioController;
 
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JComboBox;
 
@@ -28,9 +30,9 @@ public class ExcluirUsuario extends javax.swing.JFrame {
         jButtonExcluir = new javax.swing.JButton();
         jLabelNome = new javax.swing.JLabel();
         jComboBoxExcluirUsuario = new javax.swing.JComboBox<>();
-        jLabelExcluirCliente = new javax.swing.JLabel();
+        jLabelExcluirUsuario = new javax.swing.JLabel();
         jLabelFundoPainel = new javax.swing.JLabel();
-        jLabelFundoExclusaoCliente = new javax.swing.JLabel();
+        jLabelFundoExclusaoUsuario = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -41,12 +43,7 @@ public class ExcluirUsuario extends javax.swing.JFrame {
         jButtonExcluir.setText("Excluir");
         jButtonExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                try {
-					jButtonExcluirActionPerformed(evt);
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+                jButtonExcluirActionPerformed(evt);
             }
         });
         getContentPane().add(jButtonExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, 160, 30));
@@ -62,16 +59,16 @@ public class ExcluirUsuario extends javax.swing.JFrame {
         });
         getContentPane().add(jComboBoxExcluirUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 260, 30));
 
-        jLabelExcluirCliente.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabelExcluirCliente.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelExcluirCliente.setText("Excluir Usuário");
-        getContentPane().add(jLabelExcluirCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, -1, -1));
+        jLabelExcluirUsuario.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabelExcluirUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelExcluirUsuario.setText("Excluir Usuário");
+        getContentPane().add(jLabelExcluirUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, -1, -1));
 
         jLabelFundoPainel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Telas/painel-login.png"))); // NOI18N
         getContentPane().add(jLabelFundoPainel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 560, 390));
 
-        jLabelFundoExclusaoCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Telas/exclusao-cliente.jpg"))); // NOI18N
-        getContentPane().add(jLabelFundoExclusaoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, -1));
+        jLabelFundoExclusaoUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Telas/exclusao-usuario.jpg"))); // NOI18N
+        getContentPane().add(jLabelFundoExclusaoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -123,8 +120,8 @@ public class ExcluirUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonExcluir;
     private javax.swing.JComboBox<String> jComboBoxExcluirUsuario;
-    private javax.swing.JLabel jLabelExcluirCliente;
-    private javax.swing.JLabel jLabelFundoExclusaoCliente;
+    private javax.swing.JLabel jLabelExcluirUsuario;
+    private javax.swing.JLabel jLabelFundoExclusaoUsuario;
     private javax.swing.JLabel jLabelFundoPainel;
     private javax.swing.JLabel jLabelNome;
     // End of variables declaration//GEN-END:variables

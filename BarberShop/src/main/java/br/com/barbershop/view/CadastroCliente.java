@@ -2,9 +2,10 @@ package br.com.barbershop.view;
 
 import java.text.ParseException;
 
-import br.com.barbershop.controller.ClienteController;
 import javax.swing.JFormattedTextField;
 import javax.swing.JRadioButton;
+
+import br.com.barbershop.service.ClienteService;
 
 /**
  *
@@ -12,11 +13,11 @@ import javax.swing.JRadioButton;
  */
 public class CadastroCliente extends javax.swing.JFrame {
 
-    private final ClienteController controller;
+    private final ClienteService controller;
 
     public CadastroCliente() {
         initComponents();
-        controller = new ClienteController(this);
+        controller = new ClienteService(this);
     }
 
     /**

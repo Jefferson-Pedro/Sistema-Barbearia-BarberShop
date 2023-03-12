@@ -4,7 +4,7 @@ import br.com.barbershop.controller.MenuPrincipalController;
 
 public class MenuPrincipal extends javax.swing.JFrame {
 
-    private final MenuPrincipalController controller;
+	private final MenuPrincipalController controller;
 
     public MenuPrincipal() {
         initComponents();

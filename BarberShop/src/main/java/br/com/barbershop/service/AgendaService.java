@@ -1,31 +1,30 @@
-package br.com.barbershop.controller;
+package br.com.barbershop.service;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 import org.apache.commons.mail.EmailException;
 
-import br.com.barbershop.controller.Helper.AgendaHelper;
 import br.com.barbershop.dao.AgendamentoDAO;
 import br.com.barbershop.dao.ClienteDAO;
 import br.com.barbershop.dao.ServiceDAO;
 import br.com.barbershop.dto.AgendamentoDTO;
+import br.com.barbershop.helper.AgendaHelper;
 import br.com.barbershop.model.Agendamento;
 import br.com.barbershop.model.Cliente;
 import br.com.barbershop.model.Service;
-import br.com.barbershop.service.Correio;
 import br.com.barbershop.view.Agenda;
 
 /**
  *
  * @author jefferson.silva
  */
-public class AgendaController {
+public class AgendaService {
 
 	private final Agenda view;
 	private final AgendaHelper helper;
 
-	public AgendaController(Agenda view) {
+	public AgendaService(Agenda view) {
 		this.view = view;
 		this.helper = new AgendaHelper(view);
 	}
@@ -38,13 +37,13 @@ public class AgendaController {
 		// Exibe a lista na view
 		helper.preencherTabela(agendamento);
 	}
-	
+
 	public void atualizaIdCliente() {
 		ClienteDAO dao = new ClienteDAO();
-		
-		//Retorna o que está na View (Nome e ID)
+
+		// Retorna o que está na View (Nome e ID)
 		Cliente cliente = helper.obterCliente();
-				
+
 		helper.setarIdCliente(cliente.getId());
 
 	}
@@ -70,33 +69,33 @@ public class AgendaController {
 	}
 
 	public void atualizaValor() throws SQLException {
-		
+
 		ServiceDAO dao = new ServiceDAO();
-		
-		//Retorna o que está na View
-		Service TipoServico = helper.obterServico(); 
-		
-		//Retorna o que vem do banco
+
+		// Retorna o que está na View
+		Service TipoServico = helper.obterServico();
+
+		// Retorna o que vem do banco
 		Service ValorServico = dao.servicePrice(TipoServico);
-				
+
 		helper.setarValor(ValorServico);
 	}
-	
+
 	public void agendarCliente() throws SQLException, EmailException {
-		
+
 		AgendamentoDAO dao = new AgendamentoDAO();
-		
-		//Buscar Objeto Agendamento da Tela
+
+		// Buscar Objeto Agendamento da Tela
 		Agendamento agendamento = (Agendamento) helper.obterAgendamento();
-		
-		//Salvar Objeto no BD
+
+		// Salvar Objeto no BD
 		dao.save(agendamento);
-		
-		//Inserir elemento na tabela
+
+		// Inserir elemento na tabela
 		this.atualizaTabela();
 		helper.limparTela();
-		
-		//Enviar email
+
+		// Enviar email
 		Correio correio = new Correio();
 		correio.notificarPorEmail(agendamento);
 	}

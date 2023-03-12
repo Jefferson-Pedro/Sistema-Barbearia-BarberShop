@@ -2,15 +2,15 @@ package br.com.barbershop.view;
 
 import javax.swing.JTextField;
 
-import br.com.barbershop.controller.ServicoController;
+import br.com.barbershop.service.ServicoService;
 
-public class Servicos extends javax.swing.JFrame {
+public class CadastroServicos extends javax.swing.JFrame {
     
-      private final ServicoController controller;
+      private final ServicoService controller;
    
-    public Servicos() {
+    public CadastroServicos() {
 		initComponents();
-		controller = new ServicoController(this);
+		controller = new ServicoService(this);
     }
 
     /**
@@ -110,20 +110,20 @@ public class Servicos extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Servicos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroServicos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Servicos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroServicos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Servicos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroServicos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Servicos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroServicos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Servicos().setVisible(true);
+                new CadastroServicos().setVisible(true);
             }
         });
     }

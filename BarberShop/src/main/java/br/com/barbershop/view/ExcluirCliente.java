@@ -18,6 +18,8 @@ public class ExcluirCliente extends javax.swing.JFrame {
      */
     public ExcluirCliente() {
         initComponents();
+        //this.mostrarPesquisa();
+        jListListaCliente.setVisible(false);
     }
 
     /**
@@ -97,17 +99,22 @@ public class ExcluirCliente extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel2.setForeground(new java.awt.Color(153, 153, 153));
 
-        jLabelResultadoCliente.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jLabelResultadoCliente.setForeground(new java.awt.Color(255, 255, 255));
         jLabelResultadoCliente.setText("Cliente:");
+
+        jTextFieldResultadoCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabelId.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabelId.setForeground(new java.awt.Color(255, 255, 255));
         jLabelId.setText("ID:");
 
+        jTextFieldID.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
         jLabelRg.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabelRg.setForeground(new java.awt.Color(255, 255, 255));
         jLabelRg.setText("RG:");
+
+        jTextFieldRG.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -265,6 +272,7 @@ public class ExcluirCliente extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldResultadoCliente;
     // End of variables declaration//GEN-END:variables
 
+     
     public JList<String> getjListListaCliente() {
         return jListListaCliente;
     }

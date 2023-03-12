@@ -5,7 +5,6 @@
  */
 package br.com.barbershop.view;
 
-import br.com.barbershop.controller.UsuarioController;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.logging.Level;
@@ -15,13 +14,15 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
-public class Usuarios extends javax.swing.JFrame {
+import br.com.barbershop.service.UsuarioService;
+
+public class CadastroUsuarios extends javax.swing.JFrame {
     
-     private final UsuarioController controller;
+     private final UsuarioService service;
    
-    public Usuarios() {
+    public CadastroUsuarios() {
         initComponents();
-        controller = new UsuarioController(this);
+        service = new UsuarioService(this);
     }
 
     /**
@@ -176,9 +177,9 @@ public class Usuarios extends javax.swing.JFrame {
 
     private void buttonCadastroUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastroUsuarioActionPerformed
          try {
-             this.controller.cadastrarUsuario();
+             this.service.cadastrarUsuario();
          } catch (ParseException | SQLException ex) {
-             Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
+             Logger.getLogger(CadastroUsuarios.class.getName()).log(Level.SEVERE, null, ex);
          }
     }//GEN-LAST:event_buttonCadastroUsuarioActionPerformed
 
@@ -207,20 +208,20 @@ public class Usuarios extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Usuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Usuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Usuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Usuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Usuarios().setVisible(true);
+                new CadastroUsuarios().setVisible(true);
             }
         });
     }

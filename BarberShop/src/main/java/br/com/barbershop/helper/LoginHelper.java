@@ -1,4 +1,4 @@
-package br.com.barbershop.controller.Helper;
+package br.com.barbershop.helper;
 
 import br.com.barbershop.model.Usuario;
 import br.com.barbershop.view.Login;

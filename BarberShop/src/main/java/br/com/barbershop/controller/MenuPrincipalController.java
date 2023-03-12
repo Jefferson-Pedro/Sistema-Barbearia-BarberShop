@@ -6,8 +6,8 @@ import br.com.barbershop.view.Agenda;
 import br.com.barbershop.view.CadastroCliente;
 import br.com.barbershop.view.ExcluirUsuario;
 import br.com.barbershop.view.MenuPrincipal;
-import br.com.barbershop.view.Servicos;
-import br.com.barbershop.view.Usuarios;
+import br.com.barbershop.view.CadastroServicos;
+import br.com.barbershop.view.CadastroUsuarios;
 
 public class MenuPrincipalController {
     private final MenuPrincipal view; 
@@ -26,12 +26,12 @@ public class MenuPrincipalController {
         cadastro.setVisible(true);
     }
     public void navegarParaServicos(){
-        Servicos servico = new Servicos();
+        CadastroServicos servico = new CadastroServicos();
         servico.setVisible(true);
     }
     
     public void navegarParaUsuarios() {
-    	Usuarios usuario = new Usuarios();
+    	CadastroUsuarios usuario = new CadastroUsuarios();
     	usuario.setVisible(true);
     }
     

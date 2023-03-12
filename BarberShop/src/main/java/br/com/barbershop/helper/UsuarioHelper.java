@@ -1,15 +1,15 @@
-package br.com.barbershop.controller.Helper;
+package br.com.barbershop.helper;
 
 import br.com.barbershop.model.Usuario;
-import br.com.barbershop.view.Usuarios;
+import br.com.barbershop.view.CadastroUsuarios;
 import java.text.ParseException;
 import javax.swing.JOptionPane;
     
 public class UsuarioHelper {
     
-    private final Usuarios view;
+    private final CadastroUsuarios view;
 
-    public UsuarioHelper(Usuarios view) {
+    public UsuarioHelper(CadastroUsuarios view) {
         this.view = view;
     }
 

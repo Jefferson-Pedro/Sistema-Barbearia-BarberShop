@@ -7,17 +7,18 @@ import javax.swing.JTextField;
 
 import org.apache.commons.mail.EmailException;
 
-import br.com.barbershop.controller.AgendaController;
+import br.com.barbershop.service.AgendaService;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Agenda extends javax.swing.JFrame {
 
-    private final AgendaController controller;
+    private final AgendaService controller;
 
     public Agenda() {
         initComponents();
-        controller = new AgendaController(this);
+        controller = new AgendaService(this);
         iniciar();
     }
 

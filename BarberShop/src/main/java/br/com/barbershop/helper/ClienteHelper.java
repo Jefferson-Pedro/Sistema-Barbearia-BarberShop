@@ -1,4 +1,4 @@
-package br.com.barbershop.controller.Helper;
+package br.com.barbershop.helper;
 
 import java.text.ParseException;
 

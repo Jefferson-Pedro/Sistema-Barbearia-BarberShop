@@ -1,11 +1,11 @@
-package br.com.barbershop.controller;
+package br.com.barbershop.service;
 
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 
-import br.com.barbershop.controller.Helper.LoginHelper;
 import br.com.barbershop.dao.UsuarioDAO;
+import br.com.barbershop.helper.LoginHelper;
 import br.com.barbershop.model.Usuario;
 import br.com.barbershop.view.Login;
 import br.com.barbershop.view.MenuPrincipal;

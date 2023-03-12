@@ -1,6 +1,6 @@
 package br.com.barbershop.view;
 
-import br.com.barbershop.controller.LoginController;
+import br.com.barbershop.service.LoginController;
 import br.com.barbershop.util.ConexaoBD;
 
 import java.sql.SQLException;

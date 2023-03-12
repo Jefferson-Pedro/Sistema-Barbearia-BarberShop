@@ -1,18 +1,18 @@
-package br.com.barbershop.controller.Helper;
+package br.com.barbershop.helper;
 
 import javax.swing.JOptionPane;
 
 import br.com.barbershop.model.Service;
-import br.com.barbershop.view.Servicos;
+import br.com.barbershop.view.CadastroServicos;
 
 /**
  *
  * @author jefferson.silva
  */
 public class ServicoHelper {
-     private final Servicos view;
+    private final CadastroServicos view;
 
-    public ServicoHelper(Servicos view) {
+    public ServicoHelper(CadastroServicos view) {
         this.view = view;
     }
     

@@ -81,6 +81,37 @@ public class ClienteDAO {
         }
         return c;
     }
+    
+     public ArrayList<Cliente> findByName(String nome) throws SQLException {
+
+        String sql = "SELECT * FROM cliente WHERE nome LIKE '?%'";
+        ArrayList<Cliente> lista = new ArrayList<Cliente>();
+
+        try {
+            conexao = ConexaoBD.conectaBD();
+            ps = conexao.prepareStatement(sql);
+            
+            ps.setString(1, nome);
+            rs = ps.executeQuery();
+            
+            while (rs.next()) {
+             Cliente c = new Cliente();
+
+                c.setId(rs.getInt("id"));
+                c.setNome(rs.getString("nome"));
+                c.setRg(rs.getString("rg"));
+
+                lista.add(c);
+            }
+
+        } catch (SQLException ex) {
+
+            System.err.println("Cliente nao encontrado: " + ex.getMessage());
+        } finally {
+            ConexaoBD.fechaConexao(conexao, ps, rs);
+        }
+        return lista;
+    }
 
     public void save(Cliente cliente) throws ParseException {
 

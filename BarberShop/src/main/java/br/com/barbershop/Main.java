@@ -1,7 +1,6 @@
 
 package br.com.barbershop;
 
-import br.com.barbershop.controller.AgendaController;
 import br.com.barbershop.dao.AgendamentoDAO;
 import br.com.barbershop.dao.ClienteDAO;
 import br.com.barbershop.dao.ServiceDAO;
@@ -11,6 +10,7 @@ import br.com.barbershop.model.Agendamento;
 import br.com.barbershop.model.Cliente;
 import br.com.barbershop.model.Service;
 import br.com.barbershop.model.Usuario;
+import br.com.barbershop.service.AgendaService;
 
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -65,11 +65,14 @@ public class Main {
     	ArrayList<Cliente>resposta = dao.selectAll();
     	System.out.println("resposta: " + resposta.toString());*/
     	
-    	/*Service s = new Service(1,"Corte Simples", 18);
+    	/*Service s = new Service();
     	ServiceDAO dao = new ServiceDAO();
-    	Service ser = dao.servicePrice(s);
+    	//dao.save(s);
+    	//Service ser = dao.selectAll();
+    	ArrayList<Service>resposta = dao.selectAll();
     	
-    	System.out.println("Objeto criado: " + s.toString());
-    	System.out.println("Objeto dao: " + ser.getValor());*/
+    	//System.out.println("Objeto criado: " + s.toString());
+    	//System.out.println("Objeto dao: " + ser.getValor());
+    	System.out.println(resposta);*/
     }
 }

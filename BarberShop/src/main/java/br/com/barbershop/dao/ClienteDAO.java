@@ -106,7 +106,7 @@ public class ClienteDAO {
 
         } catch (SQLException ex) {
 
-            System.err.println("Cliente nao encontrado: " + ex.getMessage());
+            System.err.println("Clientes nao encontrados: " + ex.getMessage());
         } finally {
             ConexaoBD.fechaConexao(conexao, ps, rs);
         }

@@ -1,4 +1,4 @@
-# OneBitLife
+# BarberShop
  <p> O projeto desenvolvido em parceria com WhileTrue ⚡</p>
 
 <h3>Status do Projeto</h3>
@@ -19,6 +19,10 @@
 <tr>
 	<th>Ferramenta</th>
 	<th>Versão</th>
+</tr>
+<tr>
+	<td>Java JDK</td>
+	<td>8+</td>
 </tr>
 <tr>
 	<td>Apache Netbeans</td>

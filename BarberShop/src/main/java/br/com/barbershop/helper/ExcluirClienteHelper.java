@@ -5,7 +5,6 @@ import br.com.barbershop.model.Cliente;
 import br.com.barbershop.view.ExcluirCliente;
 import java.sql.SQLException;
 import javax.swing.DefaultListModel;
-import javax.swing.table.DefaultTableModel;
 
 public class ExcluirClienteHelper {
 
@@ -27,6 +26,7 @@ public class ExcluirClienteHelper {
             }
         } catch (Exception e) {
         }
+		return null;
 
     }
 

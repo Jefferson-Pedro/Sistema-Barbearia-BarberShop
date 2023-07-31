@@ -10,13 +10,13 @@ import br.com.barbershop.model.Usuario;
 import br.com.barbershop.view.Login;
 import br.com.barbershop.view.MenuPrincipal;
 
-public class LoginController {
+public class LoginService {
 
     private final Login view;
     private LoginHelper helper;
     //private UsuarioDAO dao;
     
-    public LoginController(Login view) {
+    public LoginService(Login view) {
         this.view = view;
         this.helper = new LoginHelper(view);
     }

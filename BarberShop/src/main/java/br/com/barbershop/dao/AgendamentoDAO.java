@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.swing.JOptionPane;
 
@@ -13,11 +12,7 @@ import java.sql.Date;
 
 import br.com.barbershop.dto.AgendamentoDTO;
 import br.com.barbershop.model.Agendamento;
-import br.com.barbershop.model.Cliente;
-import br.com.barbershop.model.Service;
-import br.com.barbershop.model.Usuario;
 import br.com.barbershop.util.ConexaoBD;
-import br.com.barbershop.view.Agenda;
 
 public class AgendamentoDAO {
 	

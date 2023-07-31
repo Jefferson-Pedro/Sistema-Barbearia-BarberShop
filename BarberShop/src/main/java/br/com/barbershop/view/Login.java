@@ -1,6 +1,6 @@
 package br.com.barbershop.view;
 
-import br.com.barbershop.service.LoginController;
+import br.com.barbershop.service.LoginService;
 import br.com.barbershop.util.ConexaoBD;
 
 import java.sql.SQLException;
@@ -17,14 +17,14 @@ import javax.swing.JTextField;
  */
 public class Login extends javax.swing.JFrame {
 
-    private final LoginController controller;
+    private final LoginService controller;
 
     /**
      * Creates new form Login2
      */
     public Login() {
         initComponents();
-        controller = new LoginController(this);
+        controller = new LoginService(this);
         ConexaoBD.conectaBD();
     }
 

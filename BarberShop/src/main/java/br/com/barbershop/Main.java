@@ -1,21 +1,9 @@
 
 package br.com.barbershop;
 
-import br.com.barbershop.dao.AgendamentoDAO;
-import br.com.barbershop.dao.ClienteDAO;
-import br.com.barbershop.dao.ServiceDAO;
-import br.com.barbershop.dao.UsuarioDAO;
-import br.com.barbershop.dto.AgendamentoDTO;
-import br.com.barbershop.model.Agendamento;
-import br.com.barbershop.model.Cliente;
-import br.com.barbershop.model.Service;
-import br.com.barbershop.model.Usuario;
-import br.com.barbershop.service.AgendaService;
 
 import java.sql.SQLException;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class Main {

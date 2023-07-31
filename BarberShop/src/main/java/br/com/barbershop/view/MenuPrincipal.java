@@ -4,7 +4,7 @@ import br.com.barbershop.controller.MenuPrincipalController;
 
 public class MenuPrincipal extends javax.swing.JFrame {
 
-	private final MenuPrincipalController controller;
+private final MenuPrincipalController controller;
 
     public MenuPrincipal() {
         initComponents();
@@ -40,7 +40,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         LabelFundoMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Telas/fundo-MenuPrincipal.jpg"))); // NOI18N
         getContentPane().add(LabelFundoMenuPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1140, 650));
 
-        MenuCadastro.setText("  Cadastro  ");
+        MenuCadastro.setText("  Controle ");
         MenuCadastro.setActionCommand("Cadastro  ");
         MenuCadastro.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
 
@@ -76,7 +76,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(MenuCadastro);
 
-        MenuOperacao.setText("  Operação  ");
+        MenuOperacao.setText("Agendamento");
         MenuOperacao.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
 
         MenuItemAgenda.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N

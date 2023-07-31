@@ -6,7 +6,7 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="MenuCadastro">
           <Properties>
-            <Property name="text" type="java.lang.String" value="  Cadastro  "/>
+            <Property name="text" type="java.lang.String" value="  Controle "/>
             <Property name="actionCommand" type="java.lang.String" value="Cadastro  "/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="18" style="1"/>
@@ -59,7 +59,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="MenuOperacao">
           <Properties>
-            <Property name="text" type="java.lang.String" value="  Opera&#xe7;&#xe3;o  "/>
+            <Property name="text" type="java.lang.String" value="Agendamento"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="18" style="1"/>
             </Property>

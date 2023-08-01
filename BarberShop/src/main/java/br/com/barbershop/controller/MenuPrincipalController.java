@@ -5,8 +5,10 @@ import javax.swing.JOptionPane;
 import br.com.barbershop.view.Agenda;
 import br.com.barbershop.view.usuarios.ExcluirUsuario;
 import br.com.barbershop.view.MenuPrincipal;
+import br.com.barbershop.view.cliente.EscolhaCliente;
 import br.com.barbershop.view.usuarios.CadastroUsuarios;
 import br.com.barbershop.view.servicos.EscolhaService;
+import br.com.barbershop.view.usuarios.EscolhaUsuario;
 
 
 public class MenuPrincipalController {
@@ -22,8 +24,8 @@ public class MenuPrincipalController {
     }
     
     public void navegarEscolhaCliente(){
-        EscolhaCliente escolhaCliente = new EscolhaCliente();
-        escolhaCliente.setVisible(true);
+        EscolhaCliente cliente = new EscolhaCliente();
+        cliente.setVisible(true);
     }
     public void navegarParaServicos(){
         EscolhaService servico = new EscolhaService();
@@ -31,7 +33,7 @@ public class MenuPrincipalController {
     }
     
     public void navegarParaUsuarios() {
-    	CadastroUsuarios usuario = new CadastroUsuarios();
+    	EscolhaUsuario usuario = new EscolhaUsuario();
     	usuario.setVisible(true);
     }
     

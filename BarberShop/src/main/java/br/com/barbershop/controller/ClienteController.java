@@ -1,6 +1,7 @@
 package br.com.barbershop.controller;
 
 import br.com.barbershop.view.cliente.CadastroCliente;
+import br.com.barbershop.view.cliente.EscolhaCliente;
 import br.com.barbershop.view.cliente.ExcluirCliente;
 import javax.swing.JOptionPane;
 

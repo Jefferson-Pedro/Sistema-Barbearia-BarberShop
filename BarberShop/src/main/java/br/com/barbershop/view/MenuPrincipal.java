@@ -30,8 +30,6 @@ private final MenuPrincipalController controller;
         MenuItemUsuario = new javax.swing.JMenuItem();
         MenuOperacao = new javax.swing.JMenu();
         MenuItemAgenda = new javax.swing.JMenuItem();
-        jMenuItemExcluir = new javax.swing.JMenuItem();
-        jMenuItemAtualizar = new javax.swing.JMenuItem();
         MenuRelatorio = new javax.swing.JMenu();
         MenuItemRelatorio = new javax.swing.JMenuItem();
 
@@ -56,7 +54,7 @@ private final MenuPrincipalController controller;
         MenuItemCliente.setText("  Cliente");
         MenuItemCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MenuCadastroActionPerformed(evt);
+                MenuItemClienteActionPerformed(evt);
             }
         });
         MenuCadastro.add(MenuItemCliente);
@@ -95,26 +93,6 @@ private final MenuPrincipalController controller;
             }
         });
         MenuOperacao.add(MenuItemAgenda);
-
-        jMenuItemExcluir.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jMenuItemExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons/excluir.png"))); // NOI18N
-        jMenuItemExcluir.setText(" Excluir");
-        jMenuItemExcluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemExcluirActionPerformed(evt);
-            }
-        });
-        MenuOperacao.add(jMenuItemExcluir);
-
-        jMenuItemAtualizar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jMenuItemAtualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons/atualizada.png"))); // NOI18N
-        jMenuItemAtualizar.setText(" Atualizar");
-        jMenuItemAtualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemAtualizarActionPerformed(evt);
-            }
-        });
-        MenuOperacao.add(jMenuItemAtualizar);
 
         jMenuBar1.add(MenuOperacao);
 
@@ -212,7 +190,5 @@ private final MenuPrincipalController controller;
     private javax.swing.JMenu MenuOperacao;
     private javax.swing.JMenu MenuRelatorio;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItemAtualizar;
-    private javax.swing.JMenuItem jMenuItemExcluir;
     // End of variables declaration//GEN-END:variables
 }

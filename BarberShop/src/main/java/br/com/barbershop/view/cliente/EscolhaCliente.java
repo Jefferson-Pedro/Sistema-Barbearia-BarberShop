@@ -1,5 +1,5 @@
 
-package br.com.barbershop.view;
+package br.com.barbershop.controller;
 
 import br.com.barbershop.controller.ClienteController;
 
@@ -7,11 +7,11 @@ import br.com.barbershop.controller.ClienteController;
  *
  * @author jefferson.silva
  */
-public class EscolhaServico extends javax.swing.JFrame {
+public class EscolhaCliente extends javax.swing.JFrame {
 
 private final ClienteController controller;
 
-    public EscolhaServico() {
+    public EscolhaCliente() {
         initComponents();
         this.controller = new ClienteController(this);
     }
@@ -36,10 +36,20 @@ private final ClienteController controller;
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnExcluirCliente.setText("Excluir um Cliente");
+        btnExcluirCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirClienteActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnExcluirCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 140, -1));
 
         btnAtualizarCliente.setText("Atualizar um Cliente");
-        getContentPane().add(btnAtualizarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, -1, -1));
+        btnAtualizarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtualizarClienteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnAtualizarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 140, -1));
 
         btnCadastrarCliente.setText("Cadastrar um Cliente");
         btnCadastrarCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -50,18 +60,28 @@ private final ClienteController controller;
         getContentPane().add(btnCadastrarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, -1, -1));
 
         jLabelTituloPrincipal.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabelTituloPrincipal.setForeground(new java.awt.Color(255, 255, 255));
         jLabelTituloPrincipal.setText("Escolha o que você deseja fazer?");
         getContentPane().add(jLabelTituloPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, 25));
 
-        labelFundoEscolhaCliente.setIcon(new javax.swing.ImageIcon("C:\\Users\\jefferson.silva\\Documents\\GitHub\\Sistema-Barbearia-BarberShop\\BarberShop\\src\\main\\java\\resources\\Telas\\painel-login 350x200.png")); // NOI18N
-        getContentPane().add(labelFundoEscolhaCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 10, 340, 290));
+        labelFundoEscolhaCliente.setBackground(new java.awt.Color(0, 0, 0));
+        labelFundoEscolhaCliente.setIcon(new javax.swing.ImageIcon("C:\\Users\\jefferson.silva\\Documents\\GitHub\\Sistema-Barbearia-BarberShop\\BarberShop\\src\\main\\java\\resources\\Telas\\duvida.png")); // NOI18N
+        getContentPane().add(labelFundoEscolhaCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 0, 390, 320));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarClienteActionPerformed
-        this.controller.navegarParaExcluirCliente();
+        this.controller.navegarParaCadastrarCliente();
     }//GEN-LAST:event_btnCadastrarClienteActionPerformed
+
+    private void btnAtualizarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarClienteActionPerformed
+        this.controller.navegarParaAtualizarCliente();
+    }//GEN-LAST:event_btnAtualizarClienteActionPerformed
+
+    private void btnExcluirClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirClienteActionPerformed
+        this.controller.navegarParaExcluirCliente();
+    }//GEN-LAST:event_btnExcluirClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -80,20 +100,20 @@ private final ClienteController controller;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EscolhaServico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EscolhaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EscolhaServico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EscolhaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EscolhaServico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EscolhaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EscolhaServico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EscolhaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EscolhaServico().setVisible(true);
+                new EscolhaCliente().setVisible(true);
             }
         });
     }

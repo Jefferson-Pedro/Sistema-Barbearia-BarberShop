@@ -1,4 +1,4 @@
-package br.com.barbershop.view;
+package br.com.barbershop.view.servicos;
 
 import javax.swing.JTextField;
 

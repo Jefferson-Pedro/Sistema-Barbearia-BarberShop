@@ -5,7 +5,7 @@ import java.text.ParseException;
 import javax.swing.JOptionPane;
 
 import br.com.barbershop.model.Cliente;
-import br.com.barbershop.view.CadastroCliente;
+import br.com.barbershop.view.cliente.CadastroCliente;
 
 public class ClienteHelper {
 

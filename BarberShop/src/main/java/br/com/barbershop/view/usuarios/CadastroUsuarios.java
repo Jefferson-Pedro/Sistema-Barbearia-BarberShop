@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.barbershop.view;
+package br.com.barbershop.view.usuarios;
 
 import java.sql.SQLException;
 import java.text.ParseException;

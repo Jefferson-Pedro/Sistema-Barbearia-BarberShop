@@ -1,4 +1,4 @@
-package br.com.barbershop.view;
+package br.com.barbershop.view.servicos;
 
 import br.com.barbershop.service.ServicoService;
 import java.sql.SQLException;

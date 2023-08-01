@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 
 import br.com.barbershop.model.Usuario;
-import br.com.barbershop.view.ExcluirUsuario;
+import br.com.barbershop.view.usuarios.ExcluirUsuario;
 
 public class ExcluirUsuarioHelper {
     

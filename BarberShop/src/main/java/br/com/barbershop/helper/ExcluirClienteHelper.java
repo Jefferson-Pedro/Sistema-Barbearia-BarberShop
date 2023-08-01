@@ -2,7 +2,7 @@ package br.com.barbershop.helper;
 
 import br.com.barbershop.dao.ClienteDAO;
 import br.com.barbershop.model.Cliente;
-import br.com.barbershop.view.ExcluirCliente;
+import br.com.barbershop.view.cliente.ExcluirCliente;
 import java.sql.SQLException;
 import javax.swing.DefaultListModel;
 

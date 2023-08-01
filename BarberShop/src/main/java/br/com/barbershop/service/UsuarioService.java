@@ -7,8 +7,8 @@ import br.com.barbershop.dao.UsuarioDAO;
 import br.com.barbershop.helper.ExcluirUsuarioHelper;
 import br.com.barbershop.helper.UsuarioHelper;
 import br.com.barbershop.model.Usuario;
-import br.com.barbershop.view.ExcluirUsuario;
-import br.com.barbershop.view.CadastroUsuarios;
+import br.com.barbershop.view.usuarios.ExcluirUsuario;
+import br.com.barbershop.view.usuarios.CadastroUsuarios;
 import java.util.ArrayList;
 
 public class UsuarioService {

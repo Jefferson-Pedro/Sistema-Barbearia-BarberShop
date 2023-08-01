@@ -10,8 +10,8 @@ import br.com.barbershop.dao.ServiceDAO;
 import br.com.barbershop.helper.ExcluirServicoHelper;
 import br.com.barbershop.helper.ServicoHelper;
 import br.com.barbershop.model.Service;
-import br.com.barbershop.view.CadastroServicos;
-import br.com.barbershop.view.ExcluirServico;
+import br.com.barbershop.view.servicos.CadastroServicos;
+import br.com.barbershop.view.servicos.ExcluirServico;
 
 public class ServicoService {
 

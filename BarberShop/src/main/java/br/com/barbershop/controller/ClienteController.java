@@ -1,11 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package br.com.barbershop.controller;
 
-import br.com.barbershop.view.EscolhaServico;
-import br.com.barbershop.view.ExcluirCliente;
+import br.com.barbershop.view.cliente.CadastroCliente;
+import br.com.barbershop.view.cliente.ExcluirCliente;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,15 +10,26 @@ import br.com.barbershop.view.ExcluirCliente;
  */
 public class ClienteController {
     
-    private final EscolhaServico view;
+    private final EscolhaCliente view;
 
-    public ClienteController(EscolhaServico view) {
+    public ClienteController(EscolhaCliente view) {
         this.view = view;
     }
     
     public void navegarParaExcluirCliente(){
         ExcluirCliente excluir = new ExcluirCliente();
         excluir.setVisible(true);
+        this.view.dispose();
+    }
+    
+    public void navegarParaAtualizarCliente(){
+        System.out.println("Clicou!");
+        this.view.dispose();
+    }
+     
+    public void navegarParaCadastrarCliente(){
+        CadastroCliente cadastrar = new CadastroCliente();
+        cadastrar.setVisible(true);
         this.view.dispose();
     }
     

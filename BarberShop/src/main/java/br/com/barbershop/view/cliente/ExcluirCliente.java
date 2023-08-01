@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package br.com.barbershop.view;
+package br.com.barbershop.view.cliente;
 
 import javax.swing.JList;
 import javax.swing.JOptionPane;
@@ -21,10 +21,6 @@ public class ExcluirCliente extends javax.swing.JFrame {
         initComponents();
         //this.mostrarPesquisa();
         jListListaCliente.setVisible(false);
-    }
-
-    ExcluirCliente(EscolhaServico aThis) {
-        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     /**

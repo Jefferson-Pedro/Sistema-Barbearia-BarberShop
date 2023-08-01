@@ -1,10 +1,12 @@
 package br.com.barbershop.view;
 
+import br.com.barbershop.controller.ClienteController;
 import br.com.barbershop.controller.MenuPrincipalController;
 
 public class MenuPrincipal extends javax.swing.JFrame {
 
 private final MenuPrincipalController controller;
+
 
     public MenuPrincipal() {
         initComponents();
@@ -43,13 +45,18 @@ private final MenuPrincipalController controller;
         MenuCadastro.setText("  Controle ");
         MenuCadastro.setActionCommand("Cadastro  ");
         MenuCadastro.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        MenuCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuCadastroActionPerformed(evt);
+            }
+        });
 
         MenuItemCliente.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         MenuItemCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons/cliente32-icon.png"))); // NOI18N
         MenuItemCliente.setText("  Cliente");
         MenuItemCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MenuItemClienteActionPerformed(evt);
+                MenuCadastroActionPerformed(evt);
             }
         });
         MenuCadastro.add(MenuItemCliente);
@@ -131,11 +138,11 @@ private final MenuPrincipalController controller;
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void MenuItemClienteActionPerformed(java.awt.event.ActionEvent evt) {                                                
-        this.controller.navegarParaCadastroCliente();
-    }
+    private void MenuCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuCadastroActionPerformed
+        this.controller.navegarEscolhaCliente();
+    }//GEN-LAST:event_MenuCadastroActionPerformed
 
-    private void MenuItemRelatorioActionPerformed(java.awt.event.ActionEvent evt) {                                                  
+     private void MenuItemRelatorioActionPerformed(java.awt.event.ActionEvent evt) {                                                  
         this.controller.navegarParaRelatorio();
     }
 

@@ -1,7 +1,7 @@
 package br.com.barbershop.helper;
 
 import br.com.barbershop.model.Usuario;
-import br.com.barbershop.view.CadastroUsuarios;
+import br.com.barbershop.view.usuarios.CadastroUsuarios;
 import java.text.ParseException;
 import javax.swing.JOptionPane;
     

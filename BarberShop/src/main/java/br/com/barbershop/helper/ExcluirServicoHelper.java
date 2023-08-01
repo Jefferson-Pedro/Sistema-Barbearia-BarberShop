@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 
 import br.com.barbershop.model.Service;
-import br.com.barbershop.view.ExcluirServico;
+import br.com.barbershop.view.servicos.ExcluirServico;
 
 public class ExcluirServicoHelper {
 

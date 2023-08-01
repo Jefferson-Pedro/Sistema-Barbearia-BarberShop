@@ -3,7 +3,7 @@ package br.com.barbershop.helper;
 import javax.swing.JOptionPane;
 
 import br.com.barbershop.model.Service;
-import br.com.barbershop.view.CadastroServicos;
+import br.com.barbershop.view.servicos.CadastroServicos;
 
 /**
  *

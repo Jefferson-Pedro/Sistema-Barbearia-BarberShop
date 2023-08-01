@@ -6,8 +6,8 @@ import br.com.barbershop.dao.ClienteDAO;
 import br.com.barbershop.helper.ClienteHelper;
 import br.com.barbershop.helper.ExcluirClienteHelper;
 import br.com.barbershop.model.Cliente;
-import br.com.barbershop.view.CadastroCliente;
-import br.com.barbershop.view.ExcluirCliente;
+import br.com.barbershop.view.cliente.CadastroCliente;
+import br.com.barbershop.view.cliente.ExcluirCliente;
 
 public class ClienteService {
     

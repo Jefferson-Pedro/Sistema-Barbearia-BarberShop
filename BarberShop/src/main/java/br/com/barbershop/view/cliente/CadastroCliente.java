@@ -1,4 +1,4 @@
-package br.com.barbershop.view;
+package br.com.barbershop.view.cliente;
 
 import java.text.ParseException;
 
@@ -6,6 +6,8 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JRadioButton;
 
 import br.com.barbershop.service.ClienteService;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *

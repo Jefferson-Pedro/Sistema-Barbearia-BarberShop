@@ -8,6 +8,12 @@ import br.com.barbershop.helper.ExcluirClienteHelper;
 import br.com.barbershop.model.Cliente;
 import br.com.barbershop.view.cliente.CadastroCliente;
 import br.com.barbershop.view.cliente.ExcluirCliente;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 
 public class ClienteService {
     
@@ -34,13 +40,23 @@ public class ClienteService {
         dao.save(cliente);
     }
     
-    public void excluirCliente(){}
-    
-    /*public void mostrarPesquisa() throws SQLException{
+    public void excluirCliente(String cliente){
         ClienteDAO dao = new ClienteDAO();
-        ArrayList<Cliente> c = new ArrayList<Cliente>();
-        c = dao.findByName();
-    }*/
+        dao.removeClienteByName(cliente);
+    }
+    
+    
+    public List<String> listaClientes(){
+        ClienteDAO dao = new ClienteDAO();
+        List<Cliente> c = dao.selectAll();
+        List<String> nomesClientes = new ArrayList<>();
+
+        for (Cliente cliente : c) {
+            nomesClientes.add(cliente.getNome());
+        }
+
+        return nomesClientes;
+    }
     
     public void atualizarCliente(){}
     

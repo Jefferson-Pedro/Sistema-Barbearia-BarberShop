@@ -9,25 +9,18 @@ import javax.swing.DefaultListModel;
 public class ExcluirClienteHelper {
 
     private final ExcluirCliente view;
+    private DefaultListModel modelo;
 
     public ExcluirClienteHelper(ExcluirCliente view) {
         this.view = view;
+        modelo = new DefaultListModel();
     }
 
-    public Cliente obterCliente() throws SQLException {
-        try {
-            ClienteDAO dao = new ClienteDAO();
-            String nome = view.getjTextFieldPesquisa().getText();
-
-            if (!view.getjTextFieldPesquisa().getText().equals("")) {
-                DefaultListModel modelo = new DefaultListModel();
-            } else {
-
-            }
-        } catch (Exception e) {
-        }
-		return null;
-
+    public String obterCliente() {
+       
+        String nome = view.getTxtPesquisa().getText();
+        
+        return nome;
     }
 
 }

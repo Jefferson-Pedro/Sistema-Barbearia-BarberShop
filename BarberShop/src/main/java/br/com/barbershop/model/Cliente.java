@@ -21,6 +21,10 @@ public class Cliente extends Pessoa {
         this.endereco = endereco;
         this.cep = cep;
     }
+    
+     public Cliente(String nome) {
+        super(nome);
+    }
 
     public Cliente() {
     }
@@ -99,11 +103,11 @@ public class Cliente extends Pessoa {
 
     @Override
     public String toString() {
-        return this.nome;
+        return getNome();// + " " + getId();
     }
 
     public Integer toId() {
-        return this.id;
+        return getId();
     }
 
 }

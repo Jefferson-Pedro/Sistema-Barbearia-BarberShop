@@ -2,6 +2,9 @@
 package br.com.barbershop.view.cliente;
 
 import br.com.barbershop.controller.ClienteController;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -75,7 +78,11 @@ private final ClienteController controller;
     }//GEN-LAST:event_btnAtualizarClienteActionPerformed
 
     private void btnExcluirClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirClienteActionPerformed
+    try {
         this.controller.navegarParaExcluirCliente();
+    } catch (SQLException ex) {
+        Logger.getLogger(EscolhaCliente.class.getName()).log(Level.SEVERE, null, ex);
+    }
     }//GEN-LAST:event_btnExcluirClienteActionPerformed
 
     /**

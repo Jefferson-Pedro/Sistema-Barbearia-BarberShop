@@ -82,16 +82,18 @@ public class ClienteDAO {
         return c;
     }
     
-     public ArrayList<Cliente> findByName(String nome) throws SQLException {
+     public ArrayList<Cliente> findByName(String cliente) throws SQLException {
 
-        String sql = "SELECT * FROM cliente WHERE nome LIKE '?%'";
+        String sql = "SELECT * FROM cliente WHERE nome LIKE ? ORDER BY nome";
         ArrayList<Cliente> lista = new ArrayList<Cliente>();
 
         try {
             conexao = ConexaoBD.conectaBD();
             ps = conexao.prepareStatement(sql);
             
-            ps.setString(1, nome);
+           //int v = 0;
+            
+            ps.setString(1, cliente + "%");
             rs = ps.executeQuery();
             
             while (rs.next()) {
@@ -99,10 +101,10 @@ public class ClienteDAO {
 
                 c.setId(rs.getInt("id"));
                 c.setNome(rs.getString("nome"));
-                c.setRg(rs.getString("rg"));
 
                 lista.add(c);
             }
+            return lista;
 
         } catch (SQLException ex) {
 
@@ -110,7 +112,7 @@ public class ClienteDAO {
         } finally {
             ConexaoBD.fechaConexao(conexao, ps, rs);
         }
-        return lista;
+        return null;
     }
 
     public void save(Cliente cliente) throws ParseException {
@@ -151,7 +153,7 @@ public class ClienteDAO {
         }
     }
 
-    public void removeClienteById(Cliente cliente) {
+    public boolean removeClienteById(int cliente) {
 
         String sql = "DELETE FROM cliente WHERE id = ?";
 
@@ -159,18 +161,45 @@ public class ClienteDAO {
            conexao = ConexaoBD.conectaBD();
            ps = conexao.prepareStatement(sql);
             
-           ps.setInt(1, cliente.getId());
+           ps.setInt(1, cliente);
            ps.execute();
            
            JOptionPane.showMessageDialog(null, "Cliente excluido com sucesso!", "Sucesso",1);
-
+           return true;
+           
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro ao excluir cliente no BD. Verifique"
                     + " se o cliente existe no Banco de Dados", "Erro", 0);
             throw new RuntimeException("Erro ao cadastrar o cliente; " + e.getMessage(), e);
-
+            
         } finally {
            ConexaoBD.fechaConexao(conexao, ps);
         }
+        
+    }
+    
+    public boolean removeClienteByName(String cliente) {
+
+        String sql = "DELETE FROM cliente WHERE nome = ?";
+
+        try {
+           conexao = ConexaoBD.conectaBD();
+           ps = conexao.prepareStatement(sql);
+            
+           ps.setString(1, cliente);
+           ps.execute();
+           
+           JOptionPane.showMessageDialog(null, "Cliente excluido com sucesso!", "Sucesso",1);
+           return true;
+           
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao excluir cliente no BD. Verifique"
+                    + " se o cliente existe no Banco de Dados", "Erro", 0);
+            throw new RuntimeException("Erro ao cadastrar o cliente; " + e.getMessage(), e);
+            
+        } finally {
+           ConexaoBD.fechaConexao(conexao, ps);
+        }
+        
     }
 }

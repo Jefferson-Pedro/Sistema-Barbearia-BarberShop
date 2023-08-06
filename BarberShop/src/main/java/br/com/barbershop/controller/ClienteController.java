@@ -3,6 +3,7 @@ package br.com.barbershop.controller;
 import br.com.barbershop.view.cliente.CadastroCliente;
 import br.com.barbershop.view.cliente.EscolhaCliente;
 import br.com.barbershop.view.cliente.ExcluirCliente;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,7 +18,7 @@ public class ClienteController {
         this.view = view;
     }
     
-    public void navegarParaExcluirCliente(){
+    public void navegarParaExcluirCliente() throws SQLException{
         ExcluirCliente excluir = new ExcluirCliente();
         excluir.setVisible(true);
         this.view.dispose();

@@ -1,11 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package br.com.barbershop.view.cliente;
 
+import br.com.barbershop.model.Cliente;
+import br.com.barbershop.service.ClienteService;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
 /**
@@ -14,14 +18,17 @@ import javax.swing.JTextField;
  */
 public class ExcluirCliente extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ExcluirClienet
-     */
-    public ExcluirCliente() {
-        initComponents();
-        //this.mostrarPesquisa();
-        jListListaCliente.setVisible(false);
-    }
+    private ClienteService service;
+    private DefaultListModel modelo;
+    private int enter;
+    
+public ExcluirCliente() throws SQLException {
+    initComponents();
+    service = new ClienteService(this);
+    modelo = new DefaultListModel(); // Adicione esta linha para inicializar o DefaultListModel
+    jListaCliente.setVisible(false);
+    jListaCliente.setModel(modelo);
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -32,181 +39,49 @@ public class ExcluirCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanelFundo = new javax.swing.JPanel();
-        jLayeredPane1 = new javax.swing.JLayeredPane();
-        jPanel1 = new javax.swing.JPanel();
-        jLabelNome = new javax.swing.JLabel();
-        jScrollPaneListaCliente = new javax.swing.JScrollPane();
-        jListListaCliente = new javax.swing.JList<>();
-        jTextFieldPesquisa = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
-        jLabelResultadoCliente = new javax.swing.JLabel();
-        jTextFieldResultadoCliente = new javax.swing.JTextField();
-        jLabelId = new javax.swing.JLabel();
-        jTextFieldID = new javax.swing.JTextField();
-        jLabelRg = new javax.swing.JLabel();
-        jTextFieldRG = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jListaCliente = new javax.swing.JList<>();
+        jButtonExcluir = new javax.swing.JButton();
+        txtPesquisa = new javax.swing.JTextField();
         jLabelTitle = new javax.swing.JLabel();
         jLabelPainelFundo = new javax.swing.JLabel();
         jLabelFundoExcluirCliente = new javax.swing.JLabel();
+        jPainelCamada1 = new javax.swing.JLayeredPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanelFundo.setBackground(new java.awt.Color(153, 153, 153));
-        jPanelFundo.setForeground(new java.awt.Color(102, 102, 102));
-
-        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Pesquisa", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
-        jPanel1.setForeground(new java.awt.Color(153, 153, 153));
-
-        jLabelNome.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabelNome.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelNome.setText("Nome:");
-
-        jListListaCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jScrollPaneListaCliente.setViewportView(jListListaCliente);
-
-        jTextFieldPesquisa.setText("Digite o nome do Cliente");
-        jTextFieldPesquisa.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTextFieldPesquisa.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextFieldPesquisaKeyReleased(evt);
+        jListaCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jListaClienteMouseClicked(evt);
             }
         });
+        jScrollPane1.setViewportView(jListaCliente);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabelNome)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPaneListaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(97, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelNome))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPaneListaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
-        );
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 470, -1));
 
-        jPanel2.setBackground(new java.awt.Color(102, 102, 102));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
-        jPanel2.setForeground(new java.awt.Color(153, 153, 153));
+        jButtonExcluir.setBackground(new java.awt.Color(255, 51, 51));
+        jButtonExcluir.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonExcluir.setText("Excluir Cliente");
+        jButtonExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonExcluirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 370, 180, -1));
 
-        jLabelResultadoCliente.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelResultadoCliente.setText("Cliente:");
-
-        jTextFieldResultadoCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jLabelId.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabelId.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelId.setText("ID:");
-
-        jTextFieldID.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jLabelRg.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabelRg.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelRg.setText("RG:");
-
-        jTextFieldRG.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabelRg)
-                    .addComponent(jLabelResultadoCliente))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jTextFieldResultadoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabelId)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jTextFieldRG, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jTextFieldID, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextFieldResultadoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabelResultadoCliente)
-                        .addComponent(jLabelId)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldRG, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelRg))
-                .addContainerGap(63, Short.MAX_VALUE))
-        );
-
-        jLayeredPane1.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(jPanel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
-        jLayeredPane1.setLayout(jLayeredPane1Layout);
-        jLayeredPane1Layout.setHorizontalGroup(
-            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
-        );
-        jLayeredPane1Layout.setVerticalGroup(
-            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
-                .addContainerGap(202, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
-            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(204, Short.MAX_VALUE)))
-        );
-
-        javax.swing.GroupLayout jPanelFundoLayout = new javax.swing.GroupLayout(jPanelFundo);
-        jPanelFundo.setLayout(jPanelFundoLayout);
-        jPanelFundoLayout.setHorizontalGroup(
-            jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelFundoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLayeredPane1)
-                .addContainerGap())
-        );
-        jPanelFundoLayout.setVerticalGroup(
-            jPanelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelFundoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(jPanelFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 670, 400));
+        txtPesquisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPesquisaActionPerformed(evt);
+            }
+        });
+        txtPesquisa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPesquisaKeyReleased(evt);
+            }
+        });
+        getContentPane().add(txtPesquisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 470, 40));
 
         jLabelTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabelTitle.setForeground(new java.awt.Color(255, 255, 255));
@@ -219,16 +94,43 @@ public class ExcluirCliente extends javax.swing.JFrame {
         jLabelFundoExcluirCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Telas/excluir-cliente.png"))); // NOI18N
         getContentPane().add(jLabelFundoExcluirCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 799, -1));
 
+        javax.swing.GroupLayout jPainelCamada1Layout = new javax.swing.GroupLayout(jPainelCamada1);
+        jPainelCamada1.setLayout(jPainelCamada1Layout);
+        jPainelCamada1Layout.setHorizontalGroup(
+            jPainelCamada1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 660, Short.MAX_VALUE)
+        );
+        jPainelCamada1Layout.setVerticalGroup(
+            jPainelCamada1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 380, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(jPainelCamada1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 660, 380));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldPesquisaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPesquisaKeyReleased
-        if(!jTextFieldPesquisa.getText().equals("")){
-             System.out.println("Digite algo...");
+    private void txtPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPesquisaActionPerformed
+        jListaCliente.setVisible(false);
+        enter = 1;
+    }//GEN-LAST:event_txtPesquisaActionPerformed
+
+    private void txtPesquisaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesquisaKeyReleased
+        if(enter == 0) {
+          retornaPesquisa();
         }else{
-            
+            enter = 1;
         }
-    }//GEN-LAST:event_jTextFieldPesquisaKeyReleased
+    }//GEN-LAST:event_txtPesquisaKeyReleased
+
+    private void jListaClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListaClienteMouseClicked
+       //retornaPesquisa();
+       jListaCliente.setVisible(true);
+    }//GEN-LAST:event_jListaClienteMouseClicked
+
+    private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
+        excluir();
+    }//GEN-LAST:event_jButtonExcluirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -261,69 +163,86 @@ public class ExcluirCliente extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ExcluirCliente().setVisible(true);
+                try {
+                    new ExcluirCliente().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(ExcluirCliente.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonExcluir;
     private javax.swing.JLabel jLabelFundoExcluirCliente;
-    private javax.swing.JLabel jLabelId;
-    private javax.swing.JLabel jLabelNome;
     private javax.swing.JLabel jLabelPainelFundo;
-    private javax.swing.JLabel jLabelResultadoCliente;
-    private javax.swing.JLabel jLabelRg;
     private javax.swing.JLabel jLabelTitle;
-    private javax.swing.JLayeredPane jLayeredPane1;
-    private javax.swing.JList<String> jListListaCliente;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanelFundo;
-    private javax.swing.JScrollPane jScrollPaneListaCliente;
-    private javax.swing.JTextField jTextFieldID;
-    private javax.swing.JTextField jTextFieldPesquisa;
-    private javax.swing.JTextField jTextFieldRG;
-    private javax.swing.JTextField jTextFieldResultadoCliente;
+    private javax.swing.JList<String> jListaCliente;
+    private javax.swing.JLayeredPane jPainelCamada1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField txtPesquisa;
     // End of variables declaration//GEN-END:variables
 
-     
-    public JList<String> getjListListaCliente() {
-        return jListListaCliente;
+   
+    public void retornaPesquisa() {
+        
+        List<String> c = service.listaClientes();
+        
+        modelo.removeAllElements();
+        if(!c.isEmpty()){
+            jListaCliente.setVisible(true);
+            jListaCliente.setModel(modelo);
+            for (String cliente : c) {
+                modelo.addElement(cliente);
+            }
+            
+        }else{
+            System.out.println("Ocorreu um erro na classe Excluir Cliente");
+            jListaCliente.setVisible(false);
+        }
+    }
+    
+    public void excluir() {
+        // Verifica se há algum elemento selecionado na JList
+        int index = jListaCliente.getSelectedIndex();
+        if (index == -1) {
+            JOptionPane.showMessageDialog(this, "Selecione um cliente para excluir.");
+        }else{
+
+        // Recupera o cliente selecionado na JList
+        String clienteSelecionado = jListaCliente.getSelectedValue();
+
+            System.out.println(index);
+            System.out.println(clienteSelecionado);
+
+        // Exemplo de como excluir usando o serviço de cliente:
+        
+        service.excluirCliente(clienteSelecionado);
+        retornaPesquisa();
+        }
     }
 
-    public void setjListListaCliente(JList<String> jListListaCliente) {
-        this.jListListaCliente = jListListaCliente;
+    public ClienteService getService() {
+        return service;
     }
 
-    public JTextField getjTextFieldID() {
-        return jTextFieldID;
+    public void setService(ClienteService service) {
+        this.service = service;
     }
 
-    public void setjTextFieldID(JTextField jTextFieldID) {
-        this.jTextFieldID = jTextFieldID;
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
     }
 
-    public JTextField getjTextFieldPesquisa() {
-        return jTextFieldPesquisa;
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
     }
 
-    public void setjTextFieldPesquisa(JTextField jTextFieldPesquisa) {
-        this.jTextFieldPesquisa = jTextFieldPesquisa;
+    public JTextField getTxtPesquisa() {
+        return txtPesquisa;
     }
 
-    public JTextField getjTextFieldRG() {
-        return jTextFieldRG;
-    }
-
-    public void setjTextFieldRG(JTextField jTextFieldRG) {
-        this.jTextFieldRG = jTextFieldRG;
-    }
-
-    public JTextField getjTextFieldResultadoCliente() {
-        return jTextFieldResultadoCliente;
-    }
-
-    public void setjTextFieldResultadoCliente(JTextField jTextFieldResultadoCliente) {
-        this.jTextFieldResultadoCliente = jTextFieldResultadoCliente;
+    public void setTxtPesquisa(JTextField txtPesquisa) {
+        this.txtPesquisa = txtPesquisa;
     }
 }

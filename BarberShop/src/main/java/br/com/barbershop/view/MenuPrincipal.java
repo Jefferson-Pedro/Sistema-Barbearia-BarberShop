@@ -25,7 +25,7 @@ private final MenuPrincipalController controller;
         LabelFundoMenuPrincipal = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         MenuCadastro = new javax.swing.JMenu();
-        MenuItemCliente = new javax.swing.JMenuItem();
+        MenuItemCadastroCliente = new javax.swing.JMenuItem();
         MenuItemServico = new javax.swing.JMenuItem();
         MenuItemUsuario = new javax.swing.JMenuItem();
         MenuOperacao = new javax.swing.JMenu();
@@ -41,23 +41,23 @@ private final MenuPrincipalController controller;
         getContentPane().add(LabelFundoMenuPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1140, 650));
 
         MenuCadastro.setText("  Controle ");
-        MenuCadastro.setActionCommand("Cadastro  ");
         MenuCadastro.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        
         MenuCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MenuCadastroActionPerformed(evt);
             }
         });
 
-        MenuItemCliente.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        MenuItemCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons/cliente32-icon.png"))); // NOI18N
-        MenuItemCliente.setText("  Cliente");
-        MenuItemCliente.addActionListener(new java.awt.event.ActionListener() {
+        MenuItemCadastroCliente.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        MenuItemCadastroCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons/cliente32-icon.png"))); // NOI18N
+        MenuItemCadastroCliente.setText("  Cliente");
+        MenuItemCadastroCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MenuItemClienteActionPerformed(evt);
+                MenuCadastroActionPerformed(evt);
             }
         });
-        MenuCadastro.add(MenuItemCliente);
+        MenuCadastro.add(MenuItemCadastroCliente);
 
         MenuItemServico.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         MenuItemServico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons/tesoura32-icon.png"))); // NOI18N
@@ -183,7 +183,7 @@ private final MenuPrincipalController controller;
     private javax.swing.JLabel LabelFundoMenuPrincipal;
     private javax.swing.JMenu MenuCadastro;
     private javax.swing.JMenuItem MenuItemAgenda;
-    private javax.swing.JMenuItem MenuItemCliente;
+    private javax.swing.JMenuItem MenuItemCadastroCliente;
     private javax.swing.JMenuItem MenuItemRelatorio;
     private javax.swing.JMenuItem MenuItemServico;
     private javax.swing.JMenuItem MenuItemUsuario;

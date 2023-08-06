@@ -2,8 +2,11 @@
 package br.com.barbershop;
 
 
+import br.com.barbershop.dao.ClienteDAO;
+import br.com.barbershop.model.Cliente;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.util.ArrayList;
 
 
 public class Main {
@@ -62,5 +65,12 @@ public class Main {
     	//System.out.println("Objeto criado: " + s.toString());
     	//System.out.println("Objeto dao: " + ser.getValor());
     	System.out.println(resposta);*/
+        
+        ClienteDAO dao = new ClienteDAO();
+    	ArrayList<Cliente>resposta = dao.findByName("a");
+    	System.out.println("resposta: " + resposta.toString());
+
+        
+    	
     }
 }

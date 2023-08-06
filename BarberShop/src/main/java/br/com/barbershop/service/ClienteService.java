@@ -35,9 +35,9 @@ public class ClienteService {
         
     }    
     
-    public void excluirCliente(String cliente){       
+    public void excluirCliente(int cliente){       
         ClienteDAO dao = new ClienteDAO();
-        dao.removeClienteByName(cliente);
+        dao.removeClienteById(cliente);
     }
         
     public List<String> listaTodosClientes(){

@@ -219,8 +219,14 @@ public class EscolhaCliente extends javax.swing.JFrame {
     private void btnExcluirClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirClienteActionPerformed
       System.out.println("linha selecionada: " + jListaCliente.getSelectedRow());
        if(jListaCliente.getSelectedRow() != -1){
-          this.clienteHelper.excluirClienteDaView(); //Excluir dados da view;
-          //Falta colocar o excluir do banco de dados;
+           
+           // excluir do banco de dados;
+          int id = this.clienteHelper.recuperarIdClienteNaView();
+          service.excluirCliente(id);
+           
+          //Excluir dados da view;
+          this.clienteHelper.excluirClienteDaView(); 
+
        }else{
           JOptionPane.showMessageDialog(null, "Selecione um cliente para excluir!");
       }
@@ -235,7 +241,7 @@ public class EscolhaCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAtualizarClienteActionPerformed
 
     private void jListaClienteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jListaClienteKeyReleased
-       // System.out.println("linha selecionada: " + jListaCliente.getSelectedRow());
+        System.out.println("linha selecionada: " + jListaCliente.getSelectedRow());
     }//GEN-LAST:event_jListaClienteKeyReleased
 
     private void jListaClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListaClienteMouseClicked

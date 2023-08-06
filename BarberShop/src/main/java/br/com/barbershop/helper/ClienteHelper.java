@@ -103,7 +103,7 @@ public class ClienteHelper {
         Cliente cliente =  new Cliente();
         cliente = service.obterClientePorId();
         
-        /*view.getTextNomeCliente().setText(cliente.getNome());
+        view.getTextNomeCliente().setText(cliente.getNome());
         //view.getjFormattedTextDataNasc().setText(cliente.getDataNasc());
         view.getTextTelefoneCliente().setText(cliente.getTel());
         view.getTextEmailCliente().setText(cliente.getEmail());
@@ -115,7 +115,7 @@ public class ClienteHelper {
             view.getjRadioButtonMasculino().isSelected();
         }else{
             view.getjRadioButtonFeminino().isSelected();
-        }*/
+        }
         System.out.println("Cliente Helper: " + cliente.toString());
     }
 }

@@ -4,7 +4,6 @@ import java.sql.SQLException;
 import java.text.ParseException;
 
 import br.com.barbershop.dao.UsuarioDAO;
-import br.com.barbershop.helper.ExcluirUsuarioHelper;
 import br.com.barbershop.helper.UsuarioHelper;
 import br.com.barbershop.model.Usuario;
 import br.com.barbershop.view.usuarios.ExcluirUsuario;
@@ -17,7 +16,7 @@ public class UsuarioService {
     private ExcluirUsuario excluirUsuarioView;
 
     private UsuarioHelper cadastroUsuarioHelper;
-    private ExcluirUsuarioHelper excluirUsuarioHelper;
+    //private ExcluirUsuarioHelper excluirUsuarioHelper;
 
     //Construtores
     public UsuarioService(CadastroUsuarios cadastroUsuarioView) {
@@ -27,7 +26,7 @@ public class UsuarioService {
 
     public UsuarioService(ExcluirUsuario excluirUsuarioView) {
         this.excluirUsuarioView = excluirUsuarioView;
-        this.excluirUsuarioHelper = new ExcluirUsuarioHelper(excluirUsuarioView);
+      //  this.excluirUsuarioHelper = new ExcluirUsuarioHelper(excluirUsuarioView);
     }
 
     //Metodos
@@ -44,17 +43,17 @@ public class UsuarioService {
         ArrayList<Usuario> usuarios = dao.getAll();
 
         // Exibir Usuarios no ComboBox Cliente
-        excluirUsuarioHelper.preencherUsuarios(usuarios);
+       // excluirUsuarioHelper.preencherUsuarios(usuarios);
     }
 
     public void excluirUsuario() throws SQLException {
         UsuarioDAO dao = new UsuarioDAO();
-        Usuario usuario = excluirUsuarioHelper.obterUsuario();
+       // Usuario usuario = excluirUsuarioHelper.obterUsuario();
 
-        dao.deleteById(usuario);
+      //  dao.deleteById(usuario);
 
         // Remove o Item do ComboBox da visão do usuário;
-        excluirUsuarioView.getjComboBoxExcluirUsuario().removeItem(usuario);
+       // excluirUsuarioView.getjComboBoxExcluirUsuario().removeItem(usuario);
     }
 
 }

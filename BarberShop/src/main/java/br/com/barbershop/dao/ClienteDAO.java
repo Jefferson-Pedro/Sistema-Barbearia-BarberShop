@@ -45,44 +45,61 @@ public class ClienteDAO {
 
                 c.setId(rs.getInt("id"));
                 c.setNome(rs.getString("nome"));
-                c.setEmail(rs.getNString("email"));
+                c.setSexo(rs.getString("sexo"));
+                c.setDataNasc(rs.getDate("dataNasc"));
+                c.setTel(rs.getString("tel"));
+                c.setEmail(rs.getString("email"));
+                c.setRg(rs.getString("rg"));
+                c.setEndereco(rs.getString("endereco"));
+                c.setCep(rs.getString("cep"));
 
                 lista.add(c);
             }
 
         } catch (SQLException ex) {
             System.err.println("Erro ao recuperar os dados: " + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao atualizar lista", "Erro", 0);
         } finally {
             ConexaoBD.fechaConexao(conexao, ps, rs);
         }
         return lista;
     }
 
-    public Cliente findById(Cliente cliente) {
+    public Cliente findById(int cliente) {
 
-        String sql = "SELECT nome FROM cliente WHERE id = ?";
+        String sql = "SELECT * FROM cliente WHERE id = ?";
         Cliente c = new Cliente();
 
         try {
             conexao = ConexaoBD.conectaBD();
             ps = conexao.prepareStatement(sql);
 
-            ps.setInt(1, cliente.getId());
+            ps.setInt(1, cliente);
             rs = ps.executeQuery();
-
-            rs.next();
-            c.setId(rs.getInt("id"));
+            
+             if (rs.next()) {
+                
+                c.setId(rs.getInt("id"));
+                c.setNome(rs.getString("nome"));
+                c.setSexo(rs.getString("sexo"));
+                c.setDataNasc(rs.getDate("dataNasc"));
+                c.setTel(rs.getString("tel"));
+                c.setEmail(rs.getString("email"));
+                c.setRg(rs.getString("rg"));
+                c.setEndereco(rs.getString("endereco"));
+                c.setCep(rs.getString("cep"));
+             }
 
         } catch (SQLException ex) {
 
-            System.err.println("Cliente nao encontrado: " + ex.getMessage());
+            System.err.println("Cliente nao encontradono BD: " + ex.getMessage());
         } finally {
             ConexaoBD.fechaConexao(conexao, ps, rs);
         }
         return c;
     }
     
-     public ArrayList<Cliente> findByName(String cliente) throws SQLException {
+    public ArrayList<Cliente> findByName(String cliente) throws SQLException {
 
         String sql = "SELECT * FROM cliente WHERE nome LIKE ? ORDER BY nome";
         ArrayList<Cliente> lista = new ArrayList<Cliente>();
@@ -148,6 +165,44 @@ public class ClienteDAO {
             JOptionPane.showMessageDialog(null, "Erro ao cadastrar cliente no BD. Verifique"
                     + " as informações prenchidas e tente novamente!", "Erro", 0);
             throw new RuntimeException("Erro ao cadastrar o cliente; " + e.getMessage(), e);
+        } finally {
+            ConexaoBD.fechaConexao(conexao, ps);
+        }
+    }
+    
+    public void update(Cliente cliente) throws ParseException {
+
+        String sql = "UPDATE cliente SET ("
+                + "nome,"
+                + "sexo, "
+                + "dataNasc,"
+                + "tel,"
+                + "email,"
+                + "rg,"
+                + "endereco,"
+                + "cep) VALUES (?,?,?,?,?,?,?,?) WHERE id = ?";
+
+        try {
+            conexao = ConexaoBD.conectaBD();
+            ps = conexao.prepareStatement(sql);
+
+            ps.setString(1, cliente.getNome());
+            ps.setString(2, cliente.getSexo());
+            ps.setDate(3, new Date(cliente.getDataNasc().getTime()));
+            ps.setString(4, cliente.getTel());
+            ps.setString(5, cliente.getEmail());
+            ps.setString(6, cliente.getRg());
+            ps.setString(7, cliente.getEndereco());
+            ps.setString(8, cliente.getCep());
+
+            ps.execute();
+            JOptionPane.showMessageDialog(null, "Cliente atualizado com sucesso!");
+            System.out.println("Cliente atualizado com sucesso!");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao atualizar cliente no BD. Verifique"
+                    + " as informações prenchidas e tente novamente!", "Erro", 0);
+            throw new RuntimeException("Erro ao atualizar o cliente; " + e.getMessage(), e);
         } finally {
             ConexaoBD.fechaConexao(conexao, ps);
         }

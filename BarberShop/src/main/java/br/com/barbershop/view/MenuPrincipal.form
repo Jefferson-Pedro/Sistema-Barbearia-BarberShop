@@ -21,9 +21,6 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="18" style="0"/>
                 </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/resources/icons/cliente32-icon.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="  Cliente"/>
               </Properties>
               <Events>
@@ -35,9 +32,6 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="18" style="0"/>
                 </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/resources/icons/tesoura32-icon.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="  Servi&#xe7;o"/>
               </Properties>
               <Events>
@@ -48,9 +42,6 @@
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="18" style="0"/>
-                </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/resources/icons/usuario32-icon.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="  Usuario"/>
               </Properties>
@@ -73,9 +64,6 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="18" style="0"/>
                 </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/resources/icons/agenda32-icon.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="  Agendar"/>
               </Properties>
               <Events>
@@ -96,9 +84,6 @@
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="18" style="0"/>
-                </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/resources/icons/relatorioTrabalho32-icon.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="  Trabalho"/>
               </Properties>
@@ -138,11 +123,6 @@
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JLabel" name="LabelFundoMenuPrincipal">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/resources/Telas/fundo-MenuPrincipal.jpg"/>
-        </Property>
-      </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="0" y="-10" width="1140" height="650"/>

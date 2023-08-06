@@ -101,9 +101,17 @@ public class Cliente extends Pessoa {
         this.rg = rg;
     }
 
+    /*@Override
+    public String toString() {
+        return "Cliente { " + 
+               getId() + ", " +
+               getNome() + 
+                " }";
+    }*/
+
     @Override
     public String toString() {
-        return getNome();// + " " + getId();
+        return "Cliente{" + "endereco=" + endereco + ", cep=" + cep + '}';
     }
 
     public Integer toId() {

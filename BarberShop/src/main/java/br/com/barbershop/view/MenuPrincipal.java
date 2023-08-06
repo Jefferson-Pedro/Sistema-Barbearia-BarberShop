@@ -1,6 +1,5 @@
 package br.com.barbershop.view;
 
-import br.com.barbershop.controller.ClienteController;
 import br.com.barbershop.controller.MenuPrincipalController;
 
 public class MenuPrincipal extends javax.swing.JFrame {
@@ -36,13 +35,11 @@ private final MenuPrincipalController controller;
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        LabelFundoMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Telas/fundo-MenuPrincipal.jpg"))); // NOI18N
         getContentPane().add(LabelFundoMenuPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1140, 650));
 
         MenuCadastro.setText("  Controle ");
+        MenuCadastro.setActionCommand("Cadastro  ");
         MenuCadastro.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        
         MenuCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MenuCadastroActionPerformed(evt);
@@ -50,17 +47,15 @@ private final MenuPrincipalController controller;
         });
 
         MenuItemCadastroCliente.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        MenuItemCadastroCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons/cliente32-icon.png"))); // NOI18N
         MenuItemCadastroCliente.setText("  Cliente");
         MenuItemCadastroCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MenuCadastroActionPerformed(evt);
+            	MenuCadastroActionPerformed(evt);
             }
         });
         MenuCadastro.add(MenuItemCadastroCliente);
 
         MenuItemServico.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        MenuItemServico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons/tesoura32-icon.png"))); // NOI18N
         MenuItemServico.setText("  Serviço");
         MenuItemServico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,7 +65,6 @@ private final MenuPrincipalController controller;
         MenuCadastro.add(MenuItemServico);
 
         MenuItemUsuario.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        MenuItemUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons/usuario32-icon.png"))); // NOI18N
         MenuItemUsuario.setText("  Usuario");
         MenuItemUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,7 +79,6 @@ private final MenuPrincipalController controller;
         MenuOperacao.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
 
         MenuItemAgenda.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        MenuItemAgenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons/agenda32-icon.png"))); // NOI18N
         MenuItemAgenda.setText("  Agendar");
         MenuItemAgenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,7 +93,6 @@ private final MenuPrincipalController controller;
         MenuRelatorio.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
 
         MenuItemRelatorio.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        MenuItemRelatorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons/relatorioTrabalho32-icon.png"))); // NOI18N
         MenuItemRelatorio.setText("  Trabalho");
         MenuItemRelatorio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,14 +122,6 @@ private final MenuPrincipalController controller;
 
     private void MenuItemUsuarioActionPerformed(java.awt.event.ActionEvent evt) {                                                
        this.controller.navegarParaUsuarios();
-    }
-
-    private void jMenuItemAtualizarActionPerformed(java.awt.event.ActionEvent evt) {                                                   
-       this.controller.navegarParaAtualizar();
-    }
-
-    private void jMenuItemExcluirActionPerformed(java.awt.event.ActionEvent evt) {                                                 
-    	this.controller.navegarParaExcluirClientes();
     }
 
     private void MenuItemAgendaActionPerformed(java.awt.event.ActionEvent evt) {                                               

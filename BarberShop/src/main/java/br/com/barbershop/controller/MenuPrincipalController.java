@@ -6,7 +6,6 @@ import br.com.barbershop.view.Agenda;
 import br.com.barbershop.view.usuarios.ExcluirUsuario;
 import br.com.barbershop.view.MenuPrincipal;
 import br.com.barbershop.view.cliente.EscolhaCliente;
-import br.com.barbershop.view.usuarios.CadastroUsuarios;
 import br.com.barbershop.view.servicos.EscolhaService;
 import br.com.barbershop.view.usuarios.EscolhaUsuario;
 

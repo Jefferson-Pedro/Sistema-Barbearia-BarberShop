@@ -124,7 +124,12 @@ public class Agenda extends javax.swing.JFrame {
 
         JComboBoxServico.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                JComboBoxServicoItemStateChanged(evt);
+                try {
+					JComboBoxServicoItemStateChanged(evt);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
             }
         });
         getContentPane().add(JComboBoxServico, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, 240, 40));
@@ -153,7 +158,15 @@ public class Agenda extends javax.swing.JFrame {
         ButtonAgendar.setText("Agendar");
         ButtonAgendar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonAgendarActionPerformed(evt);
+                try {
+					ButtonAgendarActionPerformed(evt);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (EmailException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
             }
         });
         getContentPane().add(ButtonAgendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 380, 370, 50));

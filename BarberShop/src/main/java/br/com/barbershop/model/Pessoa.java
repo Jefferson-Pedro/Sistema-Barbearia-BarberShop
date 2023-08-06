@@ -95,11 +95,11 @@ abstract public class Pessoa {
         this.rg = rg;
     }
 
-    /*@Override
+    @Override
     public String toString() {
         return "\nid = " + id + ", nome = " + nome + ", sexo = " + sexo +
                 ", dataNasc = " + dataNasc + ", tel = " + tel + 
                 ", email = " + email + ", rg = " + rg;
-    }*/
+    }
 
 }

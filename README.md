@@ -9,8 +9,6 @@
 ✔️ A aplicação deve ter uma tela de login com autenticação de usuário<br>
 ✔️ A aplicação deve mostrar o menu principal com as opções para o usuário <br>
 ✔️ A aplicação deve permitir o CRUD (Create, Read, Update and Delete) de Usuarios, Serviços e Clientes<br>
-✔️ A aplicação deve permitir agendamento de serviços atrelando a um usuário e enviando email para o cliente<br>
-✔️ A aplicação deve criar um pdf com o relatório de Vendas <br>
 
 
 <h3>Demostração da Aplicação</h3>

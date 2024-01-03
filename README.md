@@ -51,7 +51,6 @@
 <li>Front End com JForms</li>
 <li>Integração com banco de dados MySQL</li>
 <li>Uso de Bibliotecas do Java</li>
-<li>Criação de .exe para instalação no Aparelho Desktop</li>
 </ul>
 
 <h3>Autor</h3>
